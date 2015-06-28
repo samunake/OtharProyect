@@ -1,7 +1,7 @@
 
 #include "stm32f4xx_conf.h"
 #include "system_stm32f4xx.h"
-#include "Lcd/LCD_Functions.h"
+#include "Lcd/RA8875/Driver_RA8875.h"
 #include "Delay/delay.h"
 #include "Test/Test.h"
 
