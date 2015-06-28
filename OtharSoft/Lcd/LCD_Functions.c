@@ -116,6 +116,7 @@ void Display_OFF(void)
 	LCD_WriteReg(0x01,0x00); //PWRR
 
 }
+
 /*******************************************************************************
 * Function Name  : Normal_Mode_exitSleep
 * Description    : Normal mode
@@ -1301,10 +1302,7 @@ void Scroll_Window(uint16_t XL,uint16_t XR ,uint16_t YT ,uint16_t YB)
 *******************************************************************************/
 void Graphic_Mode(void)
 {
-  uint8_t temp;
-  temp =LCD_ReadReg(0X40);//MWCR0
-  temp &= 0x7f ;
-  LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x40,0x7F);
 }
 
 /*******************************************************************************
@@ -1317,10 +1315,7 @@ void Graphic_Mode(void)
 *******************************************************************************/
 void Text_Mode(void)
 {
-  uint8_t temp;
-  temp = LCD_ReadReg(0x40);//MWCR0
-  temp |= 0X80 ;
-  LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x40,0x80);
 }
 
 
@@ -1334,10 +1329,7 @@ void Text_Mode(void)
 *******************************************************************************/
 void Text_Cursor_Disable(void)
 {
-  uint8_t temp;
-  temp = LCD_ReadReg(0x40);
-  temp &= 0Xbf ;
-  LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x40,0xBF);
 }
 
 
@@ -1351,10 +1343,7 @@ void Text_Cursor_Disable(void)
 *******************************************************************************/
 void Text_Cursor_Enable(void)
 {
-  uint8_t temp;
-  temp = LCD_ReadReg(0x40);
-  temp |= 0x40 ;
-  LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x40,0x40);
 }
 
 
@@ -1368,10 +1357,7 @@ void Text_Cursor_Enable(void)
 *******************************************************************************/
 void Text_Cursor_Blink_Disable(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x40);
-	temp &= 0xdf ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x40,0xDF);
 }
 
 
@@ -1385,10 +1371,7 @@ void Text_Cursor_Blink_Disable(void)
 *******************************************************************************/
 void Text_Cursor_Blink_Enable(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x40);
-	temp |= 0x20 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x40,0x20);
 }
 
 
@@ -1402,10 +1385,7 @@ void Text_Cursor_Blink_Enable(void)
 *******************************************************************************/
 void Memory_Write_LeftRight_TopDown(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x40);
-	temp &= 0xf3 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x40,0xF3);
 }
 
 
@@ -1419,11 +1399,7 @@ void Memory_Write_LeftRight_TopDown(void)
 *******************************************************************************/
 void Memory_Write_RightLeft_TopDown(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x40);
-	temp &= 0xf3 ;
-	temp |= 0x04 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x40,0xF3,0x04);
 }
 
 
@@ -1437,11 +1413,7 @@ void Memory_Write_RightLeft_TopDown(void)
 *******************************************************************************/
 void Memory_Write_DownTop_LeftRight(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x40);
-	temp &= 0xf3 ;
-	temp |= 0x0c ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x40,0xF3,0x0C);
 }
 
 
@@ -1455,11 +1427,7 @@ void Memory_Write_DownTop_LeftRight(void)
 *******************************************************************************/
 void Memory_Write_TopDown_LeftRight(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x40);
-	temp &= 0xf3 ;
-	temp |= 0x08 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x40,0xF3,0x08);
 }
 
 
@@ -1473,10 +1441,7 @@ void Memory_Write_TopDown_LeftRight(void)
 *******************************************************************************/
 void MemoryWrite_Cursor_autoIncrease(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x40);
-	temp &= 0xfd ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x40,0xFD);
 }
 
 
@@ -1490,10 +1455,7 @@ void MemoryWrite_Cursor_autoIncrease(void)
 *******************************************************************************/
 void MemoryWrite_Cursor_NoautoIncrease(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x40);
-	temp |= 0x02 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x40,0x02);
 }
 
 
@@ -1507,10 +1469,7 @@ void MemoryWrite_Cursor_NoautoIncrease(void)
 *******************************************************************************/
 void MemoryRead_Cursor_autoIncrease(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x40);
-	temp &= 0xfe ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x40,0xFE);
 }
 
 
@@ -1524,10 +1483,7 @@ void MemoryRead_Cursor_autoIncrease(void)
 *******************************************************************************/
 void MemoryRead_Cursor_NoautoIncrease(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x40);
-	temp |= 0x01 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x40,0x01);
 }
 
 
@@ -1542,10 +1498,7 @@ void MemoryRead_Cursor_NoautoIncrease(void)
 *******************************************************************************/
 void No_Graphic_Cursor(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0x7f ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x41,0x7F);
 }
 
 /*******************************************************************************
@@ -1558,10 +1511,7 @@ void No_Graphic_Cursor(void)
 *******************************************************************************/
 void Graphic_Cursor(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp |= 0x80 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x41,0x80);
 }
 
 /*******************************************************************************
@@ -1574,10 +1524,7 @@ void Graphic_Cursor(void)
 *******************************************************************************/
 void Graphic_Cursor_Set1(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0x8f;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x41,0x8F);
 }
 
 /*******************************************************************************
@@ -1590,11 +1537,7 @@ void Graphic_Cursor_Set1(void)
 *******************************************************************************/
 void Graphic_Cursor_Set2(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0x8f ;
-	temp |= 0x10 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x41,0x8F,0x10);
 }
 
 /*******************************************************************************
@@ -1607,11 +1550,7 @@ void Graphic_Cursor_Set2(void)
 *******************************************************************************/
 void Graphic_Cursor_Set3(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0x8f ;
-	temp |= 0x20 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x41,0x8F,0x20);
 }
 
 /*******************************************************************************
@@ -1624,11 +1563,7 @@ void Graphic_Cursor_Set3(void)
 *******************************************************************************/
 void Graphic_Cursor_Set4(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0x8f ;
-	temp |= 0x30 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x41,0x8F,0x30);
 }
 
 /*******************************************************************************
@@ -1641,11 +1576,7 @@ void Graphic_Cursor_Set4(void)
 *******************************************************************************/
 void Graphic_Cursor_Set5(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0x8f ;
-	temp |= 0x40 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x41,0x8F,0x40);
 }
 
 /*******************************************************************************
@@ -1658,11 +1589,7 @@ void Graphic_Cursor_Set5(void)
 *******************************************************************************/
 void Graphic_Cursor_Set6(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0x8f ;
-	temp |= 0x50 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x41,0x8F,0x50);
 }
 
 /*******************************************************************************
@@ -1675,11 +1602,7 @@ void Graphic_Cursor_Set6(void)
 *******************************************************************************/
 void Graphic_Cursor_Set7(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0x8f ;
-	temp |= 0x60 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x41,0x8F,0x60);
 }
 
 /*******************************************************************************
@@ -1692,11 +1615,7 @@ void Graphic_Cursor_Set7(void)
 *******************************************************************************/
 void Graphic_Cursor_Set8(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0x8f ;
-	temp |= 0x70 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x41,0x8F,0x70);
 }
 
 /*******************************************************************************
@@ -1709,10 +1628,7 @@ void Graphic_Cursor_Set8(void)
 *******************************************************************************/
 void Write_To_Bank1and2(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0xf3 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x41,0xF3);
 }
 
 /*******************************************************************************
@@ -1725,11 +1641,7 @@ void Write_To_Bank1and2(void)
 *******************************************************************************/
 void Write_To_CGRAM(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0xf3;
-	temp |= 0x04;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x41,0xF3,0x04);
 }
 
 /*******************************************************************************
@@ -1742,11 +1654,7 @@ void Write_To_CGRAM(void)
 *******************************************************************************/
 void Write_To_GraphicCursor(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0xf3;
-	temp |= 0x08 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x41,0xF3,0x08);
 }
 
 /*******************************************************************************
@@ -1759,11 +1667,7 @@ void Write_To_GraphicCursor(void)
 *******************************************************************************/
 void Write_To_Pattern(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0xf3;
-	temp |= 0x0c ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDORMask(0x41,0xF3,0x0C);
 }
 
 /*******************************************************************************
@@ -1775,10 +1679,8 @@ void Write_To_Pattern(void)
 * Attention	     : None
 *******************************************************************************/
 void Write_To_Bank1(void)
-{	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp &= 0xfe ;
-	LCD_WriteData(temp);
+{
+	LCD_WriteReg_ANDMask(0x41,0xFE);
 }
 
 /*******************************************************************************
@@ -1791,10 +1693,7 @@ void Write_To_Bank1(void)
 *******************************************************************************/
 void Write_To_Bank2(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x41);
-	temp |= 0x01 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x41,0x01);
 }
 
 
@@ -1824,10 +1723,7 @@ void Text_Blink_Time(uint8_t setx)
 *******************************************************************************/
 void Memory_read_LeftRight_TopDown(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x45);
-	temp &= 0xfc;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x45,0xFC);
 }
 
 /*******************************************************************************
@@ -1840,10 +1736,7 @@ void Memory_read_LeftRight_TopDown(void)
 *******************************************************************************/
 void Memory_read_RightLeft_TopDown(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x45);
-	temp |= 0x01;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x45,0x01);
 }
 
 /*******************************************************************************
@@ -1856,10 +1749,7 @@ void Memory_read_RightLeft_TopDown(void)
 *******************************************************************************/
 void Memory_read_TopDown_LeftRight(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x45);
-	temp |= 0x02;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x45,0x02);
 }
 
 /*******************************************************************************
@@ -1872,10 +1762,7 @@ void Memory_read_TopDown_LeftRight(void)
 *******************************************************************************/
 void Memory_read_DownTop_LeftRight(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x45);
-	temp |= 0x03;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x45,0x03);
 }
 
 
@@ -1958,10 +1845,7 @@ void Text_Cursor_Vertical_Size(uint8_t setx)//uint8_t[3:0]
 *******************************************************************************/
 void no_BTE_write(void)
 {
-    uint8_t temp;
-	LCD_ReadReg(0x50);//BECR0
-	temp &= 0X7f ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x50,0x7F);
 }
 
 /*******************************************************************************
@@ -1974,10 +1858,7 @@ void no_BTE_write(void)
 *******************************************************************************/
 void BTE_enable(void)
 {
-	uint8_t temp;
-	LCD_ReadReg(0x50);//BECR0
-	temp |= 0X80 ;
-	LCD_DataWrite(temp);
+	LCD_WriteReg_ORMask(0x50,0x80);
 }
 
 /*******************************************************************************
@@ -2225,7 +2106,11 @@ void BTE_Source_Destination	(uint16_t XL,uint16_t XR ,uint16_t YT ,uint16_t YB)
     LCD_WriteReg(0x59,XR>>8);//HDBE1
 
     LCD_WriteReg(0x56,YT);//VSBE0
+
     temp=YT>>8;
+
+    LCD_WriteReg_ANDORMask(0x57,0x80);
+
     temp1 = LCD_ReadReg(0x57);
     temp1 &= 0x80;
     temp=temp|temp1;
