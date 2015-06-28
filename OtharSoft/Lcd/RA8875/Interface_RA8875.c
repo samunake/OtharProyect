@@ -123,6 +123,15 @@ __inline uint16_t LCD_WriteReg_ANDMask(uint16_t LCD_Reg,uint16_t mask)
 	LCD_WriteReg(LCD_Reg,temp);
 }
 
+
+/*******************************************************************************
+* Function Name  : LCD_WriteRegANDORMask
+* Description    : Reads the selected LCD Register.
+* Input          : None
+* Output         : None
+* Return         : LCD Register Value.
+* Attention		 : None
+*******************************************************************************/
 __inline uint16_t LCD_WriteReg_ANDORMask(uint16_t LCD_Reg,uint16_t AND_mask,uint16_t OR_mask)
 {
 	uint16_t temp;

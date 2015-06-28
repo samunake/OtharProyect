@@ -2072,7 +2072,7 @@ void Buffer_scroll(void)
 	LCD_WriteReg_ANDORMask(0x52,0x3F,0xC0);//LTPR0
 }
 
-//REG[53h]
+//																					REG[53h]
 /*******************************************************************************
 * Function Name  : layer2_1_transparency
 * Description    :
@@ -2086,7 +2086,7 @@ void layer2_1_transparency(uint8_t setx)
 	LCD_WriteReg(0x53,setx);//LTPR1
 }
 
-//REG[54h]~ [5Fh]
+//																					REG[54h]~ [5Fh]
 /*******************************************************************************
 * Function Name  : BTE_Source_Destination
 * Description    :
@@ -2134,10 +2134,8 @@ void BTE_Source_Destination	(uint16_t XL,uint16_t XR ,uint16_t YT ,uint16_t YB)
 *******************************************************************************/
 void Source_Layer1(void)
 {
-    uint8_t temp;
-    LCD_ReadReg(0x57);//VSBE1
-    temp &= 0x7f ;
-    LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x57,0x7F);//VSBE1
+
 }
 
 /*******************************************************************************
@@ -2150,11 +2148,11 @@ void Source_Layer1(void)
 *******************************************************************************/
 void Source_Layer2(void)
 {
-	uint8_t temp;
-	LCD_ReadReg(0x57);//VSBE1
-	temp &= 0x80 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x57,0x8);//VSBE1
 }
+
+
+/*--------------------------------------------------------------------				Reg [5b]									---------------*/
 
 /*******************************************************************************
 * Function Name  : Destination_Layer1
@@ -2166,10 +2164,7 @@ void Source_Layer2(void)
 *******************************************************************************/
 void Destination_Layer1(void)
 {
-	uint8_t temp;
-	LCD_ReadReg(0x5b);//VDBE1
-	temp &= 0x7f ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x5b,0X7f);//VDBE1
 }
 
 /*******************************************************************************
@@ -2182,10 +2177,7 @@ void Destination_Layer1(void)
 *******************************************************************************/
 void Destination_Layer2(void)
 {
-	uint8_t temp;
-	LCD_ReadReg(0x5b);//VDBE1
-	temp &= 0x80 ;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ANDMask(0x5b,080);//VDBE1
 
 }
 
@@ -2417,10 +2409,7 @@ void Pattern_Set_8x8(void)
 *******************************************************************************/
 void Pattern_Set_16x16(void)
 {
-	uint8_t temp;
-	temp = LCD_ReadReg(0x66); //PTNO
-	temp |= 0x80;
-	LCD_WriteData(temp);
+	LCD_WriteReg_ORMask(0x66,0X80);//PTNO
 
 }
 
@@ -2458,102 +2447,141 @@ void BackgroundColor_TransparentMode(uint8_t setR,uint8_t setG,uint8_t setB)
 	LCD_WriteReg(0x69,setB);//BGTR_B
 }
 
-//REG[70h]~REG[74h]
-//==============================================================================
-//Subroutine:	Enable_TP
-//==============================================================================
+//																				REG[70h]~REG[74h]
+/*******************************************************************************3
+* Function Name  : Enable_TP
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 void Enable_TP(void)
 {
     LCD_WriteReg_ORMask(0x70,0X80);//TPCR0
 }
-//==============================================================================
-//Subroutine:	Disable_TP
-//==============================================================================
+/*******************************************************************************
+* Function Name  : Disable_TP
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 void Disable_TP(void)
 {
 	LCD_WriteReg_ANDMask(0x70,0X7f);//TPCR0
 }
 
+/*******************************************************************************33333333333333333333333332323232
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 
-//==============================================================================
-//Subroutine:	Disable_Touch_WakeUp
-//==============================================================================
 void Disable_Touch_WakeUp(void)
 {
 	LCD_WriteReg_ANDMask(0x70,0Xf7);//TPCR0
 
 }
 
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 
-//==============================================================================
-//Subroutine:	Disable_Touch_WakeUp
-//==============================================================================
+
 void Enable_Touch_WakeUp(void)
 {
 	LCD_WriteReg_ORMask(0x70,0X08);//TPCR0
 }
 
-//==============================================================================
-//Subroutine:	TP manual or auto  mode enable
-//==============================================================================
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 void TP_manual_mode(void)
 {
 	LCD_WriteReg_ORMask(0x71,0x40);//TPCR1
 
 }
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 void TP_auto_mode(void)
 {
 	LCD_WriteReg_ANDORMask(0x71,0xbf,0x04);
 
 }
-//==============================================================================
-//Subroutine:	TP_IDLE_mode
-//==============================================================================
+
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 void TP_IDLE_mode(void)
 {
-    uint8_t temp;
-    LCD_CmdWrite(0x71);//TPCR1
-    temp=LCD_DataRead();
-    temp &= 0xf0;
-    LCD_DataWrite(temp);
+	LCD_WriteReg_ANDMask(0x71,0xF0);//TPCR1
+
  }
-//==============================================================================
-//Subroutine:	TP_event_mode
-//==============================================================================
+
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 void TP_event_mode(void)
 {
-    uint8_t temp;
-    LCD_CmdWrite(0x71);//TPCR1
-    temp=LCD_DataRead();
-    temp &= 0xf0;
-    temp |= 0x01;
-    LCD_DataWrite(temp);
-//  LCD_DataWrite(0xc1);
+	LCD_WriteReg_ANDORMask(0x71,0xF0,0x01);//TPCR1
 }
-//==============================================================================
-//Subroutine:	TP_latch_X
-//==============================================================================
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 void TP_latch_X(void)
 {
-    uint8_t temp;
-    LCD_CmdWrite(0x71);//TPCR1
-    temp=LCD_DataRead();
-    temp &= 0xe0;
-    temp |= 0x02;
-    LCD_DataWrite(temp);
- }
- //==============================================================================
-//Subroutine:	TP_latch_Y
-//==============================================================================
+	LCD_WriteReg_ANDORMask(0x71,0xE0,0x02);//TPCR1
+}
+
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 void TP_latch_Y(void)
 {
-    uint8_t temp;
-    LCD_CmdWrite(0x71);//TPCR1
-    temp=LCD_DataRead();
-    temp &= 0xe0;
-    temp |= 0x03;
-    LCD_DataWrite(temp);
+	LCD_WriteReg_ORMask(0x71,0xE0,0x03);//TPCR1
  }
+
 
 
 // void TP_LDLE(void)
@@ -2562,11 +2590,18 @@ void TP_latch_Y(void)
 //     LCD_CmdWrite(0x71);//TPCR1
 //     temp=LCD_DataRead();
 //     temp &= 0xc0;
-//     LCD_DataWrite(temp);
+//     LCD_WriteData(temp);
 // }
-//==============================================================================
-//Subroutine:	Detect_TP_X_Y coordinate
-//==============================================================================
+
+
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 uint8_t ADC_X(void)
 {
     uint8_t temp;
@@ -2576,6 +2611,14 @@ uint8_t ADC_X(void)
     return temp;
 }
 
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 uint8_t ADC_Y(void)
 {
     uint8_t temp;
@@ -2585,6 +2628,14 @@ uint8_t ADC_Y(void)
     return temp;
 }
 
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
 uint8_t ADC_XY(void)
 {
     uint8_t temp;
@@ -2593,16 +2644,399 @@ uint8_t ADC_XY(void)
     return temp;
 }
 
+//																											REG[80h]~REG[83h]
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Graphic_Cursor_Coordinate(uint16_t X,uint16_t Y)
+{
+	LCD_WriteReg(0x80,X);
+	LCD_WriteReg(0x81,X>>8);
+
+	LCD_WriteReg(0x82,Y);
+	LCD_WriteReg(0x83,Y>>8);
+}
+
+//---------------------------------//
+//																											REG[84h]
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Graphic_Cursor_Color_0(uint8_t setx)
+{
+	LCD_WriteReg(0x84,setx);
+}
+
+void Graphic_Cursor_Color_1(uint8_t setx)
+{
+	LCD_WriteReg(0x85,setx);
+}
+
+//---------------------------------------------//
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/																										REG[8A]
+void PWM1_enable(void)
+{
+	LCD_WriteReg_ORMask(0x8a,0x80);//P1CR
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void PWM1_disable(void)
+{
+	LCD_WriteReg_ANDMask(0x8a, 0x7f);//P1CR
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void PWM1_disable_level_low(void)
+{
+	LCD_WriteReg_ANDMask(0x8a, 0xbf);//P1CR
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void PWM1_disable_level_high(void)
+{
+	LCD_WriteReg_ORMask(0x8a, 0x40);//P1CR
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+ void PWM1_fnuction_sel(void)
+{
+	 LCD_WriteReg_ANDMask(0x8a, 0xef);//P1CR
+ }
+ /*******************************************************************************
+ * Function Name  : Pattern_Set_16x16
+ * Description    :
+ * Input          : None
+ * Output         : None
+ * Return         : None
+ * Attention	     : None
+ *******************************************************************************/
+ void PWM1_system_clk_out(void)
+{
+	 LCD_WriteReg_ORMask(0x8a, 0x10);//P1CR
+ }
+ /*******************************************************************************
+ * Function Name  : Pattern_Set_16x16
+ * Description    :
+ * Input          : None
+ * Output         : None
+ * Return         : None
+ * Attention	     : None
+ *******************************************************************************/
+ void PWM1_clock_ratio(uint8_t setx)
+{
+
+	 uint8_t temp,temp1;
+	 temp1= setx&0x0f;
+	 LCD_CmdWrite(0x8a);
+	 temp = LCD_DataRead();
+	 temp &= 0xf0;
+	 temp |= temp1 ;
+	 LCD_WriteData(temp);
+ }
+ /*******************************************************************************
+ * Function Name  : Pattern_Set_16x16
+ * Description    :
+ * Input          : None
+ * Output         : None
+ * Return         : None
+ * Attention	     : None
+ *******************************************************************************/
+ void PWM1_duty_cycle(uint8_t setx) //bit0~7
+{
+	 LCD_WriteReg(0x8b, setx);//PTNO
+}
+ /*******************************************************************************
+ * Function Name  : Pattern_Set_16x16
+ * Description    :
+ * Input          : None
+ * Output         : None
+ * Return         : None
+ * Attention	     : None
+ *******************************************************************************/
+void PWM2_enable(void)
+{
+	LCD_WriteReg_ORMask(0x8c, 0x80);//MCLR
+ }
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void PWM2_disable(void)
+{
+	LCD_WriteReg_ANDMask(0x8c, 0x7f);//MCLR
+ }
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void PWM2_disable_level_low(void)
+{
+	LCD_WriteReg_ANDMask(0x8c, 0xbf);//MCLR
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void PWM2_disable_level_high(void)
+{
+	LCD_WriteReg_ORMask(0x8c, 0x40);//MCLR
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+ void PWM2_fnuction_sel(void)
+{
+	 LCD_WriteReg_ANDMask(0x8c, 0xef);//MCLR
+ }
+ /*******************************************************************************
+ * Function Name  : Pattern_Set_16x16
+ * Description    :
+ * Input          : None
+ * Output         : None
+ * Return         : None
+ * Attention	     : None
+ *******************************************************************************/
+  void PWM2_system_clk_out(void)
+{
+	  LCD_WriteReg_ORMask(0x8c, 0x10);//MCLR
+ }
+  /*******************************************************************************
+  * Function Name  : Pattern_Set_16x16
+  * Description    :
+  * Input          : None
+  * Output         : None
+  * Return         : None
+  * Attention	     : None
+  *******************************************************************************/
+  void PWM2_clock_ratio(uint8_t setx) //bit0~3
+{
+    uint8_t temp,temp1;
+    temp1= setx&0x0f;
+    LCD_CmdWrite(0x8c);//MCLR
+    temp = LCD_DataRead();
+    temp &= 0xf0;
+    temp |= temp1 ;
+    LCD_WriteData(temp);
+ }
+  /*******************************************************************************
+  * Function Name  : Pattern_Set_16x16
+  * Description    :
+  * Input          : None
+  * Output         : None
+  * Return         : None
+  * Attention	     : None
+  *******************************************************************************/
+ void PWM2_duty_cycle(uint8_t setx) //bit0~7
+{
+	 LCD_WriteReg(0x8d,setx);
+}
 
 
+//---------------------------------------------//
+//																							REG[8Eh]
+ /*******************************************************************************
+ * Function Name  : Pattern_Set_16x16
+ * Description    :
+ * Input          : None
+ * Output         : None
+ * Return         : None
+ * Attention	     : None
+ *******************************************************************************/
+void Stop_Memory_Clear(void)
+{
+	LCD_WriteReg_ANDMask(0x8e,0x7f);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Memory_Clear(void)
+{
+	LCD_WriteReg_ORMask(0x8e,0x80);
+	Chk_Busy();
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Clear_Full_Window(void)
+{
+	LCD_WriteReg_ANDMask(0x8e,0xbf);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Clear_Active_Window(void)
+{
+	LCD_WriteReg_ORMask(0x8e,0x40);
+}
 
 
+//---------------------------------------------//
+//																				REG[90h]
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_line(void)
+{
+	LCD_WriteReg(0x90,0x00);
+	LCD_WriteData(0x80);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_square(void)
+{
+	LCD_WriteReg(0x90,0x10);
+	LCD_WriteData(0x90);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_square_fill(void)
+{
+	LCD_WriteReg(0x90,0x10);
+	LCD_WriteData(0xb0);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_circle(void)
+{
+	LCD_WriteReg(0x90,0x40);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_circle_fill(void)
+{
+	LCD_WriteReg(0x90,0x60);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_Triangle(void)
+{
+	LCD_WriteReg(0x90,0x00);
+	LCD_WriteData(0x81);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_Triangle_fill(void)
+{
+	LCD_WriteReg(0x90,0x01);
+	LCD_WriteData(0xA1);
+}
 
-
-
-
-
-
+//---------------------------------------------//
+//																				REG[90h]~/EG[9Dh]
 
 /*******************************************************************************
 * Function Name  : Geometric_Coordinate
@@ -2625,8 +3059,431 @@ void Geometric_Coordinate(uint16_t X,uint16_t Y,uint16_t X1  ,uint16_t Y1)
 
 	LCD_WriteReg(0x97,Y1);
 	LCD_WriteReg(0x98,Y1>>8);
+}
+
+/******************************************************************************
+* Function Name  : Circle_Coordinate_Radius
+* Description    : Geometric Pattern Drawing Engine :Circle Of Circlar Corner Input
+* Input          : - X:
+*                  - Y:
+*       				   - R
+* Output         : None
+* Return         : None
+* Attention		   : None
+*******************************************************************************/
+void Circle_Coordinate_Radius(uint16_t X,uint16_t Y,uint16_t R)
+{
+	LCD_WriteReg(0x99,X);
+	LCD_WriteReg(0x9a,X>>8);
+
+	LCD_WriteReg(0x9b,Y);
+	LCD_WriteReg(0x9c,Y>>8);
+
+	LCD_WriteReg(0x9d,R);
+}
+//---------------------------------------------//
+//																						REG[A0h]
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_Ellipse(void)
+{
+	LCD_WriteReg(0xA0,0x00);
+	LCD_WriteData(0x80);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_Ellipse_fill(void)
+{
+	LCD_WriteReg(0xA0,0x40);
+	LCD_WriteData(0xC0);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_Ellipse_Curve(void)
+{
+	LCD_WriteReg_ANDORMask(0xA0,0x1F,0x90);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_Ellipse_Curve_Fill(void)
+{
+	LCD_WriteReg_ANDORMask(0xA0,0x1F,0xD0);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_Ellipse_Curve_part(uint8_t setx)
+{
+	uint8_t temp,temp1;
+	LCD_CmdWrite(0xA0);//DCR
+	temp = LCD_DataRead();
+	temp1 = setx&0x03;
+	temp &=0xfc;
+	temp |=temp1;
+	LCD_WriteData(temp);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_Circle_Square(void)
+{
+	LCD_WriteReg(0xA0,0x20);
+	LCD_WriteData(0xA0);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Draw_Circle_Square_fill(void)
+{
+	LCD_WriteReg(0xA0,0x60);
+	LCD_WriteData(0xE0);
+}
+
+/******************************************************************************
+* Function Name  : Ellipse_Coordinate_setting
+* Description    : Geometric Pattern Drawing Engine :Ellipse Of Circlar Corner Input
+* Input          : - X:
+*                  - Y:
+*       				   - ELL_A:Long axis
+*       		       - ELL_B:short axis
+* Output         : None
+* Return         : None
+* Attention		   : None
+*******************************************************************************/
+void Ellipse_Coordinate_setting(uint16_t X,uint16_t Y,uint16_t ELL_A,uint16_t ELL_B)
+{
+	LCD_WriteReg(0xA5,X);
+	LCD_WriteReg(0xA6,X>>8);
+
+	LCD_WriteReg(0xA7,Y);
+	LCD_WriteReg(0xA8,Y>>8);
+
+	LCD_WriteReg(0xA1,ELL_A);
+	LCD_WriteReg(0xA2,ELL_A>>8);
+
+	LCD_WriteReg(0xA1,ELL_A);
+	LCD_WriteReg(0xA2,ELL_A>>8);
+
+	LCD_WriteReg(0xA3,ELL_B);
+	LCD_WriteReg(0xA4,ELL_B>>8);
 
 }
+
+
+/******************************************************************************
+* Function Name  : Circle_Square_Coordinate_setting
+* Description    : Geometric Pattern Drawing Engine :Square Of Circlar Corner Input
+* Input          : - x0:
+*                  - y0:
+*       				   - x1:
+*       		       - y1:
+*       				   - ELL_A:Long axis
+*       		       - ELL_B:short axis
+* Output         : None
+* Return         : None
+* Attention		   : None
+*******************************************************************************/
+void Circle_Square_Coordinate_setting(uint16_t X0,uint16_t Y0 ,uint16_t X1 ,uint16_t Y1 ,uint16_t ELL_A,uint16_t ELL_B)
+{
+
+	LCD_WriteReg(0x91,X0);
+	LCD_WriteReg(0x92,X0>>8);
+
+	LCD_WriteReg(0x93,Y0);
+	LCD_WriteReg(0x94,Y0>>8);
+
+	LCD_WriteReg(0x95,X1);
+	LCD_WriteReg(0x96,X1>>8);
+
+	LCD_WriteReg(0x97,Y1);
+	LCD_WriteReg(0x98,Y1>>8);
+
+	LCD_WriteReg(0xA1,ELL_A);
+	LCD_WriteReg(0xA2,ELL_A>>8);
+
+	LCD_WriteReg(0xA3,ELL_B);
+	LCD_WriteReg(0xA4,ELL_B>>8);
+
+}
+
+/******************************************************************************
+* Function Name  : Draw_Triangle_3point_Coordinate
+* Description    : Geometric Pattern Drawing Engine :Triangle Of Circlar Corner Input
+* Input          : - P1_X:
+*                  - P1_Y:
+*       				   - P2_X
+*       		       - P2_Y
+*       				   - P3_X
+*       		       - P3_Y
+* Output         : None
+* Return         : None
+* Attention		   : None
+*******************************************************************************/
+void Draw_Triangle_3point_Coordinate(uint16_t P1_X,uint16_t P1_Y,uint16_t P2_X,uint16_t P2_Y,uint16_t P3_X,uint16_t P3_Y)
+{
+	LCD_WriteReg(0x91,P1_X);
+	LCD_WriteReg(0x92,P1_X>>8);
+
+	LCD_WriteReg(0x93,P1_Y);
+	LCD_WriteReg(0x94,P1_Y>>8);
+
+	LCD_WriteReg(0x95,P2_X);
+	LCD_WriteReg(0x96,P2_X>>8);
+
+	LCD_WriteReg(0x97,P2_Y);
+	LCD_WriteReg(0x98,P2_Y>>8);
+
+	LCD_WriteReg(0xA9,P3_X);
+	LCD_WriteReg(0xAA,P3_X>>8);
+
+	LCD_WriteReg(0xAB,P3_Y);
+	LCD_WriteReg(0xAC,P3_Y>>8);
+
+}
+
+
+
+//---------------------------------------------//
+//																							REG[B0]~REG[B3]
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void DMA_Start_address_setting(uint32_t set_address)
+{
+	LCD_WriteReg(0xb0,set_address);
+
+	LCD_WriteReg(0xb1,set_address>>8);
+
+	LCD_WriteReg(0xb2,set_address>>16);
+
+	LCD_WriteReg(0xb3,set_address>>24);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+//input pic data quantity  for example  pic size = 800*480 = 384000
+void DMA_Continuous_mode_size_setting(uint32_t set_size)
+{
+	LCD_WriteReg(0xb4,set_size);
+
+	LCD_WriteReg(0xb6,set_size>>8);
+
+	LCD_WriteReg(0xb8,set_size>>16);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void DMA_block_mode_size_setting(uint16_t BWR,uint16_t BHR,uint16_t SPWR)
+{
+	LCD_WriteReg(0xb4,BWR);
+	LCD_WriteReg(0xb5,BWR>>8);
+
+	LCD_WriteReg(0xb6,BHR);
+	LCD_WriteReg(0xb7,BHR>>8);
+
+	LCD_WriteReg(0xb8,SPWR);
+	LCD_WriteReg(0xb9,SPWR>>8);
+
+}
+
+//---------------------------------------------//
+//																						REG[BFh]
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void DMA_Continuous_mode(void)
+{
+	LCD_WriteReg(0xbf,0x00);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void DMA_Block_mode(void)
+{
+	LCD_WriteReg(0xbf,0x02);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void DMA_Start_enable(void)
+{
+	LCD_WriteReg_ORMask(0xbf,0x01);
+}
+
+//---------------------------------------------//
+//																						REG[C0h]
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Key_Scan_Enable(void)
+{
+	LCD_WriteReg_ORMask(0xc0,0x80);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+
+void Key_Scan_setting(uint8_t setx)//uint8_t[2:0]
+{
+	LCD_WriteReg_ANDORMask(0xc0,0x80, setx&0x07);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Long_Key_Scan_enable(void)
+{
+	LCD_WriteReg_ORMask(0xc0,0x40);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Key_Scan_Wakeup_Function_Enable(void)
+{
+	LCD_WriteReg_ORMask(0xc1,0x80);
+}
+/*******************************************************************************
+* Function Name  : Pattern_Set_16x16
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Long_Key_Timing_Adjustment(uint8_t setx)
+{
+	LCD_WriteReg_ORMask(0xc1,setx&0x1c);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 void Memory_Clear(void)
 {
 	LCD_WriteReg(0x8e,0x80);
