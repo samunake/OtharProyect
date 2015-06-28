@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m4 -mthumb -Wall -ffunction-sections -g -O0 -c -DSTM32F407VG -DSTM32F4XX -DUSE_STDPERIPH_DRIVER -D__ASSEMBLY__ -I..\..\..\..\..\Users\Miguel\Desktop\Poryecto Final\branches\Working\OtharSoft\cmsis_boot -I..\..\..\..\..\Users\Miguel\Desktop\Poryecto Final\branches\Working\OtharSoft\cmsis_lib\include -I..\..\..\..\..\Users\Miguel\Desktop\Poryecto Final\branches\Working\OtharSoft\cmsis_lib -I..\..\..\..\..\Users\Miguel\Desktop\Poryecto Final\branches\Working\OtharSoft -I..\..\..\..\..\Users\Miguel\Desktop\Poryecto Final\branches\Working\OtharSoft\Delay -I..\..\..\..\..\Users\Miguel\Desktop\Poryecto Final\branches\Working\OtharSoft\Test -I..\..\..\..\..\Users\Miguel\Desktop\Poryecto Final\branches\Working\OtharSoft\cmsis -I..\..\..\..\..\Users\Miguel\Desktop\Poryecto Final\branches\Working -I..\..\..\..\..\Users\Miguel\Desktop\Poryecto Final\branches\Working\OtharSoft\Lcd">
+      <target file="LCD_Functions.o" lastModified="14e3ab17af3">
+         <source file="..\..\..\Lcd\LCD_Functions.c" lastModified="14e3ab170e1"/>
+      </target>
+      <target file="syscalls.o" lastModified="14e3a918f89">
+         <source file="..\..\..\syscalls\syscalls.c" lastModified="14e3a0ec12d"/>
+      </target>
+      <target file="stm32f4xx_gpio.o" lastModified="14e3a918ceb">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14e3a0ec11e"/>
+      </target>
+      <target file="LCD_Config.o" lastModified="14e3a917f41">
+         <source file="..\..\..\Lcd\LCD_Config.c" lastModified="14e3a0ea9a7"/>
+      </target>
+      <target file="stm32f4xx_flash.o" lastModified="14e3a918db5">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="14e3a0ec11e"/>
+      </target>
+      <target file="stm32f4xx_tim.o" lastModified="14e3a91913e">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14e3a0ec11e"/>
+      </target>
+      <target file="Test.o" lastModified="14e3a91825d">
+         <source file="..\..\..\Test\Test.c" lastModified="14e3a0eae48"/>
+      </target>
+      <target file="system_stm32f4xx.o" lastModified="14e3a918e23">
+         <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14e3a0eb828"/>
+      </target>
+      <target file="startup_stm32f4xx.o" lastModified="14e3a917f9f">
+         <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14e3a0eb02c"/>
+      </target>
+      <target file="Delay.o" lastModified="14e3a9182e9">
+         <source file="..\..\..\Delay\Delay.c" lastModified="14e3a0ea8cc"/>
+      </target>
+      <target file="main.o" lastModified="14e3a9180a8">
+         <source file="..\..\..\main.c" lastModified="14e3a0ec12d"/>
+      </target>
+      <target file="LCD_Interface.o" lastModified="14e3a9c1d04">
+         <source file="..\..\..\Lcd\LCD_Interface.c" lastModified="14e3a9c12e7"/>
+      </target>
+      <target file="stm32f4xx_fsmc.o" lastModified="14e3a918c5e">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_fsmc.c" lastModified="14e3a0ec11e"/>
+      </target>
+      <target file="stm32f4xx_rcc.o" lastModified="14e3a918182">
+         <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14e3a0ec11e"/>
+      </target>
+      <target file="misc.o" lastModified="14e3a919006">
+         <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14e3a0ec11e"/>
+      </target>
+   </processor>
+</history>
