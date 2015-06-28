@@ -1,22 +1,23 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
    <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=Prueba1.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Prueba1 -TC:\CooCox\CoIDE\configuration\ProgramData\Prueba1/arm-gcc-link.ld -g">
-      <target file="Prueba1.elf" lastModified="14e3b34bffa">
-         <source file="..\obj\LCD_Config.o" lastModified="14e3b00f4b6"/>
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="14e3b00f671"/>
-         <source file="..\obj\main.o" lastModified="14e3b34bca3"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14e3b00f9af"/>
-         <source file="..\obj\Test.o" lastModified="14e3b00fbc8"/>
-         <source file="..\obj\Delay.o" lastModified="14e3b00fd8f"/>
-         <source file="..\obj\LCD_Functions.o" lastModified="14e3b010200"/>
-         <source file="..\obj\LCD_Interface.o" lastModified="14e3b0103e4"/>
-         <source file="..\obj\stm32f4xx_fsmc.o" lastModified="14e3b0105d0"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14e3b0107c1"/>
-         <source file="..\obj\stm32f4xx_flash.o" lastModified="14e3b010976"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="14e3b010ad3"/>
-         <source file="..\obj\syscalls.o" lastModified="14e3b010c38"/>
-         <source file="..\obj\misc.o" lastModified="14e3b010da9"/>
-         <source file="..\obj\stm32f4xx_tim.o" lastModified="14e3b011027"/>
+      <target file="Prueba1.elf" lastModified="14e3bac2532">
+         <source file="..\obj\LCD_System.o" lastModified="14e3bac22ac"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="14e3b934011"/>
+         <source file="..\obj\Config_RA8875.o" lastModified="14e3b94c4df"/>
+         <source file="..\obj\main.o" lastModified="14e3b94c653"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14e3b9342ce"/>
+         <source file="..\obj\Test.o" lastModified="14e3b94c7e6"/>
+         <source file="..\obj\Delay.o" lastModified="14e3b93448e"/>
+         <source file="..\obj\Driver_RA8875.o" lastModified="14e3b96a54f"/>
+         <source file="..\obj\stm32f4xx_fsmc.o" lastModified="14e3b93478d"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14e3b9348df"/>
+         <source file="..\obj\stm32f4xx_flash.o" lastModified="14e3b934a33"/>
+         <source file="..\obj\Interface_RA8875.o" lastModified="14e3b934ba9"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14e3b934ccc"/>
+         <source file="..\obj\syscalls.o" lastModified="14e3b934ddb"/>
+         <source file="..\obj\misc.o" lastModified="14e3b934f05"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="14e3b9350f2"/>
       </target>
    </processor>
 </history>

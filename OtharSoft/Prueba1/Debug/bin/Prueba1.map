@@ -6,6 +6,14 @@ delayTime           0x4               ..\obj\Delay.o
 
 Discarded input sections
 
+ .text          0x00000000        0x0 ..\obj\LCD_System.o
+ .data          0x00000000        0x0 ..\obj\LCD_System.o
+ .bss           0x00000000        0x0 ..\obj\LCD_System.o
+ .debug_line    0x00000000        0x0 ..\obj\LCD_System.o
+ .debug_str     0x00000000       0xb7 ..\obj\LCD_System.o
+ .comment       0x00000000       0x71 ..\obj\LCD_System.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\LCD_System.o
  .text          0x00000000        0x0 ..\obj\startup_stm32f4xx.o
  .data          0x00000000        0x0 ..\obj\startup_stm32f4xx.o
  .bss           0x00000000        0x0 ..\obj\startup_stm32f4xx.o
@@ -108,368 +116,6 @@ Discarded input sections
  .text          0x00000000        0x0 ..\obj\Delay.o
  .data          0x00000000        0x0 ..\obj\Delay.o
  .bss           0x00000000        0x0 ..\obj\Delay.o
- .text          0x00000000        0x0 ..\obj\LCD_Functions.o
- .data          0x00000000        0x0 ..\obj\LCD_Functions.o
- .bss           0x00000000        0x0 ..\obj\LCD_Functions.o
- .text.Chk_Busy
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.Chk_Busy_BTE
-                0x00000000       0x20 ..\obj\LCD_Functions.o
- .text.Chk_Busy_DIR_Access
-                0x00000000       0x20 ..\obj\LCD_Functions.o
- .text.Chk_DMA_Busy
-                0x00000000       0x20 ..\obj\LCD_Functions.o
- .text.Normal_Mode_exitSleep
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Sleep_Mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Software_Reset
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.PCLK_inversion
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.PCLK_non_inversion
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.PCLK_width
-                0x00000000       0x20 ..\obj\LCD_Functions.o
- .text.Serial_ROM_select0
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Serial_ROM_select1
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Serial_ROM_Address_set_24bit
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Serial_ROM_Address_set_32bit
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Select_Serial_Waveform_mode0
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Select_Serial_Waveform_mode3
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.SERIAL_ROM_Read_Cycle_4bus
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.SERIAL_ROM_Read_Cycle_5bus
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.SERIAL_ROM_Read_Cycle_6bus
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.SERIAL_ROM_Font_mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.SERIAL_ROM_DMA_mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.SERIAL_ROM_Single_mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.SERIAL_ROM_Dual_mode0
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.SERIAL_ROM_Dual_mode1
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.SROM_CLK_DIV
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.Color_256
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Color_65K
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.MPU_8bit_Interface
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.MPU_16bit_Interface
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.GPI_data
-                0x00000000       0x14 ..\obj\LCD_Functions.o
- .text.GPO_data
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.One_Layer
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Two_Layers
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.HDIR_SEG0_SEGn
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.HDIR_SEGn_SEG0
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.VDIR_COM0_COMn
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.VDIR_COMn_COM0
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.CGROM_Font
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.CGRAM_Font
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Internal_CGROM
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.External_CGROM
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.ISO8859_1
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.ISO8859_2
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.ISO8859_3
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.ISO8859_4
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.No_FullAlignment
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.FullAlignment
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_with_BackgroundColor
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_with_BackgroundTransparency
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.NoRotate_Font
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Rotate90_Font
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Horizontal_FontEnlarge_x1
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Horizontal_FontEnlarge_x2
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Horizontal_FontEnlarge_x3
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Horizontal_FontEnlarge_x4
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Vertical_FontEnlarge_x1
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Vertical_FontEnlarge_x2
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Vertical_FontEnlarge_x3
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Vertical_FontEnlarge_x4
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.CGRAM_Select_Number
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.Scroll_Offset
-                0x00000000       0x48 ..\obj\LCD_Functions.o
- .text.Line_distance
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.Font_Coordinate
-                0x00000000       0x48 ..\obj\LCD_Functions.o
- .text.Font_size_16x16_8x16
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_size_24x24_12x24
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_size_32x32_16x32
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_spacing_set
-                0x00000000       0x28 ..\obj\LCD_Functions.o
- .text.GT_serial_ROM_select_GT21L16TW
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.GT_serial_ROM_select_GT30L16U2W
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.GT_serial_ROM_select_GT30L24T3Y
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.GT_serial_ROM_select_GT30L24M1Z
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.GT_serial_ROM_select_GT30L32S4W
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_code_GB2312
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_code_GB12345
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_code_BIG5
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_code_UNICODE
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_code_ASCII
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_code_UNIJIS
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_code_JIS0208
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_code_LATIN
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_Standard
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_Arial
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_Roman
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Font_Bold
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Active_Window
-                0x00000000       0x94 ..\obj\LCD_Functions.o
- .text.Scroll_Window
-                0x00000000       0x84 ..\obj\LCD_Functions.o
- .text.Graphic_Mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Text_Mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Text_Cursor_Disable
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Text_Cursor_Enable
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Text_Cursor_Blink_Disable
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Text_Cursor_Blink_Enable
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Memory_Write_LeftRight_TopDown
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Memory_Write_RightLeft_TopDown
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Memory_Write_DownTop_LeftRight
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Memory_Write_TopDown_LeftRight
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.MemoryWrite_Cursor_autoIncrease
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.MemoryWrite_Cursor_NoautoIncrease
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.MemoryRead_Cursor_autoIncrease
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.MemoryRead_Cursor_NoautoIncrease
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.No_Graphic_Cursor
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Graphic_Cursor
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Graphic_Cursor_Set1
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Graphic_Cursor_Set2
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Graphic_Cursor_Set3
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Graphic_Cursor_Set4
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Graphic_Cursor_Set5
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Graphic_Cursor_Set6
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Graphic_Cursor_Set7
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Graphic_Cursor_Set8
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Write_To_Bank1and2
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Write_To_CGRAM
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Write_To_GraphicCursor
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Write_To_Pattern
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Write_To_Bank1
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Write_To_Bank2
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Text_Blink_Time
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.Memory_read_LeftRight_TopDown
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Memory_read_RightLeft_TopDown
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Memory_read_TopDown_LeftRight
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Memory_read_DownTop_LeftRight
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.XY_Coordinate
-                0x00000000       0x48 ..\obj\LCD_Functions.o
- .text.Memory_read_Coordinate
-                0x00000000       0x48 ..\obj\LCD_Functions.o
- .text.Text_Cursor_Horizontal_Size
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.Text_Cursor_Vertical_Size
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.no_BTE_write
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.BTE_enable
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.BTE_contiguous_Data
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.BTE_rectangular_Data
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.BTE_ROP_Code
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.Layer1_Visible
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Layer2_Visible
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Transparent_Mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Lighten_Overlay_Mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Boolean_OR
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Boolean_AND
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Floating_window_mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Floating_Window_transparent_with_BGTR_enable
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Floating_Window_transparent_with_BGTR_disable
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Layer1_2_scroll
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Layer1_scroll
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Layer2_scroll
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Buffer_scroll
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.layer2_1_transparency
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.BTE_Source_Destination
-                0x00000000       0xc4 ..\obj\LCD_Functions.o
- .text.Source_Layer1
-                0x00000000       0x24 ..\obj\LCD_Functions.o
- .text.Source_Layer2
-                0x00000000       0x24 ..\obj\LCD_Functions.o
- .text.Destination_Layer1
-                0x00000000       0x24 ..\obj\LCD_Functions.o
- .text.Destination_Layer2
-                0x00000000       0x24 ..\obj\LCD_Functions.o
- .text.BTE_Size_setting
-                0x00000000       0x48 ..\obj\LCD_Functions.o
- .text.Background_color
-                0x00000000       0x40 ..\obj\LCD_Functions.o
- .text.Foreground_color
-                0x00000000       0x40 ..\obj\LCD_Functions.o
- .text.Text_Background_Color
-                0x00000000       0x3c ..\obj\LCD_Functions.o
- .text.Text_Foreground_Color
-                0x00000000       0x3c ..\obj\LCD_Functions.o
- .text.BTE_Background_color
-                0x00000000       0x3c ..\obj\LCD_Functions.o
- .text.BTE_Foreground_color
-                0x00000000       0x3c ..\obj\LCD_Functions.o
- .text.BTE_Background_red
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.BTE_Background_green
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.BTE_Background_blue
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.BTE_Foreground_red
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.BTE_Foreground_green
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.BTE_Foreground_blue
-                0x00000000       0x1c ..\obj\LCD_Functions.o
- .text.Pattern_Set_8x8
-                0x00000000       0x28 ..\obj\LCD_Functions.o
- .text.Pattern_Set_16x16
-                0x00000000       0x28 ..\obj\LCD_Functions.o
- .text.Pattern_Set_number
-                0x00000000       0x34 ..\obj\LCD_Functions.o
- .text.BackgroundColor_TransparentMode
-                0x00000000       0x3c ..\obj\LCD_Functions.o
- .text.Enable_TP
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Disable_TP
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Disable_Touch_WakeUp
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.Enable_Touch_WakeUp
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.TP_manual_mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.TP_auto_mode
-                0x00000000       0x10 ..\obj\LCD_Functions.o
- .text.TP_IDLE_mode
-                0x00000000       0x2c ..\obj\LCD_Functions.o
- .text.TP_event_mode
-                0x00000000       0x34 ..\obj\LCD_Functions.o
- .text.TP_latch_X
-                0x00000000       0x34 ..\obj\LCD_Functions.o
- .text.TP_latch_Y
-                0x00000000       0x34 ..\obj\LCD_Functions.o
- .text.ADC_X    0x00000000       0x20 ..\obj\LCD_Functions.o
- .text.ADC_Y    0x00000000       0x20 ..\obj\LCD_Functions.o
- .text.ADC_XY   0x00000000       0x20 ..\obj\LCD_Functions.o
- .text.Memory_Clear
-                0x00000000       0x14 ..\obj\LCD_Functions.o
- .text.ActiveWindow_Clear
-                0x00000000       0x14 ..\obj\LCD_Functions.o
  .text          0x00000000        0x0 ..\obj\Driver_RA8875.o
  .data          0x00000000        0x0 ..\obj\Driver_RA8875.o
  .bss           0x00000000        0x0 ..\obj\Driver_RA8875.o
@@ -481,10 +127,6 @@ Discarded input sections
                 0x00000000       0x20 ..\obj\Driver_RA8875.o
  .text.Chk_DMA_Busy
                 0x00000000       0x20 ..\obj\Driver_RA8875.o
- .text.Display_ON
-                0x00000000       0x10 ..\obj\Driver_RA8875.o
- .text.Display_OFF
-                0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Normal_Mode_exitSleep
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Sleep_Mode
@@ -832,27 +474,10 @@ Discarded input sections
  .text.ADC_X    0x00000000       0x20 ..\obj\Driver_RA8875.o
  .text.ADC_Y    0x00000000       0x20 ..\obj\Driver_RA8875.o
  .text.ADC_XY   0x00000000       0x20 ..\obj\Driver_RA8875.o
- .text.Geometric_Coordinate
-                0x00000000       0x84 ..\obj\Driver_RA8875.o
  .text.Memory_Clear
                 0x00000000       0x14 ..\obj\Driver_RA8875.o
  .text.ActiveWindow_Clear
                 0x00000000       0x14 ..\obj\Driver_RA8875.o
- .text.LCD_Clear
-                0x00000000       0x2c ..\obj\Driver_RA8875.o
- .text.LCD_Reset
-                0x00000000       0x28 ..\obj\Driver_RA8875.o
- .debug_info    0x00000000     0x15d3 ..\obj\Driver_RA8875.o
- .debug_abbrev  0x00000000      0x1cc ..\obj\Driver_RA8875.o
- .debug_aranges
-                0x00000000      0x5e8 ..\obj\Driver_RA8875.o
- .debug_ranges  0x00000000      0x5d8 ..\obj\Driver_RA8875.o
- .debug_line    0x00000000      0xf51 ..\obj\Driver_RA8875.o
- .debug_str     0x00000000     0x1007 ..\obj\Driver_RA8875.o
- .comment       0x00000000       0x71 ..\obj\Driver_RA8875.o
- .debug_frame   0x00000000     0x1618 ..\obj\Driver_RA8875.o
- .ARM.attributes
-                0x00000000       0x33 ..\obj\Driver_RA8875.o
  .text          0x00000000        0x0 ..\obj\stm32f4xx_fsmc.o
  .data          0x00000000        0x0 ..\obj\stm32f4xx_fsmc.o
  .bss           0x00000000        0x0 ..\obj\stm32f4xx_fsmc.o
@@ -1391,19 +1016,19 @@ Linker script and memory map
                 0x0800079c       0x28 ..\obj\Delay.o
                 0x0800079c                Delay_ms
  .text.Display_ON
-                0x080007c4       0x10 ..\obj\LCD_Functions.o
+                0x080007c4       0x10 ..\obj\Driver_RA8875.o
                 0x080007c4                Display_ON
  .text.Display_OFF
-                0x080007d4       0x10 ..\obj\LCD_Functions.o
+                0x080007d4       0x10 ..\obj\Driver_RA8875.o
                 0x080007d4                Display_OFF
  .text.Geometric_Coordinate
-                0x080007e4       0x84 ..\obj\LCD_Functions.o
+                0x080007e4       0x84 ..\obj\Driver_RA8875.o
                 0x080007e4                Geometric_Coordinate
  .text.LCD_Clear
-                0x08000868       0x2c ..\obj\LCD_Functions.o
+                0x08000868       0x2c ..\obj\Driver_RA8875.o
                 0x08000868                LCD_Clear
  .text.LCD_Reset
-                0x08000894       0x28 ..\obj\LCD_Functions.o
+                0x08000894       0x28 ..\obj\Driver_RA8875.o
                 0x08000894                LCD_Reset
  .text.FSMC_NORSRAMInit
                 0x080008bc      0x134 ..\obj\stm32f4xx_fsmc.o
@@ -1552,13 +1177,13 @@ Linker script and memory map
                 0x2001f800                __StackLimit = (__StackTop - SIZEOF (.co_stack))
                 0x20020000                PROVIDE (__stack, __StackTop)
                 0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region ram  overflowed with stack)
+LOAD ..\obj\LCD_System.o
 LOAD ..\obj\startup_stm32f4xx.o
 LOAD ..\obj\Config_RA8875.o
 LOAD ..\obj\main.o
 LOAD ..\obj\stm32f4xx_rcc.o
 LOAD ..\obj\Test.o
 LOAD ..\obj\Delay.o
-LOAD ..\obj\LCD_Functions.o
 LOAD ..\obj\Driver_RA8875.o
 LOAD ..\obj\stm32f4xx_fsmc.o
 LOAD ..\obj\stm32f4xx_gpio.o
@@ -1582,7 +1207,7 @@ OUTPUT(Prueba1.elf elf32-littlearm)
  .debug_info    0x000009ad      0xc4d ..\obj\stm32f4xx_rcc.o
  .debug_info    0x000015fa       0xa7 ..\obj\Test.o
  .debug_info    0x000016a1      0x6de ..\obj\Delay.o
- .debug_info    0x00001d7f     0x15d3 ..\obj\LCD_Functions.o
+ .debug_info    0x00001d7f     0x15d3 ..\obj\Driver_RA8875.o
  .debug_info    0x00003352      0x8f5 ..\obj\stm32f4xx_fsmc.o
  .debug_info    0x00003c47      0x602 ..\obj\stm32f4xx_gpio.o
  .debug_info    0x00004249      0x25f ..\obj\Interface_RA8875.o
@@ -1596,7 +1221,7 @@ OUTPUT(Prueba1.elf elf32-littlearm)
  .debug_abbrev  0x00000309      0x1e3 ..\obj\stm32f4xx_rcc.o
  .debug_abbrev  0x000004ec       0x65 ..\obj\Test.o
  .debug_abbrev  0x00000551      0x1a6 ..\obj\Delay.o
- .debug_abbrev  0x000006f7      0x1cc ..\obj\LCD_Functions.o
+ .debug_abbrev  0x000006f7      0x1cc ..\obj\Driver_RA8875.o
  .debug_abbrev  0x000008c3      0x170 ..\obj\stm32f4xx_fsmc.o
  .debug_abbrev  0x00000a33      0x1a3 ..\obj\stm32f4xx_gpio.o
  .debug_abbrev  0x00000bd6       0xeb ..\obj\Interface_RA8875.o
@@ -1617,7 +1242,7 @@ OUTPUT(Prueba1.elf elf32-littlearm)
  .debug_aranges
                 0x00000240       0x40 ..\obj\Delay.o
  .debug_aranges
-                0x00000280      0x5e8 ..\obj\LCD_Functions.o
+                0x00000280      0x5e8 ..\obj\Driver_RA8875.o
  .debug_aranges
                 0x00000868       0xb0 ..\obj\stm32f4xx_fsmc.o
  .debug_aranges
@@ -1636,28 +1261,28 @@ OUTPUT(Prueba1.elf elf32-littlearm)
  .debug_ranges  0x00000078      0x168 ..\obj\stm32f4xx_rcc.o
  .debug_ranges  0x000001e0       0x10 ..\obj\Test.o
  .debug_ranges  0x000001f0       0x30 ..\obj\Delay.o
- .debug_ranges  0x00000220      0x5d8 ..\obj\LCD_Functions.o
+ .debug_ranges  0x00000220      0x5d8 ..\obj\Driver_RA8875.o
  .debug_ranges  0x000007f8       0xa0 ..\obj\stm32f4xx_fsmc.o
  .debug_ranges  0x00000898       0x78 ..\obj\stm32f4xx_gpio.o
  .debug_ranges  0x00000910       0x50 ..\obj\Interface_RA8875.o
  .debug_ranges  0x00000960       0x20 ..\obj\system_stm32f4xx.o
  .debug_ranges  0x00000980      0x2e8 ..\obj\stm32f4xx_tim.o
 
-.debug_line     0x00000000     0x3454
+.debug_line     0x00000000     0x345b
  .debug_line    0x00000000       0xa3 ..\obj\startup_stm32f4xx.o
  .debug_line    0x000000a3      0x341 ..\obj\Config_RA8875.o
  .debug_line    0x000003e4      0x179 ..\obj\main.o
  .debug_line    0x0000055d      0x5b8 ..\obj\stm32f4xx_rcc.o
  .debug_line    0x00000b15      0x16e ..\obj\Test.o
  .debug_line    0x00000c83      0x229 ..\obj\Delay.o
- .debug_line    0x00000eac      0xf4a ..\obj\LCD_Functions.o
- .debug_line    0x00001df6      0x46b ..\obj\stm32f4xx_fsmc.o
- .debug_line    0x00002261      0x35a ..\obj\stm32f4xx_gpio.o
- .debug_line    0x000025bb      0x217 ..\obj\Interface_RA8875.o
- .debug_line    0x000027d2      0x201 ..\obj\system_stm32f4xx.o
- .debug_line    0x000029d3      0xa81 ..\obj\stm32f4xx_tim.o
+ .debug_line    0x00000eac      0xf51 ..\obj\Driver_RA8875.o
+ .debug_line    0x00001dfd      0x46b ..\obj\stm32f4xx_fsmc.o
+ .debug_line    0x00002268      0x35a ..\obj\stm32f4xx_gpio.o
+ .debug_line    0x000025c2      0x217 ..\obj\Interface_RA8875.o
+ .debug_line    0x000027d9      0x201 ..\obj\system_stm32f4xx.o
+ .debug_line    0x000029da      0xa81 ..\obj\stm32f4xx_tim.o
 
-.debug_str      0x00000000     0x34c0
+.debug_str      0x00000000     0x34c7
  .debug_str     0x00000000      0x137 ..\obj\startup_stm32f4xx.o
                                 0x149 (size before relaxing)
  .debug_str     0x00000137      0x722 ..\obj\Config_RA8875.o
@@ -1670,17 +1295,17 @@ OUTPUT(Prueba1.elf elf32-littlearm)
                                 0x163 (size before relaxing)
  .debug_str     0x00000f35      0x655 ..\obj\Delay.o
                                 0x7da (size before relaxing)
- .debug_str     0x0000158a      0xdfa ..\obj\LCD_Functions.o
-                               0x1000 (size before relaxing)
- .debug_str     0x00002384      0x3fa ..\obj\stm32f4xx_fsmc.o
+ .debug_str     0x0000158a      0xe01 ..\obj\Driver_RA8875.o
+                               0x1007 (size before relaxing)
+ .debug_str     0x0000238b      0x3fa ..\obj\stm32f4xx_fsmc.o
                                 0x78c (size before relaxing)
- .debug_str     0x0000277e      0x1a0 ..\obj\stm32f4xx_gpio.o
+ .debug_str     0x00002785      0x1a0 ..\obj\stm32f4xx_gpio.o
                                 0x4a5 (size before relaxing)
- .debug_str     0x0000291e       0xf5 ..\obj\Interface_RA8875.o
+ .debug_str     0x00002925       0xf5 ..\obj\Interface_RA8875.o
                                 0x258 (size before relaxing)
- .debug_str     0x00002a13       0xb6 ..\obj\system_stm32f4xx.o
+ .debug_str     0x00002a1a       0xb6 ..\obj\system_stm32f4xx.o
                                 0x3ac (size before relaxing)
- .debug_str     0x00002ac9      0x9f7 ..\obj\stm32f4xx_tim.o
+ .debug_str     0x00002ad0      0x9f7 ..\obj\stm32f4xx_tim.o
                                 0xdd2 (size before relaxing)
 
 .comment        0x00000000       0x70
@@ -1691,7 +1316,7 @@ OUTPUT(Prueba1.elf elf32-littlearm)
  .comment       0x00000000       0x71 ..\obj\stm32f4xx_rcc.o
  .comment       0x00000000       0x71 ..\obj\Test.o
  .comment       0x00000000       0x71 ..\obj\Delay.o
- .comment       0x00000000       0x71 ..\obj\LCD_Functions.o
+ .comment       0x00000000       0x71 ..\obj\Driver_RA8875.o
  .comment       0x00000000       0x71 ..\obj\stm32f4xx_fsmc.o
  .comment       0x00000000       0x71 ..\obj\stm32f4xx_gpio.o
  .comment       0x00000000       0x71 ..\obj\Interface_RA8875.o
@@ -1713,7 +1338,7 @@ OUTPUT(Prueba1.elf elf32-littlearm)
  .ARM.attributes
                 0x000000ff       0x33 ..\obj\Delay.o
  .ARM.attributes
-                0x00000132       0x33 ..\obj\LCD_Functions.o
+                0x00000132       0x33 ..\obj\Driver_RA8875.o
  .ARM.attributes
                 0x00000165       0x33 ..\obj\stm32f4xx_fsmc.o
  .ARM.attributes
@@ -1732,7 +1357,7 @@ OUTPUT(Prueba1.elf elf32-littlearm)
  .debug_frame   0x000001c0      0x6d4 ..\obj\stm32f4xx_rcc.o
  .debug_frame   0x00000894       0x2c ..\obj\Test.o
  .debug_frame   0x000008c0       0xc0 ..\obj\Delay.o
- .debug_frame   0x00000980     0x1618 ..\obj\LCD_Functions.o
+ .debug_frame   0x00000980     0x1618 ..\obj\Driver_RA8875.o
  .debug_frame   0x00001f98      0x300 ..\obj\stm32f4xx_fsmc.o
  .debug_frame   0x00002298      0x23c ..\obj\stm32f4xx_gpio.o
  .debug_frame   0x000024d4      0x154 ..\obj\Interface_RA8875.o

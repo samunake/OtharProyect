@@ -43,6 +43,9 @@
       <target file="syscalls.o" lastModified="14e3b934ddb">
          <source file="..\..\..\syscalls\syscalls.c" lastModified="14e3afc322d"/>
       </target>
+      <target file="LCD_System.o" lastModified="14e3bac22ac">
+         <source file="..\..\..\Lcd\LCD_System.c" lastModified="14e3b9993c3"/>
+      </target>
       <target file="Config_RA8875.o" lastModified="14e3b94c4df">
          <source file="..\..\..\Lcd\RA8875\Config_RA8875.c" lastModified="14e3b913864"/>
       </target>
