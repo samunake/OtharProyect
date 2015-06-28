@@ -2177,7 +2177,7 @@ void Destination_Layer1(void)
 *******************************************************************************/
 void Destination_Layer2(void)
 {
-	LCD_WriteReg_ANDMask(0x5b,080);//VDBE1
+	LCD_WriteReg_ANDMask(0x5b,0x80);//VDBE1
 
 }
 
@@ -2690,7 +2690,7 @@ void Graphic_Cursor_Color_1(uint8_t setx)
 * Output         : None
 * Return         : None
 * Attention	     : None
-*******************************************************************************/																										REG[8A]
+*******************************************************************************			REG[8A]					*/
 void PWM1_enable(void)
 {
 	LCD_WriteReg_ORMask(0x8a,0x80);//P1CR
@@ -3444,90 +3444,460 @@ void Long_Key_Timing_Adjustment(uint8_t setx)
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void Memory_Clear(void)
-{
-	LCD_WriteReg(0x8e,0x80);
-	Chk_Busy();
-}
-void ActiveWindow_Clear(void)
-{
-	LCD_WriteReg(0x8e,0xC0);
-	Chk_Busy();
-}
-
+//																											REG[D0]
 /*******************************************************************************
-* Function Name  : LcdClear
-* Description    : Clear the screen
-* Input          : Color: Screen Color
-* Output         : None
-* Return         : None
-* Attention		   : None
-*******************************************************************************/
-void LCD_Clear(u16 color)
-{
-	//Text_Fo(color); // Set the color
-	Geometric_Coordinate(0,0,800,479);
-	LCD_WriteReg(0x90,0xb0);
-
-	Display_ON();
-}
-
-
-/*******************************************************************************
-* Function Name  : lcd_Reset
+* Function Name  : Floating_window_start_point
 * Description    :
 * Input          : None
 * Output         : None
 * Return         : None
-* Attention		   : None
+* Attention	     : None
 *******************************************************************************/
-void LCD_Reset(void)
+void Floating_window_start_point(uint16_t X,uint16_t Y)
+{
+	LCD_WriteReg(0xd0,X);
+    LCD_WriteReg(0xd1,X>>8);
+
+    LCD_WriteReg(0xd2,Y);
+    LCD_WriteReg(0xd1,X>>8);
+}
+
+/*******************************************************************************
+* Function Name  : Floating_window_size
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Floating_window_size(uint16_t width_X,uint16_t high_Y)
 {
 
-	 //RA8875 RESET pin
-	GPIO_ResetBits(GPIOC,GPIO_Pin_6);
-	Delay_ms(1);
-	GPIO_SetBits(GPIOC,GPIO_Pin_6);
-	Delay_ms(10);
+	LCD_WriteReg(0xd4,width_X);
+	LCD_WriteReg(0xd5,width_X>>8);
+
+	LCD_WriteReg(0xd6,high_Y);
+	LCD_WriteReg(0xd7,high_Y>>8);
 }
+
+/*******************************************************************************
+* Function Name  : Floating_window_display_point
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Floating_window_display_point(uint16_t X,uint16_t Y)
+{
+	LCD_WriteReg(0xd8,X);
+	LCD_WriteReg(0xd9,X>>8);
+
+	LCD_WriteReg(0xda,Y);
+	LCD_WriteReg(0xdb,Y>>8);
+}
+
+
+																						//REG[E0h]
+/*******************************************************************************
+* Function Name  : Serial_ROM_direct_access_mode_enable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Serial_ROM_direct_access_mode_enable(void)
+{
+	LCD_WriteReg(0xE0,0x01);
+}
+
+void Serial_ROM_direct_access_mode_disable(void)
+{
+	LCD_WriteReg(0xE0,0x00);
+}
+/*******************************************************************************
+* Function Name  : DMA_Address_32bits
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void DMA_Address_32bits(uint32_t set_address)
+{
+
+  LCD_WriteReg(0xE1,set_address>>24);
+  LCD_WriteData(set_address>>16);
+  LCD_WriteData(set_address>>8);
+  LCD_WriteData(set_address);
+
+}
+
+/*******************************************************************************
+* Function Name  : DMA_Address_24bits
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void DMA_Address_24bits(uint32_t set_address)
+{
+
+  LCD_WriteReg(0xE1,set_address>>16);
+  LCD_WriteData(set_address>>8);
+  LCD_WriteData(set_address);
+}
+
+/*******************************************************************************
+* Function Name  : DMA_Read_Data_buffer
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+uint8_t DMA_Read_Data_buffer(void)
+{
+    return LCD_ReadReg(0xE2);
+}
+//																						REG[F0h]
+/*******************************************************************************
+* Function Name  : KEYSCAN_Interrupt_Enable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void KEYSCAN_Interrupt_Enable(void)
+{
+	LCD_WriteReg_ORMask(0xf0,0x10);
+}
+
+/*******************************************************************************
+* Function Name  : KEYSCAN_Interrupt_Disable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void KEYSCAN_Interrupt_Disable(void)
+{
+	LCD_WriteReg_ANDMask(0xf0,0x0f);
+}
+
+/*******************************************************************************
+* Function Name  : DMA_Interrupt_Enable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void DMA_Interrupt_Enable(void)
+{
+	LCD_WriteReg_ORMask(0xf0,0x08);
+}
+
+/*******************************************************************************
+* Function Name  : DMA_Interrupt_Disable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void DMA_Interrupt_Disable(void)
+{
+	LCD_WriteReg_ANDMask(0xf0,0x17);
+}
+
+/*******************************************************************************
+* Function Name  : Touch_Panel_Interrupt_Enable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Touch_Panel_Interrupt_Enable(void)
+{
+	LCD_WriteReg_ORMask(0xf0,0x04);
+}
+
+/*******************************************************************************
+* Function Name  : Touch_Panel_Interrupt_Disable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Touch_Panel_Interrupt_Disable(void)
+{
+	LCD_WriteReg_ANDMask(0xf0,0x1b);
+}
+
+/*******************************************************************************
+* Function Name  : BTE_Interrupt_Enable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void BTE_Interrupt_Enable(void)
+{
+	LCD_WriteReg_ORMask(0xf0,0x02);
+}
+
+/*******************************************************************************
+* Function Name  : BTE_Interrupt_Disable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void BTE_Interrupt_Disable(void)
+{
+	LCD_WriteReg_ANDMask(0xf0,0x1d);
+}
+
+/*******************************************************************************
+* Function Name  : Font_BTE_read_write_Interrupt_Enable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Font_BTE_read_write_Interrupt_Enable(void)
+{
+	LCD_WriteReg_ORMask(0xf0,0x01);
+}
+
+/*******************************************************************************
+* Function Name  : Font_BTE_read_write_Interrupt_Disable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Font_BTE_read_write_Interrupt_Disable(void)
+{
+	LCD_WriteReg_ANDMask(0xf0,0x1E);
+}
+
+//																							REG[F1h]
+/*******************************************************************************
+* Function Name  : Clear_keyscan_interrupt
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Clear_keyscan_interrupt(void)
+{
+	LCD_WriteReg_ORMask(0xf1,0x10);
+
+}
+
+/*******************************************************************************
+* Function Name  : Keyscan_Status
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+uint8_t Keyscan_Status(void)
+{
+
+  uint8_t temp = LCD_ReadReg(0xf1);
+  if ((temp&0x10)==0x10)
+     return 1;
+  else
+     return 0;
+}
+
+/*******************************************************************************
+* Function Name  : Clear_DMA_interrupt
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Clear_DMA_interrupt(void)
+{
+	LCD_WriteReg_ORMask(0xf1,0x08);
+}
+
+/*******************************************************************************
+* Function Name  : DMA_Status
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+uint8_t DMA_Status(void)
+{
+	uint8_t temp = LCD_ReadReg(0xf1);
+	if ((temp&0x08)==0x08)
+		return 1;
+	else
+	    return 0;
+}
+
+/*******************************************************************************
+* Function Name  : clear_TP_interrupt
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void clear_TP_interrupt(void)
+{
+	LCD_WriteReg_ORMask(0xf1,0x04);
+}
+
+/*******************************************************************************
+* Function Name  : Touch_Status
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+uint8_t Touch_Status(void)
+{
+	uint8_t temp = LCD_ReadReg(0xf1);
+	if ((temp&0x04)==0x04)
+		return 1;
+	else
+	    return 0;
+}
+
+/*******************************************************************************
+* Function Name  : Clear_BTE_interrupt
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Clear_BTE_interrupt(void)
+{
+	LCD_WriteReg_ORMask(0xf1,0x02);
+}
+
+/*******************************************************************************
+* Function Name  : BTE_Status
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+uint8_t BTE_Status(void)
+{
+	uint8_t temp = LCD_ReadReg(0xf1);
+	if ((temp&0x02)==0x02)
+		return 1;
+	else
+	    return 0;
+}
+
+/*******************************************************************************
+* Function Name  : Clear_Font_BTE_read_write_Interrupt
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Clear_Font_BTE_read_write_Interrupt(void)
+{
+	LCD_WriteReg_ORMask(0xf1,0x01);
+}
+
+/*******************************************************************************
+* Function Name  : Font_BTE_read_write_Status
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+uint8_t Font_BTE_read_write_Status(void)
+{
+	uint8_t temp = LCD_ReadReg(0xf1,0x01);
+		if ((temp&0x01)==0x01)
+			return 1;
+		else
+		    return 0;
+}
+
+
+
+
+
+/*******************************************************************************
+* Function Name  : Font_BTE_read_write_Interrupt_Disable
+* Description    :
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention	     : None
+*******************************************************************************/
+void Chk_Wait(void)
+{
+ //while(MCU_WAIT==0);
+}
+
+void Show_String(uint8_t *str,uint8_t n)
+{
+  Text_Mode();
+  LCD_CmdWrite(0x02);
+  while(*str != '\0')
+  {
+     LCD_DataWrite(*str);
+     ++str;
+     Chk_Busy();
+     //Chk_Wait();
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
