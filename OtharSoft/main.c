@@ -28,6 +28,7 @@ int main(void)
 	Delay_ms(10);
 	Display_ON();
 
+	LCD_WriteText();
 
 	/*Memory_Clear();*/
 	//Delay_ms(2500);

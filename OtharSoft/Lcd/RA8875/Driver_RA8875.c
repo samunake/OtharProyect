@@ -1241,7 +1241,7 @@ void Font_Bold(void) //for ASCII
 	LCD_WriteReg_ORMask(0x2F,0x03);
 }
 
-//REG[30h]~REG[37h]
+//																					REG[30h]~REG[37h]
 /*******************************************************************************
 * Function Name  : Active Window
 * Description    :
@@ -1291,7 +1291,7 @@ void Scroll_Window(uint16_t XL,uint16_t XR ,uint16_t YT ,uint16_t YB)
 }
 
 
-//REG[40h]
+//																					REG[40h]
 /*******************************************************************************
 * Function Name  : Graphic_Mode
 * Description    :
@@ -3845,58 +3845,6 @@ uint8_t Font_BTE_read_write_Status(void)
 		else
 		    return 0;
 }
-
-
-
-
-
-/*******************************************************************************
-* Function Name  : Font_BTE_read_write_Interrupt_Disable
-* Description    :
-* Input          : None
-* Output         : None
-* Return         : None
-* Attention	     : None
-*******************************************************************************/
-void Chk_Wait(void)
-{
- //while(MCU_WAIT==0);
-}
-
-void Show_String(uint8_t *str,uint8_t n)
-{
-  Text_Mode();
-  LCD_CmdWrite(0x02);
-  while(*str != '\0')
-  {
-     LCD_DataWrite(*str);
-     ++str;
-     Chk_Busy();
-     //Chk_Wait();
-   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
