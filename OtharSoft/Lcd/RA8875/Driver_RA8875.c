@@ -1253,15 +1253,15 @@ void Font_Bold(void) //for ASCII
 void Active_Window(uint16_t XL,uint16_t XR ,uint16_t YT ,uint16_t YB)
 {
     //setting active window X
-	LCD_WriteReg(0x30,XL & 0x00ff); //Horizontal Start Point 0 of Active Window (HSAW0)
+	LCD_WriteReg(0x30,XL); //Horizontal Start Point 0 of Active Window (HSAW0)
 	LCD_WriteReg(0x31,XL>>8); //Horizontal Start Point 1 of Active Window (HSAW1)
-	LCD_WriteReg(0x34,XR & 0x00ff); //Horizontal End Point 0 of Active Window (HEAW0)
+	LCD_WriteReg(0x34,XR); //Horizontal End Point 0 of Active Window (HEAW0)
 	LCD_WriteReg(0x35,XR>>8); //Horizontal End Point 1 of Active Window (HEAW1)
 
     //setting active window Y
-	LCD_WriteReg(0x32,YT& 0x00ff); //Vertical Start Point 0 of Active Window (VSAW0)
+	LCD_WriteReg(0x32,YT); //Vertical Start Point 0 of Active Window (VSAW0)
 	LCD_WriteReg(0x33,YT>>8); //Vertical Start Point 1 of Active Window (VSAW1)
-	LCD_WriteReg(0x36,YB & 0x00ff); //Vertical End Point of Active Window 0 (VEAW0)
+	LCD_WriteReg(0x36,YB); //Vertical End Point of Active Window 0 (VEAW0)
 	LCD_WriteReg(0x37,YB>>8); //Vertical End Point of Active Window 1 (VEAW1)
 }
 
@@ -2579,7 +2579,7 @@ void TP_latch_X(void)
 *******************************************************************************/
 void TP_latch_Y(void)
 {
-	LCD_WriteReg_ORMask(0x71,0xE0,0x03);//TPCR1
+	LCD_WriteReg_ANDORMask(0x71,0xE0,0x03);//TPCR1
  }
 
 
@@ -3839,7 +3839,7 @@ void Clear_Font_BTE_read_write_Interrupt(void)
 *******************************************************************************/
 uint8_t Font_BTE_read_write_Status(void)
 {
-	uint8_t temp = LCD_ReadReg(0xf1,0x01);
+	uint8_t temp = LCD_ReadReg(0xf1);
 		if ((temp&0x01)==0x01)
 			return 1;
 		else

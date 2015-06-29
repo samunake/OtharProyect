@@ -325,7 +325,7 @@ void LCD_Initialization(void)
 	//   Delay_ms(10);
 	   LCD_WriteReg(0x16,0x03); //HNDR//Horizontal Non-Display Period Bit[4:0]  3
 	//   Delay_ms(10);
-	   LCD_WriteReg(0x17,0x02); //HSTR//HSYNC Start Position[4:0]   3
+	   LCD_WriteReg(0x17,0x03); //HSTR//HSYNC Start Position[4:0]   3
 	 //  Delay_ms(10);
 	   LCD_WriteReg(0x18,0x0B); //HPWR//HSYNC Polarity ,The period width of HSYNC.  B
 	//   Delay_ms(10);

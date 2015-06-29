@@ -27,16 +27,21 @@ int main(void)
 	Display_OFF();
 	Delay_ms(10);
 	Display_ON();
+	//LCD_Clear(Blue);
 
+
+	//Foreground_color(Black);
+	//Background_color(White);
+	//Active_Window(0,799,0,479);
 	LCD_WriteText();
-
+	//LCD_Write2();
 	/*Memory_Clear();*/
 	//Delay_ms(2500);
 
 
 
-			/*Active_Window(100,200,200,300);
-			//Graphic_Mode();
+			Active_Window(100,200,200,300);
+			Graphic_Mode();
 			XY_Coordinate(100,200);
 			LCD_WriteCmd(0x02);//MRWC
 			uint32_t i;
@@ -45,7 +50,7 @@ int main(void)
 				LCD_WriteData(Blue);
 				Chk_Busy();
 			}
-			Delay_ms(2000);
+			//Delay_ms(2000);
 			//ActiveWindow_Clear();*/
 
     while(1)
@@ -54,7 +59,7 @@ int main(void)
     {
 
 
-    	Test();
+    	//Test();
 
 
     }
