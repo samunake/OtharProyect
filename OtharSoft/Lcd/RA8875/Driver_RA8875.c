@@ -19,7 +19,7 @@
 
 /* Register Functions ----------------------------------------------------------------------------------*/
 
-//STATUS REGISTER
+//																								STATUS REGISTER
 
 /*******************************************************************************
 * Function Name  : Chk_Busy
@@ -88,7 +88,7 @@ void Chk_DMA_Busy(void)
 		temp = LCD_ReadReg(0xbf);
 	}while((temp&0x01)==0x01);
 }
-//REG[01h]
+//																								REG[01h]
 /*******************************************************************************
 * Function Name  : Display_ON
 * Description    : Display on
@@ -161,8 +161,20 @@ void Software_Reset(void)
     LCD_WriteData(0x00);// No hay que hacer un writeCmd primero ?
     Delay_ms(1);
 }
+//																								REG[02h]
+/*******************************************************************************
+* Function Name  : Start
+* Description    : Start writing/reading data to LCD
+* Input          : None
+* Output         : None
+* Return         : None
+* Attention		 : None
+*******************************************************************************/
+void Start_Data(void){
 
-//REG[04h]
+	LCD_WriteCmd(0x02);
+}
+//																								REG[04h]
 /*******************************************************************************
 * Function Name  : PCLK_inversion (Pixel Clock Setting Register)
 * Description    : PDAT is fetched at PCLK falling edge.
@@ -209,7 +221,7 @@ void PCLK_width(uint8_t setx) //uint8_t[1:0]
     LCD_WriteReg_ANDORMask(0x04,0x80,setx);//PCSR
 }
 
-//REG[05h]
+//																								REG[05h]
 /*******************************************************************************
 * Function Name  : Serial_ROM_select0
 * Description    : Serial Flash/ROM 0 I/F is selected.
@@ -323,6 +335,7 @@ void SERIAL_ROM_Read_Cycle_6bus(void)
 {
 	LCD_WriteReg_ORMask(0x05,0x10);//SROC
 }
+
 /*******************************************************************************
 * Function Name  : SERIAL_ROM_Font_mode
 * Description    : Font mode
@@ -335,7 +348,6 @@ void SERIAL_ROM_Font_mode(void)
 {
 	LCD_WriteReg_ANDMask(0x05,0xFB);//SROC
 }
-
 
 /*******************************************************************************
 * Function Name  : SERIAL_ROM_DMA_mode
@@ -461,7 +473,7 @@ void MPU_16bit_Interface(void)
 	LCD_WriteReg_ORMask(0x10,0x02);//SYSR
 }
 
-//REG[12h]
+//																									REG[12h]
 /*******************************************************************************
 * Function Name  : GPI_data
 * Description    : General Purpose Input.
@@ -1211,7 +1223,7 @@ void Font_Standard(void)
 *******************************************************************************/
 void Font_Arial(void)
 {
-	LCD_WriteReg_ANDORMask(0x2F,0xFE,0x01);
+	LCD_WriteReg_ANDORMask(0x2F,0xFD,0x01);
 }
 
 /*******************************************************************************
@@ -1224,7 +1236,7 @@ void Font_Arial(void)
 *******************************************************************************/
 void Font_Roman(void)
 {
-	LCD_WriteReg_ANDORMask(0x2F,0xFD,0x02);
+	LCD_WriteReg_ANDORMask(0x2F,0xFE,0x02);
 }
 
 
@@ -1307,7 +1319,7 @@ void Graphic_Mode(void)
 
 /*******************************************************************************
 * Function Name  : Text_Mode
-* Description    :
+* Description    : Graphic mode or text mode selection. bit 7 bit[6-0] cursor blink...transparenci...
 * Input          : None
 * Output         : None
 * Return         : None

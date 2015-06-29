@@ -19,7 +19,7 @@
       </source>
       <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14e3afc3013">
       </source>
-      <source file="..\..\..\Lcd\RA8875\Driver_RA8875.c" lastModified="14e3cda64a7">
+      <source file="..\..\..\Lcd\RA8875\Driver_RA8875.c" lastModified="14e40207005">
          <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
          <include file="..\..\..\Lcd\RA8875\Config_RA8875.h"/>
       </source>
@@ -42,6 +42,9 @@
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_fsmc.c" lastModified="14e3afc31b6">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\Lcd\Font\Driver_Font.c" lastModified="14e40df4ed2">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
       <source file="..\..\..\Lcd\RA8875\Interface_RA8875.c" lastModified="14e3c3cb11c">
          <include file="..\..\..\Lcd\RA8875\Interface_RA8875.h"/>
@@ -73,10 +76,12 @@
          <include file="..\..\..\Lcd\RA8875\Interface_RA8875.h"/>
          <include file="..\..\..\Delay\Delay.h"/>
       </source>
+      <source file="..\..\..\Lcd\LCD_System.h" lastModified="14e3f67cb85">
+      </source>
       <source file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h" lastModified="14e3afc30d3">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\main.c" lastModified="14e3cdeadd8">
+      <source file="..\..\..\main.c" lastModified="14e40e29995">
          <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
          <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
          <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
@@ -93,11 +98,11 @@
       </source>
       <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14e3afc2f67">
       </source>
-      <source file="..\..\..\Test\Test.h" lastModified="14e3b94bdae">
-         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
-      </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="14e3afc31ab">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
+      </source>
+      <source file="..\..\..\Test\Test.h" lastModified="14e3b94bdae">
+         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
       </source>
       <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14e3afc31bf">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>

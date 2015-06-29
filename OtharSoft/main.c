@@ -27,13 +27,19 @@ int main(void)
 	Display_OFF();
 	Delay_ms(10);
 	Display_ON();
-	//LCD_Clear(Blue);
+	LCD_Clear(White);
+	Delay_ms(2000);
 
 
-	//Foreground_color(Black);
-	//Background_color(White);
-	//Active_Window(0,799,0,479);
-	LCD_WriteText();
+
+	Active_Window(0,799,0,479);
+	LCDPrintStr("Hola Presunta",400,100,Black,White,1,1,"zoom2");
+	LCDPrintStr("Hola Presunta",400,200,Black,White,1,2,"zoom2");
+	LCDPrintStr("Hola Presunta",400,300,Black,White,1,3,"zoom2");
+	LCDPrintStr("Hola Presunta",400,400,Black,White,1,4,"zoom2");
+	uint8_t temp;
+	//temp = DMA_Access_Font();
+	//LCD_WriteText();
 	//LCD_Write2();
 	/*Memory_Clear();*/
 	//Delay_ms(2500);
@@ -47,7 +53,7 @@ int main(void)
 			uint32_t i;
 			for(i=0;i<10201;i++)
 			{
-				LCD_WriteData(Blue);
+				LCD_WriteData(Black);
 				Chk_Busy();
 			}
 			//Delay_ms(2000);
@@ -59,7 +65,7 @@ int main(void)
     {
 
 
-    	//Test();
+    	Test();
 
 
     }
