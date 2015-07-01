@@ -3,6 +3,7 @@ Allocating common symbols
 Common symbol       size              file
 
 print_arguments     0x10              ..\obj\LCD_System.o
+temp                0x4               ..\obj\Driver_Font.o
 delayTime           0x4               ..\obj\Delay.o
 
 Discarded input sections
@@ -10,6 +11,10 @@ Discarded input sections
  .text          0x00000000        0x0 ..\obj\LCD_System.o
  .data          0x00000000        0x0 ..\obj\LCD_System.o
  .bss           0x00000000        0x0 ..\obj\LCD_System.o
+ .text.LCDPrintStr
+                0x00000000      0x160 ..\obj\LCD_System.o
+ .text.Show_String
+                0x00000000       0x38 ..\obj\LCD_System.o
  .text.Chk_Wait
                 0x00000000        0xc ..\obj\LCD_System.o
  .rodata        0x00000000       0x10 ..\obj\LCD_System.o
@@ -19,19 +24,10 @@ Discarded input sections
  .text          0x00000000        0x0 ..\obj\Driver_Font.o
  .data          0x00000000        0x0 ..\obj\Driver_Font.o
  .bss           0x00000000        0x0 ..\obj\Driver_Font.o
- .text.DMA_Access_Font
-                0x00000000       0x40 ..\obj\Driver_Font.o
- .debug_info    0x00000000      0x170 ..\obj\Driver_Font.o
- .debug_abbrev  0x00000000       0xb2 ..\obj\Driver_Font.o
- .debug_aranges
+ .text.External_Font
+                0x00000000       0x34 ..\obj\Driver_Font.o
+ .text.TextMode_Normal
                 0x00000000       0x20 ..\obj\Driver_Font.o
- .debug_ranges  0x00000000       0x10 ..\obj\Driver_Font.o
- .debug_line    0x00000000      0x17c ..\obj\Driver_Font.o
- .debug_str     0x00000000      0x276 ..\obj\Driver_Font.o
- .comment       0x00000000       0x71 ..\obj\Driver_Font.o
- .debug_frame   0x00000000       0x34 ..\obj\Driver_Font.o
- .ARM.attributes
-                0x00000000       0x33 ..\obj\Driver_Font.o
  .text          0x00000000        0x0 ..\obj\startup_stm32f4xx.o
  .data          0x00000000        0x0 ..\obj\startup_stm32f4xx.o
  .bss           0x00000000        0x0 ..\obj\startup_stm32f4xx.o
@@ -131,15 +127,27 @@ Discarded input sections
  .text          0x00000000        0x0 ..\obj\Test.o
  .data          0x00000000        0x0 ..\obj\Test.o
  .bss           0x00000000        0x0 ..\obj\Test.o
+ .text.Test     0x00000000       0x34 ..\obj\Test.o
+ .debug_info    0x00000000       0xa7 ..\obj\Test.o
+ .debug_abbrev  0x00000000       0x65 ..\obj\Test.o
+ .debug_aranges
+                0x00000000       0x20 ..\obj\Test.o
+ .debug_ranges  0x00000000       0x10 ..\obj\Test.o
+ .debug_line    0x00000000      0x16e ..\obj\Test.o
+ .debug_str     0x00000000      0x163 ..\obj\Test.o
+ .comment       0x00000000       0x71 ..\obj\Test.o
+ .debug_frame   0x00000000       0x2c ..\obj\Test.o
+ .ARM.attributes
+                0x00000000       0x33 ..\obj\Test.o
  .text          0x00000000        0x0 ..\obj\Delay.o
  .data          0x00000000        0x0 ..\obj\Delay.o
  .bss           0x00000000        0x0 ..\obj\Delay.o
  .text          0x00000000        0x0 ..\obj\Driver_RA8875.o
  .data          0x00000000        0x0 ..\obj\Driver_RA8875.o
  .bss           0x00000000        0x0 ..\obj\Driver_RA8875.o
+ .text.Chk_Busy
+                0x00000000       0x1c ..\obj\Driver_RA8875.o
  .text.Chk_Busy_BTE
-                0x00000000       0x20 ..\obj\Driver_RA8875.o
- .text.Chk_Busy_DIR_Access
                 0x00000000       0x20 ..\obj\Driver_RA8875.o
  .text.Chk_DMA_Busy
                 0x00000000       0x20 ..\obj\Driver_RA8875.o
@@ -147,19 +155,15 @@ Discarded input sections
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Sleep_Mode
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
- .text.Software_Reset
-                0x00000000       0x1c ..\obj\Driver_RA8875.o
+ .text.Start_Data
+                0x00000000        0xc ..\obj\Driver_RA8875.o
  .text.PCLK_inversion
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.PCLK_non_inversion
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.PCLK_width
                 0x00000000       0x20 ..\obj\Driver_RA8875.o
- .text.Serial_ROM_select0
-                0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Serial_ROM_select1
-                0x00000000       0x10 ..\obj\Driver_RA8875.o
- .text.Serial_ROM_Address_set_24bit
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Serial_ROM_Address_set_32bit
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
@@ -172,8 +176,6 @@ Discarded input sections
  .text.SERIAL_ROM_Font_mode
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.SERIAL_ROM_DMA_mode
-                0x00000000       0x10 ..\obj\Driver_RA8875.o
- .text.SERIAL_ROM_Single_mode
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.SERIAL_ROM_Dual_mode0
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
@@ -209,6 +211,8 @@ Discarded input sections
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Internal_CGROM
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.External_CGROM
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.ISO8859_1
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.ISO8859_2
@@ -219,6 +223,8 @@ Discarded input sections
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.No_FullAlignment
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.FullAlignment
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Font_with_BackgroundColor
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Font_with_BackgroundTransparency
@@ -227,11 +233,15 @@ Discarded input sections
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Rotate90_Font
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Horizontal_FontEnlarge_x1
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Horizontal_FontEnlarge_x2
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Horizontal_FontEnlarge_x3
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Horizontal_FontEnlarge_x4
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Vertical_FontEnlarge_x1
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Vertical_FontEnlarge_x2
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
@@ -243,6 +253,16 @@ Discarded input sections
                 0x00000000       0x1c ..\obj\Driver_RA8875.o
  .text.Scroll_Offset
                 0x00000000       0x48 ..\obj\Driver_RA8875.o
+ .text.Line_distance
+                0x00000000       0x1c ..\obj\Driver_RA8875.o
+ .text.Font_size_16x16_8x16
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Font_size_24x24_12x24
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Font_size_32x32_16x32
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Font_spacing_set
+                0x00000000       0x28 ..\obj\Driver_RA8875.o
  .text.GT_serial_ROM_select_GT21L16TW
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.GT_serial_ROM_select_GT30L16U2W
@@ -250,6 +270,8 @@ Discarded input sections
  .text.GT_serial_ROM_select_GT30L24T3Y
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.GT_serial_ROM_select_GT30L24M1Z
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.GT_serial_ROM_select_GT30L32S4W
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Font_code_GB2312
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
@@ -259,14 +281,28 @@ Discarded input sections
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Font_code_UNICODE
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Font_code_ASCII
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Font_code_UNIJIS
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Font_code_JIS0208
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Font_code_LATIN
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Font_Standard
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Font_Arial
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Font_Roman
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Font_Bold
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Scroll_Window
                 0x00000000       0x84 ..\obj\Driver_RA8875.o
+ .text.Graphic_Mode
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.Text_Mode
+                0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Text_Cursor_Disable
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Text_Cursor_Enable
@@ -333,6 +369,8 @@ Discarded input sections
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Memory_read_DownTop_LeftRight
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
+ .text.XY_Coordinate
+                0x00000000       0x48 ..\obj\Driver_RA8875.o
  .text.Memory_read_Coordinate
                 0x00000000       0x48 ..\obj\Driver_RA8875.o
  .text.Text_Cursor_Horizontal_Size
@@ -550,16 +588,10 @@ Discarded input sections
                 0x00000000       0x48 ..\obj\Driver_RA8875.o
  .text.Floating_window_display_point
                 0x00000000       0x48 ..\obj\Driver_RA8875.o
- .text.Serial_ROM_direct_access_mode_enable
-                0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.Serial_ROM_direct_access_mode_disable
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.DMA_Address_32bits
                 0x00000000       0x40 ..\obj\Driver_RA8875.o
- .text.DMA_Address_24bits
-                0x00000000       0x34 ..\obj\Driver_RA8875.o
- .text.DMA_Read_Data_buffer
-                0x00000000       0x14 ..\obj\Driver_RA8875.o
  .text.KEYSCAN_Interrupt_Enable
                 0x00000000       0x10 ..\obj\Driver_RA8875.o
  .text.KEYSCAN_Interrupt_Disable
@@ -737,8 +769,6 @@ Discarded input sections
  .text          0x00000000        0x0 ..\obj\Interface_RA8875.o
  .data          0x00000000        0x0 ..\obj\Interface_RA8875.o
  .bss           0x00000000        0x0 ..\obj\Interface_RA8875.o
- .text.LCD_ReadReg
-                0x00000000       0x20 ..\obj\Interface_RA8875.o
  .text          0x00000000        0x0 ..\obj\system_stm32f4xx.o
  .bss           0x00000000        0x0 ..\obj\system_stm32f4xx.o
  .text.SystemCoreClockUpdate
@@ -982,313 +1012,287 @@ Linker script and memory map
 
                 0x20020000                _eram = 0x20020000
 
-.text           0x08000000     0x16ac
+.text           0x08000000     0x1508
  *(.isr_vector)
  .isr_vector    0x08000000      0x188 ..\obj\startup_stm32f4xx.o
                 0x08000000                g_pfnVectors
  *(.text*)
- .text.LCDPrintStr
-                0x08000188      0x12c ..\obj\LCD_System.o
-                0x08000188                LCDPrintStr
- .text.Show_String
-                0x080002b4       0x38 ..\obj\LCD_System.o
-                0x080002b4                Show_String
+ .text.LCDPrintStrROM
+                0x08000188       0x4c ..\obj\LCD_System.o
+                0x08000188                LCDPrintStrROM
  .text.LCD_Clear
-                0x080002ec       0x34 ..\obj\LCD_System.o
-                0x080002ec                LCD_Clear
+                0x080001d4       0x34 ..\obj\LCD_System.o
+                0x080001d4                LCD_Clear
  .text.LCD_Reset
-                0x08000320       0x28 ..\obj\LCD_System.o
-                0x08000320                LCD_Reset
+                0x08000208       0x28 ..\obj\LCD_System.o
+                0x08000208                LCD_Reset
+ .text.DMA_Access_Font
+                0x08000230       0x28 ..\obj\Driver_Font.o
+                0x08000230                DMA_Access_Font
+ .text.get_FontByte
+                0x08000258       0x58 ..\obj\Driver_Font.o
+                0x08000258                get_FontByte
+ .text.Print_String
+                0x080002b0       0x70 ..\obj\Driver_Font.o
+                0x080002b0                Print_String
+ .text.Addr_Font
+                0x08000320       0x3c ..\obj\Driver_Font.o
+                0x08000320                Addr_Font
  .text.Default_Reset_Handler
-                0x08000348       0x58 ..\obj\startup_stm32f4xx.o
-                0x08000348                Default_Reset_Handler
-                0x08000348                Reset_Handler
+                0x0800035c       0x58 ..\obj\startup_stm32f4xx.o
+                0x0800035c                Default_Reset_Handler
+                0x0800035c                Reset_Handler
  .text.Default_Handler
-                0x080003a0        0x8 ..\obj\startup_stm32f4xx.o
-                0x080003a0                RTC_Alarm_IRQHandler
-                0x080003a0                HASH_RNG_IRQHandler
-                0x080003a0                EXTI2_IRQHandler
-                0x080003a0                TIM8_CC_IRQHandler
-                0x080003a0                DebugMon_Handler
-                0x080003a0                TIM1_CC_IRQHandler
-                0x080003a0                DMA2_Stream5_IRQHandler
-                0x080003a0                HardFault_Handler
-                0x080003a0                DMA1_Stream5_IRQHandler
-                0x080003a0                PVD_IRQHandler
-                0x080003a0                SDIO_IRQHandler
-                0x080003a0                TAMP_STAMP_IRQHandler
-                0x080003a0                PendSV_Handler
-                0x080003a0                NMI_Handler
-                0x080003a0                CAN2_RX1_IRQHandler
-                0x080003a0                EXTI3_IRQHandler
-                0x080003a0                TIM8_TRG_COM_TIM14_IRQHandler
-                0x080003a0                TIM1_UP_TIM10_IRQHandler
-                0x080003a0                TIM8_UP_TIM13_IRQHandler
-                0x080003a0                I2C3_ER_IRQHandler
-                0x080003a0                EXTI0_IRQHandler
-                0x080003a0                I2C2_EV_IRQHandler
-                0x080003a0                DMA1_Stream2_IRQHandler
-                0x080003a0                CAN1_RX0_IRQHandler
-                0x080003a0                FPU_IRQHandler
-                0x080003a0                OTG_HS_WKUP_IRQHandler
-                0x080003a0                UsageFault_Handler
-                0x080003a0                CAN2_SCE_IRQHandler
-                0x080003a0                DMA2_Stream2_IRQHandler
-                0x080003a0                SPI1_IRQHandler
-                0x080003a0                TIM6_DAC_IRQHandler
-                0x080003a0                TIM1_BRK_TIM9_IRQHandler
-                0x080003a0                DCMI_IRQHandler
-                0x080003a0                CAN2_RX0_IRQHandler
-                0x080003a0                DMA2_Stream3_IRQHandler
-                0x080003a0                USART6_IRQHandler
-                0x080003a0                USART3_IRQHandler
-                0x080003a0                CRYP_IRQHandler
-                0x080003a0                CAN1_RX1_IRQHandler
-                0x080003a0                UART5_IRQHandler
-                0x080003a0                DMA2_Stream0_IRQHandler
-                0x080003a0                TIM4_IRQHandler
-                0x080003a0                I2C1_EV_IRQHandler
-                0x080003a0                DMA1_Stream6_IRQHandler
-                0x080003a0                DMA1_Stream1_IRQHandler
-                0x080003a0                UART4_IRQHandler
-                0x080003a0                TIM3_IRQHandler
-                0x080003a0                RCC_IRQHandler
-                0x080003a0                TIM8_BRK_TIM12_IRQHandler
-                0x080003a0                EXTI15_10_IRQHandler
-                0x080003a0                ADC_IRQHandler
-                0x080003a0                DMA1_Stream7_IRQHandler
-                0x080003a0                TIM7_IRQHandler
-                0x080003a0                CAN2_TX_IRQHandler
-                0x080003a0                TIM5_IRQHandler
-                0x080003a0                DMA2_Stream7_IRQHandler
-                0x080003a0                I2C3_EV_IRQHandler
-                0x080003a0                EXTI9_5_IRQHandler
-                0x080003a0                RTC_WKUP_IRQHandler
-                0x080003a0                ETH_WKUP_IRQHandler
-                0x080003a0                SPI2_IRQHandler
-                0x080003a0                OTG_HS_EP1_IN_IRQHandler
-                0x080003a0                MemManage_Handler
-                0x080003a0                DMA1_Stream0_IRQHandler
-                0x080003a0                CAN1_TX_IRQHandler
-                0x080003a0                SVC_Handler
-                0x080003a0                EXTI4_IRQHandler
-                0x080003a0                FSMC_IRQHandler
-                0x080003a0                ETH_IRQHandler
-                0x080003a0                OTG_HS_EP1_OUT_IRQHandler
-                0x080003a0                WWDG_IRQHandler
-                0x080003a0                TIM2_IRQHandler
-                0x080003a0                OTG_FS_WKUP_IRQHandler
-                0x080003a0                TIM1_TRG_COM_TIM11_IRQHandler
-                0x080003a0                OTG_HS_IRQHandler
-                0x080003a0                EXTI1_IRQHandler
-                0x080003a0                USART2_IRQHandler
-                0x080003a0                I2C2_ER_IRQHandler
-                0x080003a0                DMA2_Stream1_IRQHandler
-                0x080003a0                CAN1_SCE_IRQHandler
-                0x080003a0                FLASH_IRQHandler
-                0x080003a0                DMA2_Stream4_IRQHandler
-                0x080003a0                BusFault_Handler
-                0x080003a0                USART1_IRQHandler
-                0x080003a0                OTG_FS_IRQHandler
-                0x080003a0                SPI3_IRQHandler
-                0x080003a0                DMA1_Stream4_IRQHandler
-                0x080003a0                I2C1_ER_IRQHandler
-                0x080003a0                DMA2_Stream6_IRQHandler
-                0x080003a0                DMA1_Stream3_IRQHandler
+                0x080003b4        0x8 ..\obj\startup_stm32f4xx.o
+                0x080003b4                RTC_Alarm_IRQHandler
+                0x080003b4                HASH_RNG_IRQHandler
+                0x080003b4                EXTI2_IRQHandler
+                0x080003b4                TIM8_CC_IRQHandler
+                0x080003b4                DebugMon_Handler
+                0x080003b4                TIM1_CC_IRQHandler
+                0x080003b4                DMA2_Stream5_IRQHandler
+                0x080003b4                HardFault_Handler
+                0x080003b4                DMA1_Stream5_IRQHandler
+                0x080003b4                PVD_IRQHandler
+                0x080003b4                SDIO_IRQHandler
+                0x080003b4                TAMP_STAMP_IRQHandler
+                0x080003b4                PendSV_Handler
+                0x080003b4                NMI_Handler
+                0x080003b4                CAN2_RX1_IRQHandler
+                0x080003b4                EXTI3_IRQHandler
+                0x080003b4                TIM8_TRG_COM_TIM14_IRQHandler
+                0x080003b4                TIM1_UP_TIM10_IRQHandler
+                0x080003b4                TIM8_UP_TIM13_IRQHandler
+                0x080003b4                I2C3_ER_IRQHandler
+                0x080003b4                EXTI0_IRQHandler
+                0x080003b4                I2C2_EV_IRQHandler
+                0x080003b4                DMA1_Stream2_IRQHandler
+                0x080003b4                CAN1_RX0_IRQHandler
+                0x080003b4                FPU_IRQHandler
+                0x080003b4                OTG_HS_WKUP_IRQHandler
+                0x080003b4                UsageFault_Handler
+                0x080003b4                CAN2_SCE_IRQHandler
+                0x080003b4                DMA2_Stream2_IRQHandler
+                0x080003b4                SPI1_IRQHandler
+                0x080003b4                TIM6_DAC_IRQHandler
+                0x080003b4                TIM1_BRK_TIM9_IRQHandler
+                0x080003b4                DCMI_IRQHandler
+                0x080003b4                CAN2_RX0_IRQHandler
+                0x080003b4                DMA2_Stream3_IRQHandler
+                0x080003b4                USART6_IRQHandler
+                0x080003b4                USART3_IRQHandler
+                0x080003b4                CRYP_IRQHandler
+                0x080003b4                CAN1_RX1_IRQHandler
+                0x080003b4                UART5_IRQHandler
+                0x080003b4                DMA2_Stream0_IRQHandler
+                0x080003b4                TIM4_IRQHandler
+                0x080003b4                I2C1_EV_IRQHandler
+                0x080003b4                DMA1_Stream6_IRQHandler
+                0x080003b4                DMA1_Stream1_IRQHandler
+                0x080003b4                UART4_IRQHandler
+                0x080003b4                TIM3_IRQHandler
+                0x080003b4                RCC_IRQHandler
+                0x080003b4                TIM8_BRK_TIM12_IRQHandler
+                0x080003b4                EXTI15_10_IRQHandler
+                0x080003b4                ADC_IRQHandler
+                0x080003b4                DMA1_Stream7_IRQHandler
+                0x080003b4                TIM7_IRQHandler
+                0x080003b4                CAN2_TX_IRQHandler
+                0x080003b4                TIM5_IRQHandler
+                0x080003b4                DMA2_Stream7_IRQHandler
+                0x080003b4                I2C3_EV_IRQHandler
+                0x080003b4                EXTI9_5_IRQHandler
+                0x080003b4                RTC_WKUP_IRQHandler
+                0x080003b4                ETH_WKUP_IRQHandler
+                0x080003b4                SPI2_IRQHandler
+                0x080003b4                OTG_HS_EP1_IN_IRQHandler
+                0x080003b4                MemManage_Handler
+                0x080003b4                DMA1_Stream0_IRQHandler
+                0x080003b4                CAN1_TX_IRQHandler
+                0x080003b4                SVC_Handler
+                0x080003b4                EXTI4_IRQHandler
+                0x080003b4                FSMC_IRQHandler
+                0x080003b4                ETH_IRQHandler
+                0x080003b4                OTG_HS_EP1_OUT_IRQHandler
+                0x080003b4                WWDG_IRQHandler
+                0x080003b4                TIM2_IRQHandler
+                0x080003b4                OTG_FS_WKUP_IRQHandler
+                0x080003b4                TIM1_TRG_COM_TIM11_IRQHandler
+                0x080003b4                OTG_HS_IRQHandler
+                0x080003b4                EXTI1_IRQHandler
+                0x080003b4                USART2_IRQHandler
+                0x080003b4                I2C2_ER_IRQHandler
+                0x080003b4                DMA2_Stream1_IRQHandler
+                0x080003b4                CAN1_SCE_IRQHandler
+                0x080003b4                FLASH_IRQHandler
+                0x080003b4                DMA2_Stream4_IRQHandler
+                0x080003b4                BusFault_Handler
+                0x080003b4                USART1_IRQHandler
+                0x080003b4                OTG_FS_IRQHandler
+                0x080003b4                SPI3_IRQHandler
+                0x080003b4                DMA1_Stream4_IRQHandler
+                0x080003b4                I2C1_ER_IRQHandler
+                0x080003b4                DMA2_Stream6_IRQHandler
+                0x080003b4                DMA1_Stream3_IRQHandler
  .text.InitializeTimer
-                0x080003a8       0x40 ..\obj\Config_RA8875.o
-                0x080003a8                InitializeTimer
+                0x080003bc       0x40 ..\obj\Config_RA8875.o
+                0x080003bc                InitializeTimer
  .text.InitializePWM_TIM4
-                0x080003e8       0x48 ..\obj\Config_RA8875.o
-                0x080003e8                InitializePWM_TIM4
+                0x080003fc       0x48 ..\obj\Config_RA8875.o
+                0x080003fc                InitializePWM_TIM4
  .text.LCD_CtrlLinesFSMC
-                0x08000430      0x11c ..\obj\Config_RA8875.o
+                0x08000444      0x11c ..\obj\Config_RA8875.o
  .text.LCD_CtrlLinesConfig
-                0x0800054c       0x70 ..\obj\Config_RA8875.o
+                0x08000560       0x70 ..\obj\Config_RA8875.o
  .text.LCD_FSMCConfig
-                0x080005bc       0x78 ..\obj\Config_RA8875.o
+                0x080005d0       0x78 ..\obj\Config_RA8875.o
  .text.LCD_Configuration
-                0x08000634       0x24 ..\obj\Config_RA8875.o
+                0x08000648       0x24 ..\obj\Config_RA8875.o
  .text.LCD_Initialization
-                0x08000658       0xdc ..\obj\Config_RA8875.o
-                0x08000658                LCD_Initialization
+                0x0800066c       0xdc ..\obj\Config_RA8875.o
+                0x0800066c                LCD_Initialization
  .text.PLL_init
-                0x08000734       0x24 ..\obj\Config_RA8875.o
-                0x08000734                PLL_init
- .text.main     0x08000758      0x124 ..\obj\main.o
-                0x08000758                main
+                0x08000748       0x24 ..\obj\Config_RA8875.o
+                0x08000748                PLL_init
+ .text.main     0x0800076c       0x64 ..\obj\main.o
+                0x0800076c                main
  .text.RCC_AHB1PeriphClockCmd
-                0x0800087c       0x3c ..\obj\stm32f4xx_rcc.o
-                0x0800087c                RCC_AHB1PeriphClockCmd
+                0x080007d0       0x3c ..\obj\stm32f4xx_rcc.o
+                0x080007d0                RCC_AHB1PeriphClockCmd
  .text.RCC_AHB3PeriphClockCmd
-                0x080008b8       0x3c ..\obj\stm32f4xx_rcc.o
-                0x080008b8                RCC_AHB3PeriphClockCmd
+                0x0800080c       0x3c ..\obj\stm32f4xx_rcc.o
+                0x0800080c                RCC_AHB3PeriphClockCmd
  .text.RCC_APB1PeriphClockCmd
-                0x080008f4       0x3c ..\obj\stm32f4xx_rcc.o
-                0x080008f4                RCC_APB1PeriphClockCmd
- .text.Test     0x08000930       0x34 ..\obj\Test.o
-                0x08000930                Test
+                0x08000848       0x3c ..\obj\stm32f4xx_rcc.o
+                0x08000848                RCC_APB1PeriphClockCmd
  .text.NVIC_SetPriority
-                0x08000964       0x54 ..\obj\Delay.o
+                0x08000884       0x54 ..\obj\Delay.o
  .text.SysTick_Config
-                0x080009b8       0x44 ..\obj\Delay.o
+                0x080008d8       0x44 ..\obj\Delay.o
  .text.Init_SysTick
-                0x080009fc       0x2c ..\obj\Delay.o
-                0x080009fc                Init_SysTick
+                0x0800091c       0x2c ..\obj\Delay.o
+                0x0800091c                Init_SysTick
  .text.SysTick_Handler
-                0x08000a28       0x24 ..\obj\Delay.o
-                0x08000a28                SysTick_Handler
+                0x08000948       0x24 ..\obj\Delay.o
+                0x08000948                SysTick_Handler
  .text.Delay_ms
-                0x08000a4c       0x28 ..\obj\Delay.o
-                0x08000a4c                Delay_ms
- .text.Chk_Busy
-                0x08000a74       0x1c ..\obj\Driver_RA8875.o
-                0x08000a74                Chk_Busy
+                0x0800096c       0x28 ..\obj\Delay.o
+                0x0800096c                Delay_ms
+ .text.Chk_Busy_DIR_Access
+                0x08000994       0x20 ..\obj\Driver_RA8875.o
+                0x08000994                Chk_Busy_DIR_Access
  .text.Display_ON
-                0x08000a90       0x10 ..\obj\Driver_RA8875.o
-                0x08000a90                Display_ON
+                0x080009b4       0x10 ..\obj\Driver_RA8875.o
+                0x080009b4                Display_ON
  .text.Display_OFF
-                0x08000aa0       0x10 ..\obj\Driver_RA8875.o
-                0x08000aa0                Display_OFF
- .text.Start_Data
-                0x08000ab0        0xc ..\obj\Driver_RA8875.o
-                0x08000ab0                Start_Data
+                0x080009c4       0x10 ..\obj\Driver_RA8875.o
+                0x080009c4                Display_OFF
+ .text.Software_Reset
+                0x080009d4       0x1c ..\obj\Driver_RA8875.o
+                0x080009d4                Software_Reset
+ .text.Serial_ROM_select0
+                0x080009f0       0x10 ..\obj\Driver_RA8875.o
+                0x080009f0                Serial_ROM_select0
+ .text.Serial_ROM_Address_set_24bit
+                0x08000a00       0x10 ..\obj\Driver_RA8875.o
+                0x08000a00                Serial_ROM_Address_set_24bit
  .text.Select_Serial_Waveform_mode3
-                0x08000abc       0x10 ..\obj\Driver_RA8875.o
-                0x08000abc                Select_Serial_Waveform_mode3
+                0x08000a10       0x10 ..\obj\Driver_RA8875.o
+                0x08000a10                Select_Serial_Waveform_mode3
  .text.SERIAL_ROM_Read_Cycle_5bus
-                0x08000acc       0x10 ..\obj\Driver_RA8875.o
-                0x08000acc                SERIAL_ROM_Read_Cycle_5bus
+                0x08000a20       0x10 ..\obj\Driver_RA8875.o
+                0x08000a20                SERIAL_ROM_Read_Cycle_5bus
+ .text.SERIAL_ROM_Single_mode
+                0x08000a30       0x10 ..\obj\Driver_RA8875.o
+                0x08000a30                SERIAL_ROM_Single_mode
  .text.SROM_CLK_DIV
-                0x08000adc       0x1c ..\obj\Driver_RA8875.o
-                0x08000adc                SROM_CLK_DIV
- .text.External_CGROM
-                0x08000af8       0x10 ..\obj\Driver_RA8875.o
-                0x08000af8                External_CGROM
- .text.FullAlignment
-                0x08000b08       0x10 ..\obj\Driver_RA8875.o
-                0x08000b08                FullAlignment
- .text.Horizontal_FontEnlarge_x1
-                0x08000b18       0x10 ..\obj\Driver_RA8875.o
-                0x08000b18                Horizontal_FontEnlarge_x1
- .text.Vertical_FontEnlarge_x1
-                0x08000b28       0x10 ..\obj\Driver_RA8875.o
-                0x08000b28                Vertical_FontEnlarge_x1
- .text.Line_distance
-                0x08000b38       0x1c ..\obj\Driver_RA8875.o
-                0x08000b38                Line_distance
+                0x08000a40       0x1c ..\obj\Driver_RA8875.o
+                0x08000a40                SROM_CLK_DIV
  .text.Font_Coordinate
-                0x08000b54       0x48 ..\obj\Driver_RA8875.o
-                0x08000b54                Font_Coordinate
- .text.Font_size_16x16_8x16
-                0x08000b9c       0x10 ..\obj\Driver_RA8875.o
-                0x08000b9c                Font_size_16x16_8x16
- .text.Font_size_24x24_12x24
-                0x08000bac       0x10 ..\obj\Driver_RA8875.o
-                0x08000bac                Font_size_24x24_12x24
- .text.Font_size_32x32_16x32
-                0x08000bbc       0x10 ..\obj\Driver_RA8875.o
-                0x08000bbc                Font_size_32x32_16x32
- .text.Font_spacing_set
-                0x08000bcc       0x28 ..\obj\Driver_RA8875.o
-                0x08000bcc                Font_spacing_set
- .text.GT_serial_ROM_select_GT30L32S4W
-                0x08000bf4       0x10 ..\obj\Driver_RA8875.o
-                0x08000bf4                GT_serial_ROM_select_GT30L32S4W
- .text.Font_code_ASCII
-                0x08000c04       0x10 ..\obj\Driver_RA8875.o
-                0x08000c04                Font_code_ASCII
- .text.Font_Standard
-                0x08000c14       0x10 ..\obj\Driver_RA8875.o
-                0x08000c14                Font_Standard
- .text.Font_Arial
-                0x08000c24       0x10 ..\obj\Driver_RA8875.o
-                0x08000c24                Font_Arial
- .text.Font_Roman
-                0x08000c34       0x10 ..\obj\Driver_RA8875.o
-                0x08000c34                Font_Roman
- .text.Font_Bold
-                0x08000c44       0x10 ..\obj\Driver_RA8875.o
-                0x08000c44                Font_Bold
+                0x08000a5c       0x48 ..\obj\Driver_RA8875.o
+                0x08000a5c                Font_Coordinate
  .text.Active_Window
-                0x08000c54       0x84 ..\obj\Driver_RA8875.o
-                0x08000c54                Active_Window
- .text.Graphic_Mode
-                0x08000cd8       0x10 ..\obj\Driver_RA8875.o
-                0x08000cd8                Graphic_Mode
- .text.Text_Mode
-                0x08000ce8       0x10 ..\obj\Driver_RA8875.o
-                0x08000ce8                Text_Mode
- .text.XY_Coordinate
-                0x08000cf8       0x48 ..\obj\Driver_RA8875.o
-                0x08000cf8                XY_Coordinate
+                0x08000aa4       0x84 ..\obj\Driver_RA8875.o
+                0x08000aa4                Active_Window
  .text.Background_color
-                0x08000d40       0x40 ..\obj\Driver_RA8875.o
-                0x08000d40                Background_color
+                0x08000b28       0x40 ..\obj\Driver_RA8875.o
+                0x08000b28                Background_color
  .text.Foreground_color
-                0x08000d80       0x40 ..\obj\Driver_RA8875.o
-                0x08000d80                Foreground_color
+                0x08000b68       0x40 ..\obj\Driver_RA8875.o
+                0x08000b68                Foreground_color
  .text.Geometric_Coordinate
-                0x08000dc0       0x84 ..\obj\Driver_RA8875.o
-                0x08000dc0                Geometric_Coordinate
+                0x08000ba8       0x84 ..\obj\Driver_RA8875.o
+                0x08000ba8                Geometric_Coordinate
+ .text.Serial_ROM_direct_access_mode_enable
+                0x08000c2c       0x10 ..\obj\Driver_RA8875.o
+                0x08000c2c                Serial_ROM_direct_access_mode_enable
+ .text.DAM_Address_24bits
+                0x08000c3c       0x38 ..\obj\Driver_RA8875.o
+                0x08000c3c                DAM_Address_24bits
+ .text.DAM_Read_Data_buffer
+                0x08000c74       0x14 ..\obj\Driver_RA8875.o
+                0x08000c74                DAM_Read_Data_buffer
  .text.FSMC_NORSRAMInit
-                0x08000e44      0x134 ..\obj\stm32f4xx_fsmc.o
-                0x08000e44                FSMC_NORSRAMInit
+                0x08000c88      0x134 ..\obj\stm32f4xx_fsmc.o
+                0x08000c88                FSMC_NORSRAMInit
  .text.FSMC_NORSRAMCmd
-                0x08000f78       0x54 ..\obj\stm32f4xx_fsmc.o
-                0x08000f78                FSMC_NORSRAMCmd
+                0x08000dbc       0x54 ..\obj\stm32f4xx_fsmc.o
+                0x08000dbc                FSMC_NORSRAMCmd
  .text.GPIO_Init
-                0x08000fcc      0x11c ..\obj\stm32f4xx_gpio.o
-                0x08000fcc                GPIO_Init
+                0x08000e10      0x11c ..\obj\stm32f4xx_gpio.o
+                0x08000e10                GPIO_Init
  .text.GPIO_SetBits
-                0x080010e8       0x1c ..\obj\stm32f4xx_gpio.o
-                0x080010e8                GPIO_SetBits
+                0x08000f2c       0x1c ..\obj\stm32f4xx_gpio.o
+                0x08000f2c                GPIO_SetBits
  .text.GPIO_ResetBits
-                0x08001104       0x1c ..\obj\stm32f4xx_gpio.o
-                0x08001104                GPIO_ResetBits
+                0x08000f48       0x1c ..\obj\stm32f4xx_gpio.o
+                0x08000f48                GPIO_ResetBits
  .text.GPIO_PinAFConfig
-                0x08001120       0x90 ..\obj\stm32f4xx_gpio.o
-                0x08001120                GPIO_PinAFConfig
+                0x08000f64       0x90 ..\obj\stm32f4xx_gpio.o
+                0x08000f64                GPIO_PinAFConfig
  .text.LCD_WriteCmd
-                0x080011b0       0x20 ..\obj\Interface_RA8875.o
-                0x080011b0                LCD_WriteCmd
+                0x08000ff4       0x20 ..\obj\Interface_RA8875.o
+                0x08000ff4                LCD_WriteCmd
  .text.LCD_WriteData
-                0x080011d0       0x1c ..\obj\Interface_RA8875.o
-                0x080011d0                LCD_WriteData
+                0x08001014       0x1c ..\obj\Interface_RA8875.o
+                0x08001014                LCD_WriteData
  .text.LCD_ReadData
-                0x080011ec       0x18 ..\obj\Interface_RA8875.o
-                0x080011ec                LCD_ReadData
+                0x08001030       0x18 ..\obj\Interface_RA8875.o
+                0x08001030                LCD_ReadData
  .text.LCD_WriteReg
-                0x08001204       0x2c ..\obj\Interface_RA8875.o
-                0x08001204                LCD_WriteReg
+                0x08001048       0x2c ..\obj\Interface_RA8875.o
+                0x08001048                LCD_WriteReg
+ .text.LCD_ReadReg
+                0x08001074       0x20 ..\obj\Interface_RA8875.o
+                0x08001074                LCD_ReadReg
  .text.LCD_WriteReg_ORMask
-                0x08001230       0x3c ..\obj\Interface_RA8875.o
-                0x08001230                LCD_WriteReg_ORMask
+                0x08001094       0x3c ..\obj\Interface_RA8875.o
+                0x08001094                LCD_WriteReg_ORMask
  .text.LCD_WriteReg_ANDMask
-                0x0800126c       0x3c ..\obj\Interface_RA8875.o
-                0x0800126c                LCD_WriteReg_ANDMask
+                0x080010d0       0x3c ..\obj\Interface_RA8875.o
+                0x080010d0                LCD_WriteReg_ANDMask
  .text.LCD_WriteReg_ANDORMask
-                0x080012a8       0x48 ..\obj\Interface_RA8875.o
-                0x080012a8                LCD_WriteReg_ANDORMask
+                0x0800110c       0x48 ..\obj\Interface_RA8875.o
+                0x0800110c                LCD_WriteReg_ANDORMask
  .text.LCD_StatusRead
-                0x080012f0       0x18 ..\obj\Interface_RA8875.o
-                0x080012f0                LCD_StatusRead
+                0x08001154       0x18 ..\obj\Interface_RA8875.o
+                0x08001154                LCD_StatusRead
  .text.SystemInit
-                0x08001308       0x58 ..\obj\system_stm32f4xx.o
-                0x08001308                SystemInit
+                0x0800116c       0x58 ..\obj\system_stm32f4xx.o
+                0x0800116c                SystemInit
  .text.SetSysClock
-                0x08001360       0xf4 ..\obj\system_stm32f4xx.o
+                0x080011c4       0xf4 ..\obj\system_stm32f4xx.o
  .text.TIM_TimeBaseInit
-                0x08001454       0xd4 ..\obj\stm32f4xx_tim.o
-                0x08001454                TIM_TimeBaseInit
- .text.TIM_Cmd  0x08001528       0x40 ..\obj\stm32f4xx_tim.o
-                0x08001528                TIM_Cmd
+                0x080012b8       0xd4 ..\obj\stm32f4xx_tim.o
+                0x080012b8                TIM_TimeBaseInit
+ .text.TIM_Cmd  0x0800138c       0x40 ..\obj\stm32f4xx_tim.o
+                0x0800138c                TIM_Cmd
  .text.TIM_OC1Init
-                0x08001568       0xf4 ..\obj\stm32f4xx_tim.o
-                0x08001568                TIM_OC1Init
+                0x080013cc       0xf4 ..\obj\stm32f4xx_tim.o
+                0x080013cc                TIM_OC1Init
  .text.TIM_OC1PreloadConfig
-                0x0800165c       0x38 ..\obj\stm32f4xx_tim.o
-                0x0800165c                TIM_OC1PreloadConfig
+                0x080014c0       0x38 ..\obj\stm32f4xx_tim.o
+                0x080014c0                TIM_OC1PreloadConfig
  *(.init)
  *(.fini)
  *crtbegin.o(.ctors)
@@ -1302,38 +1306,38 @@ Linker script and memory map
  *(SORT(.dtors.*))
  *(.dtors)
  *(.rodata*)
- .rodata        0x08001694       0x18 ..\obj\main.o
+ .rodata        0x080014f8       0x10 ..\obj\main.o
  *(.eh_fram e*)
 
-.glue_7         0x080016ac        0x0
+.glue_7         0x08001508        0x0
  .glue_7        0x00000000        0x0 linker stubs
 
-.glue_7t        0x080016ac        0x0
+.glue_7t        0x08001508        0x0
  .glue_7t       0x00000000        0x0 linker stubs
 
-.vfp11_veneer   0x080016ac        0x0
+.vfp11_veneer   0x08001508        0x0
  .vfp11_veneer  0x00000000        0x0 linker stubs
 
-.v4_bx          0x080016ac        0x0
+.v4_bx          0x08001508        0x0
  .v4_bx         0x00000000        0x0 linker stubs
 
-.iplt           0x080016ac        0x0
+.iplt           0x08001508        0x0
  .iplt          0x00000000        0x0 ..\obj\LCD_System.o
 
-.rel.dyn        0x080016ac        0x0
+.rel.dyn        0x08001508        0x0
  .rel.iplt      0x00000000        0x0 ..\obj\LCD_System.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x080016ac                __exidx_start = .
+                0x08001508                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x080016ac                __exidx_end = .
-                0x080016ac                __etext = .
-                0x080016ac                _sidata = __etext
+                0x08001508                __exidx_end = .
+                0x08001508                __etext = .
+                0x08001508                _sidata = __etext
 
-.data           0x20000000       0x14 load address 0x080016ac
+.data           0x20000000       0x14 load address 0x08001508
                 0x20000000                __data_start__ = .
                 0x20000000                _sdata = __data_start__
  *(vtable)
@@ -1360,35 +1364,38 @@ Linker script and memory map
                 0x20000014                __data_end__ = .
                 0x20000014                _edata = __data_end__
 
-.igot.plt       0x20000014        0x0 load address 0x080016c0
+.igot.plt       0x20000014        0x0 load address 0x0800151c
  .igot.plt      0x00000000        0x0 ..\obj\LCD_System.o
 
-.bss            0x20000014        0x4 load address 0x080016c0
+.bss            0x20000014        0x8 load address 0x0800151c
                 0x20000014                . = ALIGN (0x4)
                 0x20000014                __bss_start__ = .
                 0x20000014                _sbss = __bss_start__
  *(.bss*)
  *(COMMON)
- COMMON         0x20000014        0x4 ..\obj\Delay.o
-                0x20000014                delayTime
-                0x20000018                . = ALIGN (0x4)
-                0x20000018                __bss_end__ = .
-                0x20000018                _ebss = __bss_end__
+ COMMON         0x20000014        0x4 ..\obj\Driver_Font.o
+                0x20000014                temp
+ COMMON         0x20000018        0x4 ..\obj\Delay.o
+                0x20000018                delayTime
+                0x2000001c                . = ALIGN (0x4)
+                0x2000001c                __bss_end__ = .
+                0x2000001c                _ebss = __bss_end__
 
-.heap           0x20000018        0x0
-                0x20000018                __end__ = .
-                0x20000018                _end = __end__
-                0x20000018                end = __end__
+.heap           0x2000001c        0x0
+                0x2000001c                __end__ = .
+                0x2000001c                _end = __end__
+                0x2000001c                end = __end__
  *(.heap*)
-                0x20000018                __HeapLimit = .
+                0x2000001c                __HeapLimit = .
 
-.co_stack       0x20000018      0x800 load address 0x080016c4
-                0x20000018                . = ALIGN (0x8)
+.co_stack       0x2000001c      0x804 load address 0x08001524
+                0x20000020                . = ALIGN (0x8)
+ *fill*         0x2000001c        0x4 
  *(.co_stack .co_stack.*)
- .co_stack      0x20000018      0x800 ..\obj\startup_stm32f4xx.o
-                0x20000018                pulStack
+ .co_stack      0x20000020      0x800 ..\obj\startup_stm32f4xx.o
+                0x20000020                pulStack
                 0x20020000                __StackTop = (ORIGIN (ram) + 0x20000)
-                0x2001f800                __StackLimit = (__StackTop - SIZEOF (.co_stack))
+                0x2001f7fc                __StackLimit = (__StackTop - SIZEOF (.co_stack))
                 0x20020000                PROVIDE (__stack, __StackTop)
                 0x00000001                ASSERT ((__StackLimit >= __HeapLimit), region ram  overflowed with stack)
 LOAD ..\obj\LCD_System.o
@@ -1415,130 +1422,130 @@ LOAD c:/program files (x86)/gnu tools arm embedded/4.9 2015q1/bin/../lib/gcc/arm
 END GROUP
 OUTPUT(Prueba1.elf elf32-littlearm)
 
-.debug_info     0x00000000     0x74bb
- .debug_info    0x00000000      0x66e ..\obj\LCD_System.o
- .debug_info    0x0000066e       0xed ..\obj\startup_stm32f4xx.o
- .debug_info    0x0000075b      0x803 ..\obj\Config_RA8875.o
- .debug_info    0x00000f5e      0x137 ..\obj\main.o
- .debug_info    0x00001095      0xc4d ..\obj\stm32f4xx_rcc.o
- .debug_info    0x00001ce2       0xa7 ..\obj\Test.o
- .debug_info    0x00001d89      0x6de ..\obj\Delay.o
- .debug_info    0x00002467     0x1d0b ..\obj\Driver_RA8875.o
- .debug_info    0x00004172      0x8f5 ..\obj\stm32f4xx_fsmc.o
- .debug_info    0x00004a67      0x602 ..\obj\stm32f4xx_gpio.o
- .debug_info    0x00005069      0x25f ..\obj\Interface_RA8875.o
- .debug_info    0x000052c8      0x592 ..\obj\system_stm32f4xx.o
- .debug_info    0x0000585a     0x1c61 ..\obj\stm32f4xx_tim.o
+.debug_info     0x00000000     0x7743
+ .debug_info    0x00000000      0x673 ..\obj\LCD_System.o
+ .debug_info    0x00000673      0x393 ..\obj\Driver_Font.o
+ .debug_info    0x00000a06       0xed ..\obj\startup_stm32f4xx.o
+ .debug_info    0x00000af3      0x803 ..\obj\Config_RA8875.o
+ .debug_info    0x000012f6       0xce ..\obj\main.o
+ .debug_info    0x000013c4      0xc4d ..\obj\stm32f4xx_rcc.o
+ .debug_info    0x00002011      0x6de ..\obj\Delay.o
+ .debug_info    0x000026ef     0x1d0b ..\obj\Driver_RA8875.o
+ .debug_info    0x000043fa      0x8f5 ..\obj\stm32f4xx_fsmc.o
+ .debug_info    0x00004cef      0x602 ..\obj\stm32f4xx_gpio.o
+ .debug_info    0x000052f1      0x25f ..\obj\Interface_RA8875.o
+ .debug_info    0x00005550      0x592 ..\obj\system_stm32f4xx.o
+ .debug_info    0x00005ae2     0x1c61 ..\obj\stm32f4xx_tim.o
 
-.debug_abbrev   0x00000000     0x10de
+.debug_abbrev   0x00000000     0x11ad
  .debug_abbrev  0x00000000      0x199 ..\obj\LCD_System.o
- .debug_abbrev  0x00000199       0xb0 ..\obj\startup_stm32f4xx.o
- .debug_abbrev  0x00000249      0x1da ..\obj\Config_RA8875.o
- .debug_abbrev  0x00000423       0x9d ..\obj\main.o
- .debug_abbrev  0x000004c0      0x1e3 ..\obj\stm32f4xx_rcc.o
- .debug_abbrev  0x000006a3       0x65 ..\obj\Test.o
- .debug_abbrev  0x00000708      0x1a6 ..\obj\Delay.o
- .debug_abbrev  0x000008ae      0x175 ..\obj\Driver_RA8875.o
- .debug_abbrev  0x00000a23      0x170 ..\obj\stm32f4xx_fsmc.o
- .debug_abbrev  0x00000b93      0x1a3 ..\obj\stm32f4xx_gpio.o
- .debug_abbrev  0x00000d36       0xeb ..\obj\Interface_RA8875.o
- .debug_abbrev  0x00000e21      0x136 ..\obj\system_stm32f4xx.o
- .debug_abbrev  0x00000f57      0x187 ..\obj\stm32f4xx_tim.o
+ .debug_abbrev  0x00000199      0x13f ..\obj\Driver_Font.o
+ .debug_abbrev  0x000002d8       0xb0 ..\obj\startup_stm32f4xx.o
+ .debug_abbrev  0x00000388      0x1da ..\obj\Config_RA8875.o
+ .debug_abbrev  0x00000562       0x92 ..\obj\main.o
+ .debug_abbrev  0x000005f4      0x1e3 ..\obj\stm32f4xx_rcc.o
+ .debug_abbrev  0x000007d7      0x1a6 ..\obj\Delay.o
+ .debug_abbrev  0x0000097d      0x175 ..\obj\Driver_RA8875.o
+ .debug_abbrev  0x00000af2      0x170 ..\obj\stm32f4xx_fsmc.o
+ .debug_abbrev  0x00000c62      0x1a3 ..\obj\stm32f4xx_gpio.o
+ .debug_abbrev  0x00000e05       0xeb ..\obj\Interface_RA8875.o
+ .debug_abbrev  0x00000ef0      0x136 ..\obj\system_stm32f4xx.o
+ .debug_abbrev  0x00001026      0x187 ..\obj\stm32f4xx_tim.o
 
-.debug_aranges  0x00000000      0xfd8
+.debug_aranges  0x00000000     0x1008
  .debug_aranges
-                0x00000000       0x48 ..\obj\LCD_System.o
+                0x00000000       0x50 ..\obj\LCD_System.o
  .debug_aranges
-                0x00000048       0x28 ..\obj\startup_stm32f4xx.o
+                0x00000050       0x48 ..\obj\Driver_Font.o
  .debug_aranges
-                0x00000070       0x60 ..\obj\Config_RA8875.o
+                0x00000098       0x28 ..\obj\startup_stm32f4xx.o
  .debug_aranges
-                0x000000d0       0x20 ..\obj\main.o
+                0x000000c0       0x60 ..\obj\Config_RA8875.o
  .debug_aranges
-                0x000000f0      0x178 ..\obj\stm32f4xx_rcc.o
+                0x00000120       0x20 ..\obj\main.o
  .debug_aranges
-                0x00000268       0x20 ..\obj\Test.o
+                0x00000140      0x178 ..\obj\stm32f4xx_rcc.o
  .debug_aranges
-                0x00000288       0x40 ..\obj\Delay.o
+                0x000002b8       0x40 ..\obj\Delay.o
  .debug_aranges
-                0x000002c8      0x850 ..\obj\Driver_RA8875.o
+                0x000002f8      0x850 ..\obj\Driver_RA8875.o
  .debug_aranges
-                0x00000b18       0xb0 ..\obj\stm32f4xx_fsmc.o
+                0x00000b48       0xb0 ..\obj\stm32f4xx_fsmc.o
  .debug_aranges
-                0x00000bc8       0x88 ..\obj\stm32f4xx_gpio.o
+                0x00000bf8       0x88 ..\obj\stm32f4xx_gpio.o
  .debug_aranges
-                0x00000c50       0x60 ..\obj\Interface_RA8875.o
+                0x00000c80       0x60 ..\obj\Interface_RA8875.o
  .debug_aranges
-                0x00000cb0       0x30 ..\obj\system_stm32f4xx.o
+                0x00000ce0       0x30 ..\obj\system_stm32f4xx.o
  .debug_aranges
-                0x00000ce0      0x2f8 ..\obj\stm32f4xx_tim.o
+                0x00000d10      0x2f8 ..\obj\stm32f4xx_tim.o
 
-.debug_ranges   0x00000000      0xf08
- .debug_ranges  0x00000000       0x38 ..\obj\LCD_System.o
- .debug_ranges  0x00000038       0x18 ..\obj\startup_stm32f4xx.o
- .debug_ranges  0x00000050       0x50 ..\obj\Config_RA8875.o
- .debug_ranges  0x000000a0       0x10 ..\obj\main.o
- .debug_ranges  0x000000b0      0x168 ..\obj\stm32f4xx_rcc.o
- .debug_ranges  0x00000218       0x10 ..\obj\Test.o
- .debug_ranges  0x00000228       0x30 ..\obj\Delay.o
- .debug_ranges  0x00000258      0x840 ..\obj\Driver_RA8875.o
- .debug_ranges  0x00000a98       0xa0 ..\obj\stm32f4xx_fsmc.o
- .debug_ranges  0x00000b38       0x78 ..\obj\stm32f4xx_gpio.o
- .debug_ranges  0x00000bb0       0x50 ..\obj\Interface_RA8875.o
- .debug_ranges  0x00000c00       0x20 ..\obj\system_stm32f4xx.o
- .debug_ranges  0x00000c20      0x2e8 ..\obj\stm32f4xx_tim.o
+.debug_ranges   0x00000000      0xf38
+ .debug_ranges  0x00000000       0x40 ..\obj\LCD_System.o
+ .debug_ranges  0x00000040       0x38 ..\obj\Driver_Font.o
+ .debug_ranges  0x00000078       0x18 ..\obj\startup_stm32f4xx.o
+ .debug_ranges  0x00000090       0x50 ..\obj\Config_RA8875.o
+ .debug_ranges  0x000000e0       0x10 ..\obj\main.o
+ .debug_ranges  0x000000f0      0x168 ..\obj\stm32f4xx_rcc.o
+ .debug_ranges  0x00000258       0x30 ..\obj\Delay.o
+ .debug_ranges  0x00000288      0x840 ..\obj\Driver_RA8875.o
+ .debug_ranges  0x00000ac8       0xa0 ..\obj\stm32f4xx_fsmc.o
+ .debug_ranges  0x00000b68       0x78 ..\obj\stm32f4xx_gpio.o
+ .debug_ranges  0x00000be0       0x50 ..\obj\Interface_RA8875.o
+ .debug_ranges  0x00000c30       0x20 ..\obj\system_stm32f4xx.o
+ .debug_ranges  0x00000c50      0x2e8 ..\obj\stm32f4xx_tim.o
 
-.debug_line     0x00000000     0x3c63
- .debug_line    0x00000000      0x276 ..\obj\LCD_System.o
- .debug_line    0x00000276       0xa3 ..\obj\startup_stm32f4xx.o
- .debug_line    0x00000319      0x341 ..\obj\Config_RA8875.o
- .debug_line    0x0000065a      0x19f ..\obj\main.o
- .debug_line    0x000007f9      0x5b8 ..\obj\stm32f4xx_rcc.o
- .debug_line    0x00000db1      0x16e ..\obj\Test.o
- .debug_line    0x00000f1f      0x229 ..\obj\Delay.o
- .debug_line    0x00001148     0x14bd ..\obj\Driver_RA8875.o
- .debug_line    0x00002605      0x46b ..\obj\stm32f4xx_fsmc.o
- .debug_line    0x00002a70      0x35a ..\obj\stm32f4xx_gpio.o
- .debug_line    0x00002dca      0x217 ..\obj\Interface_RA8875.o
- .debug_line    0x00002fe1      0x201 ..\obj\system_stm32f4xx.o
- .debug_line    0x000031e2      0xa81 ..\obj\stm32f4xx_tim.o
+.debug_line     0x00000000     0x3cf5
+ .debug_line    0x00000000      0x291 ..\obj\LCD_System.o
+ .debug_line    0x00000291      0x20d ..\obj\Driver_Font.o
+ .debug_line    0x0000049e       0xa3 ..\obj\startup_stm32f4xx.o
+ .debug_line    0x00000541      0x341 ..\obj\Config_RA8875.o
+ .debug_line    0x00000882      0x177 ..\obj\main.o
+ .debug_line    0x000009f9      0x5b8 ..\obj\stm32f4xx_rcc.o
+ .debug_line    0x00000fb1      0x229 ..\obj\Delay.o
+ .debug_line    0x000011da     0x14bd ..\obj\Driver_RA8875.o
+ .debug_line    0x00002697      0x46b ..\obj\stm32f4xx_fsmc.o
+ .debug_line    0x00002b02      0x35a ..\obj\stm32f4xx_gpio.o
+ .debug_line    0x00002e5c      0x217 ..\obj\Interface_RA8875.o
+ .debug_line    0x00003073      0x201 ..\obj\system_stm32f4xx.o
+ .debug_line    0x00003274      0xa81 ..\obj\stm32f4xx_tim.o
 
-.debug_str      0x00000000     0x3c2a
- .debug_str     0x00000000      0x3fd ..\obj\LCD_System.o
-                                0x498 (size before relaxing)
- .debug_str     0x000003fd       0xb2 ..\obj\startup_stm32f4xx.o
+.debug_str      0x00000000     0x3c9c
+ .debug_str     0x00000000      0x40c ..\obj\LCD_System.o
+                                0x4a7 (size before relaxing)
+ .debug_str     0x0000040c      0x1cf ..\obj\Driver_Font.o
+                                0x3d6 (size before relaxing)
+ .debug_str     0x000005db       0xb2 ..\obj\startup_stm32f4xx.o
                                 0x149 (size before relaxing)
- .debug_str     0x000004af      0x662 ..\obj\Config_RA8875.o
+ .debug_str     0x0000068d      0x65d ..\obj\Config_RA8875.o
                                 0x80d (size before relaxing)
- .debug_str     0x00000b11       0x44 ..\obj\main.o
-                                0x1ba (size before relaxing)
- .debug_str     0x00000b55      0x661 ..\obj\stm32f4xx_rcc.o
+ .debug_str     0x00000cea       0x36 ..\obj\main.o
+                                0x177 (size before relaxing)
+ .debug_str     0x00000d20      0x661 ..\obj\stm32f4xx_rcc.o
                                 0x852 (size before relaxing)
- .debug_str     0x000011b6       0x3b ..\obj\Test.o
-                                0x163 (size before relaxing)
- .debug_str     0x000011f1      0x655 ..\obj\Delay.o
+ .debug_str     0x00001381      0x655 ..\obj\Delay.o
                                 0x7da (size before relaxing)
- .debug_str     0x00001846     0x12b5 ..\obj\Driver_RA8875.o
+ .debug_str     0x000019d6     0x1197 ..\obj\Driver_RA8875.o
                                0x16ad (size before relaxing)
- .debug_str     0x00002afb      0x3fa ..\obj\stm32f4xx_fsmc.o
+ .debug_str     0x00002b6d      0x3fa ..\obj\stm32f4xx_fsmc.o
                                 0x78c (size before relaxing)
- .debug_str     0x00002ef5      0x1a0 ..\obj\stm32f4xx_gpio.o
+ .debug_str     0x00002f67      0x1a0 ..\obj\stm32f4xx_gpio.o
                                 0x4a5 (size before relaxing)
- .debug_str     0x00003095       0xe8 ..\obj\Interface_RA8875.o
+ .debug_str     0x00003107       0xe8 ..\obj\Interface_RA8875.o
                                 0x258 (size before relaxing)
- .debug_str     0x0000317d       0xb6 ..\obj\system_stm32f4xx.o
+ .debug_str     0x000031ef       0xb6 ..\obj\system_stm32f4xx.o
                                 0x3ac (size before relaxing)
- .debug_str     0x00003233      0x9f7 ..\obj\stm32f4xx_tim.o
+ .debug_str     0x000032a5      0x9f7 ..\obj\stm32f4xx_tim.o
                                 0xdd2 (size before relaxing)
 
 .comment        0x00000000       0x70
  .comment       0x00000000       0x70 ..\obj\LCD_System.o
                                  0x71 (size before relaxing)
+ .comment       0x00000000       0x71 ..\obj\Driver_Font.o
  .comment       0x00000000       0x71 ..\obj\startup_stm32f4xx.o
  .comment       0x00000000       0x71 ..\obj\Config_RA8875.o
  .comment       0x00000000       0x71 ..\obj\main.o
  .comment       0x00000000       0x71 ..\obj\stm32f4xx_rcc.o
- .comment       0x00000000       0x71 ..\obj\Test.o
  .comment       0x00000000       0x71 ..\obj\Delay.o
  .comment       0x00000000       0x71 ..\obj\Driver_RA8875.o
  .comment       0x00000000       0x71 ..\obj\stm32f4xx_fsmc.o
@@ -1552,15 +1559,15 @@ OUTPUT(Prueba1.elf elf32-littlearm)
  .ARM.attributes
                 0x00000000       0x33 ..\obj\LCD_System.o
  .ARM.attributes
-                0x00000033       0x33 ..\obj\startup_stm32f4xx.o
+                0x00000033       0x33 ..\obj\Driver_Font.o
  .ARM.attributes
-                0x00000066       0x33 ..\obj\Config_RA8875.o
+                0x00000066       0x33 ..\obj\startup_stm32f4xx.o
  .ARM.attributes
-                0x00000099       0x33 ..\obj\main.o
+                0x00000099       0x33 ..\obj\Config_RA8875.o
  .ARM.attributes
-                0x000000cc       0x33 ..\obj\stm32f4xx_rcc.o
+                0x000000cc       0x33 ..\obj\main.o
  .ARM.attributes
-                0x000000ff       0x33 ..\obj\Test.o
+                0x000000ff       0x33 ..\obj\stm32f4xx_rcc.o
  .ARM.attributes
                 0x00000132       0x33 ..\obj\Delay.o
  .ARM.attributes
@@ -1576,17 +1583,17 @@ OUTPUT(Prueba1.elf elf32-littlearm)
  .ARM.attributes
                 0x00000264       0x33 ..\obj\stm32f4xx_tim.o
 
-.debug_frame    0x00000000     0x3ed0
- .debug_frame   0x00000000       0xd4 ..\obj\LCD_System.o
- .debug_frame   0x000000d4       0x4c ..\obj\startup_stm32f4xx.o
- .debug_frame   0x00000120      0x148 ..\obj\Config_RA8875.o
- .debug_frame   0x00000268       0x30 ..\obj\main.o
- .debug_frame   0x00000298      0x6d4 ..\obj\stm32f4xx_rcc.o
- .debug_frame   0x0000096c       0x2c ..\obj\Test.o
- .debug_frame   0x00000998       0xc0 ..\obj\Delay.o
- .debug_frame   0x00000a58     0x1f18 ..\obj\Driver_RA8875.o
- .debug_frame   0x00002970      0x300 ..\obj\stm32f4xx_fsmc.o
- .debug_frame   0x00002c70      0x23c ..\obj\stm32f4xx_gpio.o
- .debug_frame   0x00002eac      0x154 ..\obj\Interface_RA8875.o
- .debug_frame   0x00003000       0x7c ..\obj\system_stm32f4xx.o
- .debug_frame   0x0000307c      0xe54 ..\obj\stm32f4xx_tim.o
+.debug_frame    0x00000000     0x3f9c
+ .debug_frame   0x00000000       0xf8 ..\obj\LCD_System.o
+ .debug_frame   0x000000f8       0xd8 ..\obj\Driver_Font.o
+ .debug_frame   0x000001d0       0x4c ..\obj\startup_stm32f4xx.o
+ .debug_frame   0x0000021c      0x148 ..\obj\Config_RA8875.o
+ .debug_frame   0x00000364       0x2c ..\obj\main.o
+ .debug_frame   0x00000390      0x6d4 ..\obj\stm32f4xx_rcc.o
+ .debug_frame   0x00000a64       0xc0 ..\obj\Delay.o
+ .debug_frame   0x00000b24     0x1f18 ..\obj\Driver_RA8875.o
+ .debug_frame   0x00002a3c      0x300 ..\obj\stm32f4xx_fsmc.o
+ .debug_frame   0x00002d3c      0x23c ..\obj\stm32f4xx_gpio.o
+ .debug_frame   0x00002f78      0x154 ..\obj\Interface_RA8875.o
+ .debug_frame   0x000030cc       0x7c ..\obj\system_stm32f4xx.o
+ .debug_frame   0x00003148      0xe54 ..\obj\stm32f4xx_tim.o

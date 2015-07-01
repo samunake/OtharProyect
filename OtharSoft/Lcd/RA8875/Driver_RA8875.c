@@ -267,7 +267,7 @@ void Serial_ROM_Address_set_24bit(void)
 * Input          : None
 * Output         : None
 * Return         : None
-* Attention		   : None
+* Attention		 : None
 *******************************************************************************/
 void Serial_ROM_Address_set_32bit(void)
 {
@@ -969,7 +969,7 @@ void Font_Coordinate(uint16_t X,uint16_t Y)
 
 
 
-//REG[2Eh]
+//																								REG[2Eh]
 /*******************************************************************************
 * Function Name  : Font_size_16x16_8x16
 * Description    :
@@ -1025,7 +1025,7 @@ void Font_spacing_set(uint8_t setx) //uint8_t[5:0]
     LCD_WriteReg_ANDORMask(0x2E,0xC0,temp);//FWTSR
 }
 
-//REG[2Fh]
+//																								REG[2Fh]
 /*******************************************************************************
 * Function Name  : GT_serial_ROM_select_GT21L16TW
 * Description    :
@@ -3554,12 +3554,12 @@ void DMA_Address_32bits(uint32_t set_address)
 * Return         : None
 * Attention	     : None
 *******************************************************************************/
-void DMA_Address_24bits(uint32_t set_address)
+void DAM_Address_24bits(uint32_t set_address)
 {
 
   LCD_WriteReg(0xE1,set_address>>16);
-  LCD_WriteData(set_address>>8);
-  LCD_WriteData(set_address);
+  LCD_WriteReg(0xE1,set_address>>8);
+  LCD_WriteReg(0xE1,set_address);
 }
 
 /*******************************************************************************
@@ -3570,7 +3570,7 @@ void DMA_Address_24bits(uint32_t set_address)
 * Return         : None
 * Attention	     : None
 *******************************************************************************/
-uint8_t DMA_Read_Data_buffer(void)
+uint8_t DAM_Read_Data_buffer(void)
 {
     return LCD_ReadReg(0xE2);
 }

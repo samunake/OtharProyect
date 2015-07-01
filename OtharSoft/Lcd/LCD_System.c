@@ -1,8 +1,30 @@
 #include "RA8875/Driver_RA8875.h"
 #include "LCD_System.h"
+#include "Font/Driver_Font.h"
+
 
 params_str print_arguments;
 
+void LCDPrintStrROM(char *str, uint16_t x, uint16_t y) {
+
+	DMA_Access_Font();
+	Active_Window(0, 799, 0, 479);
+	//Set Text Mode (Fonts)
+	//TextMode_Normal();
+	//Font_size_16x16_8x16();
+	//Memory_Clear();
+	// ROM COnfig
+	//DMA_Access_Font();
+	/***************************************
+	// Text coordinate start position*/
+	Font_Coordinate(x, y);
+	// Text Color
+	Foreground_color(Black);
+	// BAckgroud color
+	Background_color(White);
+
+	Print_String(str);
+}
 
 /************************************************************************
  * Function Name  : LCDPrintStr
@@ -15,21 +37,12 @@ params_str print_arguments;
 void LCDPrintStr(char *str, uint16_t x, uint16_t y, uint16_t fcolor,
 		uint16_t bcolor, uint8_t mode, uint8_t type, uint8_t zoom) {
 
+	External_Font();
 	Active_Window(0, 799, 0, 479);
 	//Set Text Mode (Fonts)
-	Text_Mode();
+	TextMode_Normal();
 	//Memory_Clear();
-	//Select in bit 5 use external font Rom
-	External_CGROM();
-	// Chip Font select
-	GT_serial_ROM_select_GT30L32S4W();
-	/*Spped Configuration
-	 * 06h,0x03 SYSCLK/4
-	 * 05h,20	waveform 3 selected
-	 * 05h,&Ef |80  1 DUMMY CICLE*/
-	SROM_CLK_DIV(0x03);
-	Select_Serial_Waveform_mode3();
-	SERIAL_ROM_Read_Cycle_5bus();
+
 	// Text coordinate start position
 	Font_Coordinate(x, y);
 	// Text Color
@@ -39,7 +52,6 @@ void LCDPrintStr(char *str, uint16_t x, uint16_t y, uint16_t fcolor,
 	// Do align
 	FullAlignment();
 	// Size selection
-	Font_code_ASCII();
 	switch (mode) {
 
 	case 1:
@@ -84,15 +96,11 @@ void LCDPrintStr(char *str, uint16_t x, uint16_t y, uint16_t fcolor,
 	case 4:
 		Font_Bold();
 		break;
-
-	/*default:
-		Font_Arial();*/
-
-
+		/*default:
+		 Font_Arial();*/
 	}
 
 	switch (zoom) {
-
 	case 0:
 		Vertical_FontEnlarge_x1();
 		Horizontal_FontEnlarge_x1();
