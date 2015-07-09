@@ -59,7 +59,7 @@ __inline void LCD_WriteReg(uint16_t LCD_Reg,uint16_t LCD_RegValue)
 {
 	/* Write 16-bit Index, then Write Reg */
 	LCD_WriteCmd(LCD_Reg);
-	Delay_ms(1);
+	//Delay_ms(1);
 	/* Write 16-bit Reg */
 	LCD_WriteData(LCD_RegValue);
 }

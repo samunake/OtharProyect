@@ -38,7 +38,7 @@ void LCDPrintStr(char *str, uint16_t x, uint16_t y, uint16_t fcolor,
 		uint16_t bcolor, uint8_t mode, uint8_t type, uint8_t zoom) {
 
 	External_Font();
-	Active_Window(0, 799, 0, 479);
+	//Active_Window(0, 799, 0, 479);
 	//Set Text Mode (Fonts)
 	TextMode_Normal();
 	//Memory_Clear();

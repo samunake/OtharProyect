@@ -88,7 +88,7 @@ void External_Font(void) {
 void TextMode_Normal(){
 
 	Text_Mode();
-	Text_Cursor_Enable();
+	Text_Cursor_Disable();
 	Text_Cursor_Blink_Disable();
 	Memory_Write_LeftRight_TopDown();
 	MemoryWrite_Cursor_autoIncrease();
