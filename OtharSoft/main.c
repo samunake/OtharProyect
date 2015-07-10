@@ -9,6 +9,7 @@
 #include "Clock/attributes.h"
 
 #include <stdio.h>
+#include "Buttons/button.h"
 
 char buf[50], buf2[50];
 TM_RTC_Time_t datatime;
@@ -18,7 +19,7 @@ int main(void) {
 	SystemInit();
 
 	// Initialize RTC
-	if (!TM_RTC_Init(TM_RTC_ClockSource_Internal)) {
+	if (!TM_RTC_Init(TM_RTC_ClockSource_External)) {
 		//RTC was first time initialized
 		//Do your stuf here
 		//eg. set default time
@@ -55,6 +56,7 @@ int main(void) {
 	Delay_ms(2000);
 	//Set wakeup interrupt every 1 second
 	TM_RTC_Interrupts(TM_RTC_Int_1s);
+	print_pureImage();
 
 	//	LCDPrintStrROM("Alo Presinde",400,100);
 
@@ -118,7 +120,7 @@ void TM_RTC_RequestHandler() {
 			datatime.month,
 			datatime.year + 2000);
 	//Send to LCD
-	Active_Window(0, 799, 0, 479);
+	Active_Window(540, 799, 0, 18);
 	LCDPrintStr(buf, 540, 18, White, Black, 1, 2, "zoom2");
 	sprintf(buf, "%02d:%02d:%02d",
 				datatime.hours,

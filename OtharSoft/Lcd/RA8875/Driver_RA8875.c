@@ -488,7 +488,7 @@ uint8_t GPI_data(void)
    return LCD_ReadReg(0x12);
 }
 
-//REG[13h]
+																								  //REG[13h]
 /*******************************************************************************
 * Function Name  : GPO_data
 * Description    : General Purpose Output
@@ -502,7 +502,7 @@ void GPO_data(uint8_t setx)
    LCD_WriteReg(0x13,setx);
 }
 
-//REG[20h]
+																								  //REG[20h]
 /*******************************************************************************
 * Function Name  : One_Layer
 * Description    : Layer Setting Control £¬One layer configuration is selected.
@@ -581,7 +581,7 @@ void VDIR_COMn_COM0(void)
 	LCD_WriteReg_ORMask(0x20,0x04);//DPCR
 }
 
-//REG[21h]
+																										//REG[21h]
 /*******************************************************************************
 * Function Name  : CGROM_Font
 * Description    : CGRAM/CGROM Font Selection Bit in Text Mode £¬CGROM font is selected.
@@ -711,7 +711,7 @@ void ISO8859_4(void)
 }
 
 
-//REG[22h]
+																												//REG[22h]
 /*******************************************************************************
 * Function Name  : No_FullAlignment
 * Description    :
@@ -895,7 +895,7 @@ void Vertical_FontEnlarge_x4(void)
 }
 
 
-//REG[23h]
+																											//REG[23h]
 /*******************************************************************************
 * Function Name  : CGRAM_Select_Number
 * Description    :
@@ -910,7 +910,7 @@ void CGRAM_Select_Number(uint8_t setx)
 }
 
 
-//REG[24h]REG[25h]REG[26h]REG[27h]
+																						//REG[24h]REG[25h]REG[26h]REG[27h]
 /*******************************************************************************
 * Function Name  : Scroll_Offset
 * Description    :
@@ -946,7 +946,7 @@ void Line_distance(uint8_t setx)
 }
 
 
-//REG[2Ah]REG[2Bh]REG[2Ch]REG[2Dh]
+																							//REG[2Ah]REG[2Bh]REG[2Ch]REG[2Dh]
 /*******************************************************************************
 * Function Name  : Font_Coordinate
 * Description    :
@@ -1253,7 +1253,7 @@ void Font_Bold(void) //for ASCII
 	LCD_WriteReg_ORMask(0x2F,0x03);
 }
 
-//																					REG[30h]~REG[37h]
+//																							REG[30h]~REG[37h]
 /*******************************************************************************
 * Function Name  : Active Window
 * Description    :
@@ -1277,7 +1277,7 @@ void Active_Window(uint16_t XL,uint16_t XR ,uint16_t YT ,uint16_t YB)
 	LCD_WriteReg(0x37,YB>>8); //Vertical End Point of Active Window 1 (VEAW1)
 }
 
-//REG[38h]~REG[3Fh]
+//																							REG[38h]~REG[3Fh]
 /*******************************************************************************
 * Function Name  : Scroll_Window
 * Description    :
@@ -1303,7 +1303,7 @@ void Scroll_Window(uint16_t XL,uint16_t XR ,uint16_t YT ,uint16_t YB)
 }
 
 
-//																					REG[40h]
+//																									REG[40h]
 /*******************************************************************************
 * Function Name  : Graphic_Mode
 * Description    :
@@ -1499,7 +1499,7 @@ void MemoryRead_Cursor_NoautoIncrease(void)
 }
 
 
-//REG[41h]
+//																											REG[41h]
 /*******************************************************************************
 * Function Name  : No_Graphic_Cursor
 * Description    :
@@ -1778,7 +1778,7 @@ void Memory_read_DownTop_LeftRight(void)
 }
 
 
-//REG[46h]~REG[49h]
+//																									REG[46h]~REG[49h]
 /*******************************************************************************
 * Function Name  : XY_Coordinate
 * Description    :
@@ -1830,7 +1830,7 @@ void Text_Cursor_Horizontal_Size(uint8_t setx)//uint8_t[3:0]
 
 }
 
-//REG[4Fh]
+//																									REG[4Fh]
 /*******************************************************************************
 * Function Name  : Text_Cursor_Vertical_Size
 * Description    :
@@ -1846,7 +1846,7 @@ void Text_Cursor_Vertical_Size(uint8_t setx)//uint8_t[3:0]
 }
 
 
-//REG[50h]
+//																									REG[50h]
 /*******************************************************************************
 * Function Name  : no_BTE_write
 * Description    :
@@ -1899,7 +1899,7 @@ void BTE_rectangular_Data(void)
 	LCD_WriteReg_ANDMask(0x50,0xBF);//BECR0
 }
 
-//REG[51h]
+//																									REG[51h]
 /*******************************************************************************
 * Function Name  : BTE_ROP_Code
 * Description    :
@@ -1913,7 +1913,7 @@ void BTE_ROP_Code(uint8_t setx)
     LCD_WriteReg(0x51,setx);//BECR1
 }
 
-//REG[52h]
+//																									REG[52h]
 /*******************************************************************************
 * Function Name  : Layer1_Visible
 * Description    :

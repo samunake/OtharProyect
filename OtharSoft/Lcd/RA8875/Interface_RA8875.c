@@ -28,7 +28,7 @@ __inline void LCD_WriteData(uint16_t data)
 {
 
 	LCD_DATA = data;
-//	Delay_ms(1); //  Espacio de 5 clclos entre wr y wr (5.9*5 > 84ns) pag59 datasheet RA
+	//Delay_ms(1); //  Espacio de 5 clclos entre wr y wr (5.9*5 > 84ns) pag59 datasheet RA
 
 }
 
