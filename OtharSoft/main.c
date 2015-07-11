@@ -56,7 +56,14 @@ int main(void) {
 	Delay_ms(2000);
 	//Set wakeup interrupt every 1 second
 	TM_RTC_Interrupts(TM_RTC_Int_1s);
-	print_pureImage();
+	uint16_t i;
+	for (i = 0; i < 4; i++) {
+
+		print_BTEImage(0, i*200, 0, 120);
+
+	}
+	print_BTELogo(0, 675, 0, 420);
+	//print_pureImage();
 
 	//	LCDPrintStrROM("Alo Presinde",400,100);
 
@@ -115,17 +122,13 @@ void TM_RTC_RequestHandler() {
 	TM_RTC_GetDateTime(&datatime, TM_RTC_Format_BIN);
 
 	//Format time
-	sprintf(buf, "%02d.%02d.%04d",
-			datatime.date,
-			datatime.month,
+	sprintf(buf, "%02d.%02d.%04d", datatime.date, datatime.month,
 			datatime.year + 2000);
 	//Send to LCD
 	Active_Window(540, 799, 0, 18);
 	LCDPrintStr(buf, 540, 18, White, Black, 1, 2, "zoom2");
-	sprintf(buf, "%02d:%02d:%02d",
-				datatime.hours,
-				datatime.minutes,
-				datatime.seconds);
+	sprintf(buf, "%02d:%02d:%02d", datatime.hours, datatime.minutes,
+			datatime.seconds);
 	LCDPrintStr(buf, 650, 10, Blue2, Black, 2, 2, "zoom4");
 
 }
