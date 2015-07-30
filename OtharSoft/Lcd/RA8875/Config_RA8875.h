@@ -63,14 +63,12 @@
 
 /* Private function prototypes -----------------------------------------------*/
 
-
-
 void InitializeTimer(void);
 void InitializePWM_TIM4(void);
-static void LCD_FSMCConfig(void);
-static void LCD_CtrlLinesFSMC(void);
-static void LCD_CtrlLinesConfig(void);
-static void LCD_Configuration(void);
+void LCD_FSMCConfig(void);
+void LCD_CtrlLinesFSMC(void);
+void LCD_CtrlLinesConfig(void);
+void LCD_Configuration(void);
 void LCD_Initialization(void);
 
 void LCD_Clear(uint16_t Color);

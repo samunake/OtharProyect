@@ -1,4 +1,5 @@
 #include "RA8875/Driver_RA8875.h"
+#include "RA8875/Interface_RA8875.h"
 #include "LCD_System.h"
 #include "Font/Driver_Font.h"
 
@@ -127,7 +128,7 @@ void LCDPrintStr(char *str, uint16_t x, uint16_t y, uint16_t fcolor,
 	}
 
 	//start write data
-	Start_Data();
+	LCD_WriteCmd(0x02);
 	Show_String(str);
 	//recovery
 	LCD_WriteReg(0x21, 0x00);
@@ -179,7 +180,7 @@ void LCD_Reset(void) {
 
 	//RA8875 RESET pin
 	GPIO_ResetBits(GPIOC, GPIO_Pin_6);
-	Delay_ms(1);
+	Delay_ms(10);
 	GPIO_SetBits(GPIOC, GPIO_Pin_6);
 	Delay_ms(10);
 }

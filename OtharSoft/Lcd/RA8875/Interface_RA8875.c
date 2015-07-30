@@ -89,7 +89,7 @@ __inline uint16_t LCD_ReadReg(uint16_t LCD_Reg)
 * Return         : LCD Register Value.
 * Attention		 : None
 *******************************************************************************/
-__inline uint16_t LCD_WriteReg_ORMask(uint16_t LCD_Reg,uint16_t mask)
+__inline void LCD_WriteReg_ORMask(uint16_t LCD_Reg,uint16_t mask)
 {
 	uint16_t temp;
 	/* Write 16-bit Index (then Read Reg) */
@@ -110,7 +110,7 @@ __inline uint16_t LCD_WriteReg_ORMask(uint16_t LCD_Reg,uint16_t mask)
 * Return         : LCD Register Value.
 * Attention		 : None
 *******************************************************************************/
-__inline uint16_t LCD_WriteReg_ANDMask(uint16_t LCD_Reg,uint16_t mask)
+__inline void LCD_WriteReg_ANDMask(uint16_t LCD_Reg,uint16_t mask)
 {
 	uint16_t temp;
 	/* Write 16-bit Index (then Read Reg) */
@@ -132,7 +132,7 @@ __inline uint16_t LCD_WriteReg_ANDMask(uint16_t LCD_Reg,uint16_t mask)
 * Return         : LCD Register Value.
 * Attention		 : None
 *******************************************************************************/
-__inline uint16_t LCD_WriteReg_ANDORMask(uint16_t LCD_Reg,uint16_t AND_mask,uint16_t OR_mask)
+__inline void LCD_WriteReg_ANDORMask(uint16_t LCD_Reg,uint16_t AND_mask,uint16_t OR_mask)
 {
 	uint16_t temp;
 	/* Write 16-bit Index (then Read Reg) */

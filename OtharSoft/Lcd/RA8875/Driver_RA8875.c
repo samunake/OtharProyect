@@ -14,7 +14,7 @@
 /* Includes --------------------------------------------------------------------------------------------*/
 #include "Driver_RA8875.h"
 #include "Config_RA8875.h"
-
+#include "Interface_RA8875.h"
 
 
 /* Register Functions ----------------------------------------------------------------------------------*/
@@ -160,19 +160,6 @@ void Software_Reset(void)
 	LCD_WriteReg(0x01,0x01); //PWRR
     LCD_WriteData(0x00);// No hay que hacer un writeCmd primero ?
     Delay_ms(1);
-}
-//																								REG[02h]
-/*******************************************************************************
-* Function Name  : Start
-* Description    : Start writing/reading data to LCD
-* Input          : None
-* Output         : None
-* Return         : None
-* Attention		 : None
-*******************************************************************************/
-void Start_Data(void){
-
-	LCD_WriteCmd(0x02);
 }
 //																								REG[04h]
 /*******************************************************************************
@@ -2617,7 +2604,7 @@ void TP_latch_Y(void)
 uint8_t ADC_X(void)
 {
     uint8_t temp;
-    LCD_CmdWrite(0x72);//TPXH	 X_coordinate high byte
+    LCD_WriteCmd(0x72);//TPXH	 X_coordinate high byte
     //Chk_Busy();
     temp=LCD_DataRead();
     return temp;
@@ -2634,9 +2621,9 @@ uint8_t ADC_X(void)
 uint8_t ADC_Y(void)
 {
     uint8_t temp;
-    LCD_CmdWrite(0x73);//TPYH	  Y_coordinate high byte
+    LCD_WriteCmd(0x73);//TPYH	  Y_coordinate high byte
     //Chk_Busy();
-    temp=LCD_DataRead();
+    temp=LCD_ReadData();
     return temp;
 }
 
@@ -2651,8 +2638,8 @@ uint8_t ADC_Y(void)
 uint8_t ADC_XY(void)
 {
     uint8_t temp;
-    LCD_CmdWrite(0x74);//TPXYL	  uint8_t[3:2] Y_coordinate low byte  uint8_t[1:0] X_coordinate low byte
-    temp=LCD_DataRead();
+    LCD_WriteCmd(0x74);//TPXYL	  uint8_t[3:2] Y_coordinate low byte  uint8_t[1:0] X_coordinate low byte
+    temp=LCD_ReadData();
     return temp;
 }
 
@@ -2780,8 +2767,8 @@ void PWM1_disable_level_high(void)
 
 	 uint8_t temp,temp1;
 	 temp1= setx&0x0f;
-	 LCD_CmdWrite(0x8a);
-	 temp = LCD_DataRead();
+	 LCD_WriteCmd(0x8a);
+	 temp = LCD_ReadData();
 	 temp &= 0xf0;
 	 temp |= temp1 ;
 	 LCD_WriteData(temp);
@@ -2882,8 +2869,8 @@ void PWM2_disable_level_high(void)
 {
     uint8_t temp,temp1;
     temp1= setx&0x0f;
-    LCD_CmdWrite(0x8c);//MCLR
-    temp = LCD_DataRead();
+    LCD_WriteCmd(0x8c);//MCLR
+    temp = LCD_ReadData();
     temp &= 0xf0;
     temp |= temp1 ;
     LCD_WriteData(temp);
@@ -3156,8 +3143,8 @@ void Draw_Ellipse_Curve_Fill(void)
 void Draw_Ellipse_Curve_part(uint8_t setx)
 {
 	uint8_t temp,temp1;
-	LCD_CmdWrite(0xA0);//DCR
-	temp = LCD_DataRead();
+	LCD_WriteCmd(0xA0);//DCR
+	temp = LCD_ReadData();
 	temp1 = setx&0x03;
 	temp &=0xfc;
 	temp |=temp1;

@@ -8,6 +8,8 @@
 #include "Clock/tm_stm32f4_rtc.h"
 #include "Clock/attributes.h"
 
+#include <Dimmer.h>
+
 #include <stdio.h>
 #include "Buttons/button.h"
 
@@ -23,7 +25,7 @@ int main(void) {
 		//RTC was first time initialized
 		//Do your stuf here
 		//eg. set default time
-		/* Set date and time */
+		// Set date and time
 		datatime.date = 20;
 		datatime.day = 1;
 		datatime.month = 1;
@@ -32,7 +34,7 @@ int main(void) {
 		datatime.minutes = 0;
 		datatime.seconds = 0;
 
-		/* Set date and time */
+		// Set date and time
 		TM_RTC_SetDateTime(&datatime, TM_RTC_Format_BIN);
 	}
 
@@ -51,18 +53,21 @@ int main(void) {
 
 	Display_OFF();
 	Delay_ms(10);
-	Display_ON();
 	LCD_Clear(Black);
+	Display_ON();
 	Delay_ms(2000);
+
 	//Set wakeup interrupt every 1 second
 	TM_RTC_Interrupts(TM_RTC_Int_1s);
+
 	uint16_t i;
 	for (i = 0; i < 4; i++) {
 
-		print_BTEImage(0, i*200, 0, 120);
+		 (0, i * 200, 0, 120);
 
 	}
 	print_BTELogo(0, 675, 0, 420);
+
 	//print_pureImage();
 
 	//	LCDPrintStrROM("Alo Presinde",400,100);
@@ -81,7 +86,7 @@ int main(void) {
 	 LCDPrintStr("Hola", 300, 100, Black, White, 3, 1, "zoom2");
 	 LCDPrintStr("Hola", 300, 150, Black, White, 3, 2, "zoom2");
 	 LCDPrintStr("Hola", 300, 200, Black, White, 3, 3, "zoom2");
-	 LCDPrintStr("Hola", 300, 250, Black, White, 3, 4, "zoom2");/*
+	 LCDPrintStr("Hola", 300, 250, Black, White, 3, 4, "zoom2");
 
 
 	 // HOLA PRESIDENTE ASCII
@@ -106,29 +111,37 @@ int main(void) {
 	 //Delay_ms(2000);
 	 //ActiveWindow_Clear();*/
 
-	while (1)
+	extern status_dim1;
+	 extern dimmer1;
 
-	{
-
+	 configure_ZeroCrossingInterrupt();
+	 Init_DimmerTimer();
+	while (1){
 		//Test();
+		//Delay_ms(3000);
+		//	dimmer1=256;//0,128
+		//	status_dim1 = ON;
 
-	}
+		setDimmer(2,799);
+		checkDimmers();
+
+ //dimer1+TRIACTIMEON < 980
 }
 
 //Custom request handler function
 //Called on wakeup interrupt
 void TM_RTC_RequestHandler() {
-	//Get time
-	TM_RTC_GetDateTime(&datatime, TM_RTC_Format_BIN);
+ //Get time
+TM_RTC_GetDateTime(&datatime, TM_RTC_Format_BIN);
 
-	//Format time
-	sprintf(buf, "%02d.%02d.%04d", datatime.date, datatime.month,
-			datatime.year + 2000);
-	//Send to LCD
-	Active_Window(540, 799, 0, 18);
-	LCDPrintStr(buf, 540, 18, White, Black, 1, 2, "zoom2");
-	sprintf(buf, "%02d:%02d:%02d", datatime.hours, datatime.minutes,
-			datatime.seconds);
-	LCDPrintStr(buf, 650, 10, Blue2, Black, 2, 2, "zoom4");
+ //Format time
+sprintf(buf, "%02d.%02d.%04d", datatime.date, datatime.month,
+datatime.year + 2000);
+ //Send to LCD
+Active_Window(540, 799, 0, 18);
+LCDPrintStr(buf, 540, 18, White, Black, 1, 2, "zoom2");
+sprintf(buf, "%02d:%02d:%02d", datatime.hours, datatime.minutes,
+datatime.seconds);
+LCDPrintStr(buf, 650, 10, Blue2, Black, 2, 2, "zoom4");
 
 }

@@ -1,6 +1,6 @@
 #include "stm32f4xx.h"
 #include "Driver_RA8875.h"
-#include "Driver_Font.h";
+#include "Driver_Font.h"
 
 
 uint8_t DMA_Access_Font(void) {

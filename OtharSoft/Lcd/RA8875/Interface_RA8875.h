@@ -7,12 +7,13 @@
 
 
 
-
+__inline void LCD_WriteCmd(uint16_t index);
 __inline void LCD_WriteIndex(uint16_t index);
 __inline void LCD_WriteData(uint16_t data);
 __inline uint16_t LCD_ReadData(void);
 __inline uint16_t LCD_ReadReg(uint16_t LCD_Reg);
 __inline void LCD_WriteReg(uint16_t LCD_Reg,uint16_t LCD_RegValue);
-__inline uint16_t LCD_WriteReg_ORMask(uint16_t LCD_Reg,uint16_t mask);
-__inline uint16_t LCD_WriteReg_ANDMask(uint16_t LCD_Reg,uint16_t mask);
-__inline uint16_t LCD_WriteReg_ANDORMask(uint16_t LCD_Reg,uint16_t AND_mask,uint16_t OR_mask);
+__inline void LCD_WriteReg_ORMask(uint16_t LCD_Reg,uint16_t mask);
+__inline void LCD_WriteReg_ANDMask(uint16_t LCD_Reg,uint16_t mask);
+__inline void LCD_WriteReg_ANDORMask(uint16_t LCD_Reg,uint16_t AND_mask,uint16_t OR_mask);
+__inline uint16_t LCD_StatusRead(void);
