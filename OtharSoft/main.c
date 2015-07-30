@@ -51,11 +51,15 @@ int main(void) {
 	// Init PWM on Timer 4 Channel 1 (PD12)
 	InitializePWM_TIM4();
 
+	// Check LCD and Set Background to Black
 	Display_OFF();
 	Delay_ms(10);
 	LCD_Clear(Black);
 	Display_ON();
 	Delay_ms(2000);
+
+	// Initialize GPIOS for Control Lights Output
+	initializeGPIOTimer();
 
 	//Set wakeup interrupt every 1 second
 	TM_RTC_Interrupts(TM_RTC_Int_1s);
@@ -63,7 +67,7 @@ int main(void) {
 	uint16_t i;
 	for (i = 0; i < 4; i++) {
 
-		 (0, i * 200, 0, 120);
+		print_BTEImage(0, i * 200, 0, 120);
 
 	}
 	print_BTELogo(0, 675, 0, 420);
@@ -111,37 +115,43 @@ int main(void) {
 	 //Delay_ms(2000);
 	 //ActiveWindow_Clear();*/
 
-	extern status_dim1;
-	 extern dimmer1;
+	extern uint8_t status_dim1;
+	extern uint8_t dimmer1;
 
-	 configure_ZeroCrossingInterrupt();
-	 Init_DimmerTimer();
-	while (1){
-		//Test();
-		//Delay_ms(3000);
-		//	dimmer1=256;//0,128
-		//	status_dim1 = ON;
+	configure_ZeroCrossingInterrupt();
+	Init_DimmerTimer();
+	while (1) {
+		{
+			GPIO_SetBits(GPIOA, GPIO_Pin_5);
+			Delay_ms(5000);
+			GPIO_ResetBits(GPIOA, GPIO_Pin_5);
+			Delay_ms(5000);
+			//Test();
+			//Delay_ms(3000);
+			//	dimmer1=256;//0,128
+			//	status_dim1 = ON;
 
-		setDimmer(2,799);
-		checkDimmers();
+		//	setDimmer(2, 799);
+			checkDimmers();
 
- //dimer1+TRIACTIMEON < 980
-}
-
+			//dimer1+TRIACTIMEON < 980
+		}
+	}
 //Custom request handler function
 //Called on wakeup interrupt
-void TM_RTC_RequestHandler() {
- //Get time
-TM_RTC_GetDateTime(&datatime, TM_RTC_Format_BIN);
+		void TM_RTC_RequestHandler() {
+			//Get time
+			TM_RTC_GetDateTime(&datatime, TM_RTC_Format_BIN);
 
- //Format time
-sprintf(buf, "%02d.%02d.%04d", datatime.date, datatime.month,
-datatime.year + 2000);
- //Send to LCD
-Active_Window(540, 799, 0, 18);
-LCDPrintStr(buf, 540, 18, White, Black, 1, 2, "zoom2");
-sprintf(buf, "%02d:%02d:%02d", datatime.hours, datatime.minutes,
-datatime.seconds);
-LCDPrintStr(buf, 650, 10, Blue2, Black, 2, 2, "zoom4");
+			//Format time
+			sprintf(buf, "%02d.%02d.%04d", datatime.date, datatime.month,
+					datatime.year + 2000);
+			//Send to LCD
+			Active_Window(540, 799, 0, 18);
+			LCDPrintStr(buf, 540, 18, White, Black, 1, 2, "zoom2");
+			sprintf(buf, "%02d:%02d:%02d", datatime.hours, datatime.minutes,
+					datatime.seconds);
+			LCDPrintStr(buf, 650, 10, Blue2, Black, 2, 2, "zoom4");
 
+		}
 }
