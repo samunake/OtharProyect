@@ -13,7 +13,7 @@
  * Attention	  : None
  *******************************************************************************/
 
-void initializeGPIO_LIGHTS(void) {
+void GPIO_LIGHTS_Init(void) {
 	GPIO_InitTypeDef GPIO_InitStructure;
 
 	/* Enable GPIO E clock */
@@ -21,24 +21,12 @@ void initializeGPIO_LIGHTS(void) {
 
 	/* GPIOD configuration */
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_2;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_2;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
 	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
 	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
 
-	GPIO_Init(GPIOD, &GPIO_InitStructure);
-
-	/* Enable GPIO B clock */
-	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOB, ENABLE);
-
-	/* GPIOD configuration */
-
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8 | GPIO_Pin_9;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
-
-	GPIO_Init(GPIOD, &GPIO_InitStructure);
+	GPIO_Init(GPIOE, &GPIO_InitStructure);
 
 }
 

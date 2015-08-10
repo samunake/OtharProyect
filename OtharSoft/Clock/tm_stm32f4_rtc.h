@@ -257,7 +257,9 @@ typedef enum {
  */
 typedef enum {
 	TM_RTC_AlarmType_DayInWeek, /*!< Trigger alarm every day in a week, days from 1 to 7 (Monday to Sunday) */
-	TM_RTC_AlarmType_DayInMonth /*!< Trigger alarm every month */
+	TM_RTC_AlarmType_DayInMonth, /*!< Trigger alarm every month */
+	TM_RTC_AlarmType_Daily,
+	TM_RTC_AlarmType_onlyOnce
 } TM_RTC_AlarmType_t;
 
 /**

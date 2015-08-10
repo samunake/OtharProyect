@@ -2904,7 +2904,7 @@ void Stop_Memory_Clear(void)
 	LCD_WriteReg_ANDMask(0x8e,0x7f);
 }
 /*******************************************************************************
-* Function Name  : Pattern_Set_16x16
+* Function Name  : Memory_Clear
 * Description    :
 * Input          : None
 * Output         : None

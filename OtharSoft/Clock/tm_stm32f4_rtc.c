@@ -677,25 +677,25 @@ void RTC_WKUP_IRQHandler(void) {
 	EXTI->PR = 0x00400000;
 }
 
-void RTC_Alarm_IRQHandler(void) {
-	/* RTC Alarm A check */
+/*void RTC_Alarm_IRQHandler(void) {
+	// RTC Alarm A check //
 	if (RTC_GetITStatus(RTC_IT_ALRA) != RESET) {
-		/* Clear RTC Alarm A interrupt flag */
+		// Clear RTC Alarm A interrupt flag
 		RTC_ClearITPendingBit(RTC_IT_ALRA);
 
-		/* Call user function for Alarm A */
+		// Call user function for Alarm A
 		TM_RTC_AlarmAHandler();
 	}
 
-	/* RTC Alarm B check */
+	// RTC Alarm B check
 	if (RTC_GetITStatus(RTC_IT_ALRB) != RESET) {
-		/* Clear RTC Alarm A interrupt flag */
+		// Clear RTC Alarm A interrupt flag
 		RTC_ClearITPendingBit(RTC_IT_ALRB);
 
-		/* Call user function for Alarm B */
+		// Call user function for Alarm B
 		TM_RTC_AlarmBHandler();
 	}
 
-	/* Clear EXTI line 17 bit */
+	// Clear EXTI line 17 bit
 	EXTI->PR = 0x00020000;
-}
+}*/

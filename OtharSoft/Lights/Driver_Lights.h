@@ -1,5 +1,6 @@
+#include "stm32f4xx.h"
 
-
+void GPIO_LIGHTS_Init(void);
 void Light1_ON(void);
 void Light2_ON(void);
 void Light3_ON(void);

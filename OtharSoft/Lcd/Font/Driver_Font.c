@@ -85,7 +85,7 @@ void External_Font(void) {
 
 }
 
-void TextMode_Normal(){
+void TextMode_Normal(void){
 
 	Text_Mode();
 	Text_Cursor_Disable();
@@ -95,4 +95,47 @@ void TextMode_Normal(){
 	MemoryRead_Cursor_autoIncrease();
 
 
+}
+
+void showTypeFonts(void){
+		LCDPrintStrROM("Alo Presinde",400,100);
+
+			Active_Window(0, 799, 0, 479);
+		 LCDPrintStr("abc", 0, 0, Black, White, 1, 1, "zoom2");
+		 LCDPrintStr("Hola Presunta", 0, 30, Black, White, 1, 2, "zoom2");
+		 LCDPrintStr("Hola Presunta", 0, 60, Black, White, 1, 3, "zoom2");
+		 LCDPrintStr("abc", 0, 90, Black, White, 1, 4, "zoom2");
+
+		 LCDPrintStr("Hola Presunta", 200, 00, Black, White, 2, 1, "zoom2");
+		 LCDPrintStr("Hola Presunta", 200, 30, Black, White, 2, 2, "zoom2");
+		 LCDPrintStr("Hola Presunta", 200, 60, Black, White, 2, 3, "zoom2");
+		 LCDPrintStr("Hola", 200, 90, Black, White, 2, 4, "zoom2");
+
+		 LCDPrintStr("Hola", 300, 100, Black, White, 3, 1, "zoom2");
+		 LCDPrintStr("Hola", 300, 150, Black, White, 3, 2, "zoom2");
+		 LCDPrintStr("Hola", 300, 200, Black, White, 3, 3, "zoom2");
+		 LCDPrintStr("Hola", 300, 250, Black, White, 3, 4, "zoom2");
+
+
+		 // HOLA PRESIDENTE ASCII
+
+
+		//LCD_WriteText();
+		/* CUADRADITO**************************************************
+		 *
+		 *
+		 *
+		 * *************************************************************/
+		/* Active_Window(100,200,200,300);
+		 Graphic_Mode();
+		 XY_Coordinate(100,200);
+		 LCD_WriteCmd(0x02);//MRWC
+		 uint32_t i;
+		 for(i=0;i<10201;i++)
+		 {
+		 LCD_WriteData(Black);
+		 Chk_Busy();
+		 }
+		 //Delay_ms(2000);
+		 //ActiveWindow_Clear();*/
 }

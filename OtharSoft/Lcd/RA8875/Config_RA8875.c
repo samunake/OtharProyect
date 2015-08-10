@@ -31,9 +31,10 @@ void InitializeTimer(void) {
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM4, ENABLE);
 
-	timerInitStructure.TIM_Prescaler = 3; // timer_tick_frequency = 84000000 / (0 + 1) = 84000000
+	timerInitStructure.TIM_Prescaler = 83; // timer_tick_frequency = 84000000 / (0 + 1) = 84000000
 	timerInitStructure.TIM_CounterMode = TIM_CounterMode_Up;
-	timerInitStructure.TIM_Period = 1000; // 1Mhz	TIM_Period = 21000000 / 1000 - 1 = 20999
+	//TIM_Period = timer_tick_frequency / PWM_frequency - 1
+	timerInitStructure.TIM_Period = 19999; // 1Mhz	TIM_Period = 1000000 / 50 - 1 = 19999
 	timerInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
 	timerInitStructure.TIM_RepetitionCounter = 0;
 	/* Initialize TIM4 */
@@ -69,26 +70,23 @@ void InitializePWM_TIM4(void) {
 	/* PWM mode 1 = Set on compare match */
 	outputChannelInit.TIM_OCMode = TIM_OCMode_PWM2;
 	outputChannelInit.TIM_OutputState = TIM_OutputState_Enable;
- 	outputChannelInit.TIM_OCPolarity = TIM_OCPolarity_Low;
+	outputChannelInit.TIM_OCPolarity = TIM_OCPolarity_Low;
 
-	/*outputChannelInit.TIM_Pulse = 2099; //25% duty cycle
-	 TIM_OC1Init(TIM4, &outputChannelInit);
-	 TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);
+	outputChannelInit.TIM_Pulse = 14999; // 75% duty cycle
+	TIM_OC1Init(TIM4, &outputChannelInit);
+	TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);
 
-	 outputChannelInit.TIM_Pulse = 4199; // 50% duty cycle
+	/* outputChannelInit.TIM_Pulse = 4199; // 50% duty cycle
 	 TIM_OC2Init(TIM4, &outputChannelInit);
 	 TIM_OC2PreloadConfig(TIM4, TIM_OCPreload_Enable);*/
 
-	outputChannelInit.TIM_Pulse = 16799; // 75% duty cycle
-	TIM_OC1Init(TIM4, &outputChannelInit);
-	TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);
+	/*outputChannelInit.TIM_Pulse = 8399; // 100% duty cycle
+	 TIM_OC3Init(TIM4, &outputChannelInit);
+	 TIM_OC3PreloadConfig(TIM4, TIM_OCPreload_Enable);*/
 
 	/*outputChannelInit.TIM_Pulse = 8399; // 100% duty cycle
 	 TIM_OC4Init(TIM4, &outputChannelInit);
 	 TIM_OC4PreloadConfig(TIM4, TIM_OCPreload_Enable);*/
-
-	TIM_OC1Init(TIM4, &outputChannelInit);
-	TIM_OC1PreloadConfig(TIM4, TIM_OCPreload_Enable);
 
 }
 
@@ -209,15 +207,13 @@ void LCD_CtrlLinesConfig(void)
 
 	RCC_AHB1PeriphClockCmd(RCC_AHB1Periph_GPIOA, ENABLE);
 
-		GPIO_InitStructure.GPIO_Pin =  GPIO_Pin_5;
-		GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
-		GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
-		GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_5;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_OUT;
+	GPIO_InitStructure.GPIO_OType = GPIO_OType_PP;
+	GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
 
-		GPIO_Init(GPIOA,&GPIO_InitStructure);
-		// Reset active Low. Always inactive(1)
-
-
+	GPIO_Init(GPIOA, &GPIO_InitStructure);
+	// Reset active Low. Always inactive(1)
 
 }
 

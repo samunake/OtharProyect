@@ -1,29 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <history>
-   <processor signature="arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=Prueba1.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Prueba1 -TC:\CooCox\CoIDE\configuration\ProgramData\Prueba1/arm-gcc-link.ld -g">
-      <target file="Prueba1.elf" lastModified="14e7b507097">
-         <source file="..\obj\button.o" lastModified="14e7b4c53cf"/>
-         <source file="..\obj\stm32f4xx_pwr.o" lastModified="14e759f4fb2"/>
-         <source file="..\obj\LCD_System.o" lastModified="14e759f5156"/>
-         <source file="..\obj\Driver_Font.o" lastModified="14e759f52e0"/>
-         <source file="..\obj\startup_stm32f4xx.o" lastModified="14e759f5391"/>
-         <source file="..\obj\Config_RA8875.o" lastModified="14e759f54de"/>
-         <source file="..\obj\main.o" lastModified="14e7b506d64"/>
-         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14e759f5834"/>
-         <source file="..\obj\Test.o" lastModified="14e759f5918"/>
-         <source file="..\obj\Delay.o" lastModified="14e759f59db"/>
-         <source file="..\obj\Driver_RA8875.o" lastModified="14e7aadd71e"/>
-         <source file="..\obj\stm32f4xx_fsmc.o" lastModified="14e759f5d48"/>
-         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14e759f5e30"/>
-         <source file="..\obj\stm32f4xx_flash.o" lastModified="14e759f5efb"/>
-         <source file="..\obj\Interface_RA8875.o" lastModified="14e7880d8e8"/>
-         <source file="..\obj\system_stm32f4xx.o" lastModified="14e759f60aa"/>
-         <source file="..\obj\syscalls.o" lastModified="14e759f614d"/>
-         <source file="..\obj\tm_stm32f4_rtc.o" lastModified="14e759f624a"/>
-         <source file="..\obj\stm32f4xx_exti.o" lastModified="14e759f6309"/>
-         <source file="..\obj\misc.o" lastModified="14e759f63b6"/>
-         <source file="..\obj\stm32f4xx_rtc.o" lastModified="14e759f64c0"/>
-         <source file="..\obj\stm32f4xx_tim.o" lastModified="14e759f65f3"/>
+   <processor signature="4.9.3 -mcpu=cortex-m4 -mthumb -g -nostartfiles -Map=Prueba1.map -O0 --gc-sections -LC:\CooCox\CoIDE\configuration\ProgramData\Prueba1 -TC:\CooCox\CoIDE\configuration\ProgramData\Prueba1/arm-gcc-link.ld -g">
+      <target file="Prueba1.elf" lastModified="14f180803c3">
+         <source file="..\obj\Zero.o" lastModified="14f1807e59c"/>
+         <source file="..\obj\button.o" lastModified="14f1807ea11"/>
+         <source file="..\obj\stm32f4xx_pwr.o" lastModified="14f1807eabd"/>
+         <source file="..\obj\LCD_System.o" lastModified="14f1807eb69"/>
+         <source file="..\obj\Driver_Font.o" lastModified="14f1807ec92"/>
+         <source file="..\obj\startup_stm32f4xx.o" lastModified="14f1807ed1e"/>
+         <source file="..\obj\Dimmer.o" lastModified="14f1807ef12"/>
+         <source file="..\obj\Config_RA8875.o" lastModified="14f1807effd"/>
+         <source file="..\obj\main.o" lastModified="14f1807f1a3"/>
+         <source file="..\obj\stm32f4xx_rcc.o" lastModified="14f1807f2ac"/>
+         <source file="..\obj\Test.o" lastModified="14f1807f387"/>
+         <source file="..\obj\Delay.o" lastModified="14f1807f471"/>
+         <source file="..\obj\Driver_RA8875.o" lastModified="14f1807f608"/>
+         <source file="..\obj\stm32f4xx_fsmc.o" lastModified="14f1807f6c3"/>
+         <source file="..\obj\stm32f4xx_gpio.o" lastModified="14f1807f77f"/>
+         <source file="..\obj\stm32f4xx_flash.o" lastModified="14f1807f859"/>
+         <source file="..\obj\Interface_RA8875.o" lastModified="14f1807f915"/>
+         <source file="..\obj\system_stm32f4xx.o" lastModified="14f1807f9b1"/>
+         <source file="..\obj\syscalls.o" lastModified="14f1807fa4d"/>
+         <source file="..\obj\tm_stm32f4_rtc.o" lastModified="14f1807fb28"/>
+         <source file="..\obj\Driver_Lights.o" lastModified="14f1807fbc4"/>
+         <source file="..\obj\stm32f4xx_exti.o" lastModified="14f1807fc70"/>
+         <source file="..\obj\CheckFrecuency.o" lastModified="14f1807fdb8"/>
+         <source file="..\obj\misc.o" lastModified="14f1807fe83"/>
+         <source file="..\obj\stm32f4xx_rtc.o" lastModified="14f1807ff8d"/>
+         <source file="..\obj\stm32f4xx_tim.o" lastModified="14f180800a6"/>
       </target>
    </processor>
 </history>
