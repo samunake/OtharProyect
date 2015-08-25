@@ -1,369 +1,492 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dependencies>
-   <includePath signature="/I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\cmsis /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\cmsis_lib /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\cmsis_boot /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Lcd /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Clock /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Delay /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Lcd\Font /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Lcd\RA8875 /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\cmsis_lib\include /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Test /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Buttons /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft">
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14eacccf86c">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+   <includePath signature="/IF:\GitHubOthar\branches\Working\OtharSoft\Clock /IF:\GitHubOthar\branches\Working\OtharSoft\Includes /IF:\GitHubOthar\branches\Working\OtharSoft\Images /IF:\GitHubOthar\branches\Working\OtharSoft\MicroSD\Spi /IF:\GitHubOthar\branches\Working\OtharSoft\cmsis_boot /IF:\GitHubOthar\branches\Working\OtharSoft\attributes /IF:\GitHubOthar\branches\Working\OtharSoft /IF:\GitHubOthar\branches\Working\OtharSoft\Lights /IF:\GitHubOthar\branches\Working\OtharSoft\cmsis /IF:\GitHubOthar\branches\Working\OtharSoft\Dimmer /IF:\GitHubOthar\branches\Working\OtharSoft\Clock\Alarm /IF:\GitHubOthar\branches\Working\OtharSoft\cmsis_lib\include /IF:\GitHubOthar\branches\Working\OtharSoft\Lcd /IF:\GitHubOthar\branches\Working\OtharSoft\Lcd\RA8875 /IF:\GitHubOthar\branches\Working\OtharSoft\Test /IF:\GitHubOthar\branches\Working\OtharSoft\Delay /IF:\GitHubOthar\branches\Working\OtharSoft\MicroSD\drivers /IF:\GitHubOthar\branches\Working\OtharSoft\MicroSD /IF:\GitHubOthar\branches\Working\OtharSoft\Lcd\Fcsm /IF:\GitHubOthar\branches\Working\OtharSoft\cmsis_lib /IF:\GitHubOthar\branches\Working">
+      <source file="..\..\..\MicroSD\drivers\sd.h" lastModified="14f4793757f">
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="14ebbc3d7ac">
+      <source file="..\..\..\MicroSD\drivers\sd.c" lastModified="14f4d0b944f">
+         <include file="..\..\..\MicroSD\diskio.h"/>
+         <include file="..\..\..\MicroSD\drivers\sd.h"/>
+         <include file="..\..\..\MicroSD\Spi\spi.h"/>
+         <include file="..\..\..\Delay\Delay.h"/>
+      </source>
+      <source file="..\..\..\Clock\tm_stm32f4_rtc.h" lastModified="14f479056f6">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Buttons\boton.h" lastModified="14ed0737f5f">
-         <include file="..\..\..\Buttons\button.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\misc.h" lastModified="14eacccf70e">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Dimmer.h" lastModified="14ee0ebc5a4">
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_syscfg.c" lastModified="14ebbc3d7af">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\Clock\defines.h" lastModified="14eacccedf2">
-      </source>
-      <source file="..\..\..\Test\Test.h" lastModified="14eacccf4bb">
-         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rtc.c" lastModified="14eacccf893">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14eacccf85b">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
          <include file="..\..\..\cmsis_lib\include\misc.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+         <include file="..\..\..\Includes\attributes.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14eacccf88f">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      <source file="..\..\..\Clock\tm_stm32f4_rtc.c" lastModified="14f478cfd2b">
+         <include file="..\..\..\Clock\tm_stm32f4_rtc.h"/>
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+         <include file="..\..\..\Includes\attributes.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h" lastModified="14eacccf77a">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_pwr.c" lastModified="14eacccf871">
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_pwr.c" lastModified="14f0fd1cc69">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h" lastModified="14eacccf74e">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Test\Test.c" lastModified="14eacccf49e">
-         <include file="..\..\..\Test\Test.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14eacccf775">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h" lastModified="14eacccf756">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Lcd\RA8875\Config_RA8875.h" lastModified="14ed07c5474">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-         <include file="..\..\..\Lcd\RA8875\Interface_RA8875.h"/>
-         <include file="..\..\..\Delay\Delay.h"/>
-      </source>
-      <source file="..\..\..\Delay\Delay.h" lastModified="14ed44b4294">
-      </source>
-      <source file="..\..\..\Lcd\RA8875\Interface_RA8875.h" lastModified="14eda689abe">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Delay\Delay.c" lastModified="14eda5992cf">
-         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
-      </source>
-      <source file="..\..\..\Lcd\RA8875\Interface_RA8875.c" lastModified="14ed0a203c2">
-         <include file="..\..\..\Lcd\RA8875\Interface_RA8875.h"/>
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h" lastModified="14eacccf72c">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14eacccf753">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Buttons\button.h" lastModified="14eaccced55">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Buttons\logo.h" lastModified="14eaccced5f">
-         <include file="..\..\..\Buttons\button.h"/>
-      </source>
-      <source file="..\..\..\Clock\attributes.h" lastModified="14eacccedef">
-      </source>
-      <source file="..\..\..\Lcd\RA8875\Driver_RA8875.h" lastModified="14edfea521c">
-         <include file="..\..\..\Lcd\RA8875\Config_RA8875.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_fsmc.c" lastModified="14eacccf868">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h"/>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rtc.c" lastModified="14f0fd1cc70">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\Lcd\RA8875\Driver_RA8875.c" lastModified="14ed0a42eee">
-         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
-         <include file="..\..\..\Lcd\RA8875\Config_RA8875.h"/>
-         <include file="..\..\..\Lcd\RA8875\Interface_RA8875.h"/>
-      </source>
-      <source file="..\..\..\Lcd\Font\Driver_Font.h" lastModified="14ed08185a7">
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h" lastModified="14eacccf74a">
+      <source file="..\..\..\cmsis_lib\include\misc.h" lastModified="14e3afc30c6">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="14eacccf863">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
-      </source>
-      <source file="..\..\..\Lcd\Font\Driver_Font.c" lastModified="14eda6b5cdc">
+      <source file="..\..\..\Lcd\Fcsm\Fsmc.h" lastModified="14f413cae77">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
-         <include file="..\..\..\Lcd\Font\Driver_Font.h"/>
       </source>
-      <source file="..\..\..\Lcd\LCD_System.h" lastModified="14eda635fb2">
-      </source>
-      <source file="..\..\..\Lcd\LCD_System.c" lastModified="14eda6aaa50">
-         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
-         <include file="..\..\..\Lcd\RA8875\Interface_RA8875.h"/>
-         <include file="..\..\..\Lcd\LCD_System.h"/>
-         <include file="..\..\..\Lcd\Font\Driver_Font.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14eacccf616">
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14eacccf899">
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14e3afc31db">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h" lastModified="14eacccf77f">
+      <source file="..\..\..\Lcd\Fcsm\Fsmc.c" lastModified="14f5f544983">
+         <include file="..\..\..\Lcd\Fcsm\Fsmc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14e3afc319f">
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+      </source>
+      <source file="..\..\..\Lights\Lights.h" lastModified="14f513fc506">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14ebac23904">
+      <source file="..\..\..\Lights\Lights.c" lastModified="14f60981f72">
+         <include file="..\..\..\Lights\Lights.h"/>
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14eb2964e98">
+      <source file="..\..\..\Dimmer\Dimmer.h" lastModified="14f475c567c">
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="14f0fd1cc39">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_exti.c" lastModified="14eacccf85f">
+      <source file="..\..\..\Clock\Alarm\Alarm.h" lastModified="14f476f99f5">
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+         <include file="..\..\..\Clock\tm_stm32f4_rtc.h"/>
+         <include file="..\..\..\Includes\attributes.h"/>
+         <include file="..\..\..\Dimmer\Dimmer.h"/>
+      </source>
+      <source file="..\..\..\Images\SquareButton.h" lastModified="14f4ab764d5">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h" lastModified="14f2e188250">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="14e3afc31ab">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14e3afc30fc">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\Test\Test.h" lastModified="14f4135946c">
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_exti.c" lastModified="14f0fd1cc64">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14e3afc3013">
+      </source>
+      <source file="..\..\..\Images\Logo.h" lastModified="14f413f8843">
+      </source>
+      <source file="..\..\..\Test\Test.c" lastModified="14f6111fa76">
+         <include file="..\..\..\Lcd\Lcd.h"/>
+         <include file="..\..\..\Test\Test.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14e3afc3007">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\Delay\Delay.c" lastModified="14f60cc89e4">
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\Delay\Delay.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\ffconf.h" lastModified="14f3f6ad689">
+      </source>
+      <source file="..\..\..\Lcd\RA8875\B_Light.c" lastModified="14f40be58ff">
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h" lastModified="14f0fd1cc22">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_fsmc.c" lastModified="14e3afc31b6">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\ff.h" lastModified="14b6de5aec0">
+         <include file="..\..\..\MicroSD\integer.h"/>
+         <include file="..\..\..\MicroSD\ffconf.h"/>
+      </source>
+      <source file="..\..\..\Dimmer\CheckFrecuency.c" lastModified="14f252f46c2">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h" lastModified="14e3afc30e0">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\Spi\spi.h" lastModified="14f3fa71dc1">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14f2e188264">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\Spi\Spi.c" lastModified="14f3fa7dd81">
+         <include file="..\..\..\MicroSD\Spi\spi.h"/>
+      </source>
+      <source file="..\..\..\Lcd\RA8875\RA8875.h" lastModified="14f476f05eb">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h" lastModified="14e3afc30d3">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14e3afc31d0">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\Lcd\RA8875\RA8875.c" lastModified="14f6114f47c">
+         <include file="..\..\..\Lcd\Fcsm\Fsmc.h"/>
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+      </source>
+      <source file="..\..\..\Lcd\RA8875\Font.c" lastModified="14f4770039f">
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14e3afc31bf">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_syscfg.c" lastModified="14f0fd1cc75">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\diskio.h" lastModified="14f3f6a256f">
+         <include file="..\..\..\MicroSD\integer.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+         <include file="..\..\..\Includes\attributes.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h" lastModified="14f0fd1cc29">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\diskio.c" lastModified="14f47936bd1">
+         <include file="..\..\..\Clock\tm_stm32f4_rtc.h"/>
+         <include file="..\..\..\MicroSD\diskio.h"/>
+         <include file="..\..\..\MicroSD\ff.h"/>
+         <include file="..\..\..\MicroSD\drivers\sd.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14e3afc2f67">
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14e3afc30ed">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h" lastModified="14f0fd1cc32">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h" lastModified="14e3afc310b">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\Includes\attributes.h" lastModified="14f0fd1c935">
       </source>
    </includePath>
-   <includePath signature="/I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\cmsis /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\cmsis_lib /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\cmsis_boot /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Lcd /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Lights /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Clock /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Delay /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Lcd\Font /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Lcd\RA8875 /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\cmsis_lib\include /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Test /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft\Buttons /I..\..\..\..\..\Users\Miguel\Desktop\Proyecto final\branches\Working\OtharSoft">
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14eacccf86c">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+   <includePath signature="/IF:\GitHubOthar\branches\Working\OtharSoft\Clock /IF:\GitHubOthar\branches\Working\OtharSoft\GSL1680\I2C /IF:\GitHubOthar\branches\Working\OtharSoft\Includes /IF:\GitHubOthar\branches\Working\OtharSoft\Images /IF:\GitHubOthar\branches\Working\OtharSoft\MicroSD\Spi /IF:\GitHubOthar\branches\Working\OtharSoft\cmsis_boot /IF:\GitHubOthar\branches\Working\OtharSoft\attributes /IF:\GitHubOthar\branches\Working\OtharSoft /IF:\GitHubOthar\branches\Working\OtharSoft\Lights /IF:\GitHubOthar\branches\Working\OtharSoft\cmsis /IF:\GitHubOthar\branches\Working\OtharSoft\Dimmer /IF:\GitHubOthar\branches\Working\OtharSoft\Clock\Alarm /IF:\GitHubOthar\branches\Working\OtharSoft\GSL1680 /IF:\GitHubOthar\branches\Working\OtharSoft\cmsis_lib\include /IF:\GitHubOthar\branches\Working\OtharSoft\Lcd /IF:\GitHubOthar\branches\Working\OtharSoft\Lcd\RA8875 /IF:\GitHubOthar\branches\Working\OtharSoft\Test /IF:\GitHubOthar\branches\Working\OtharSoft\Delay /IF:\GitHubOthar\branches\Working\OtharSoft\MicroSD\drivers /IF:\GitHubOthar\branches\Working\OtharSoft\MicroSD /IF:\GitHubOthar\branches\Working\OtharSoft\Lcd\Fcsm /IF:\GitHubOthar\branches\Working\OtharSoft\cmsis_lib /IF:\GitHubOthar\branches\Working">
+      <source file="..\..\..\MicroSD\drivers\sd.h" lastModified="14f4793757f">
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="14ebbc3d7ac">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Buttons\boton.h" lastModified="14ed0737f5f">
-         <include file="..\..\..\Buttons\button.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\misc.h" lastModified="14eacccf70e">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Dimmer.h" lastModified="14ee0ebc5a4">
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_syscfg.c" lastModified="14ebbc3d7af">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\Clock\defines.h" lastModified="14eacccedf2">
-      </source>
-      <source file="..\..\..\Test\Test.h" lastModified="14eacccf4bb">
-         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rtc.c" lastModified="14eacccf893">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\Dimmer.c" lastModified="14ee6916719">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h"/>
-         <include file="..\..\..\cmsis_lib\include\misc.h"/>
-         <include file="..\..\..\Delay\Delay.h"/>
-         <include file="..\..\..\Dimmer.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14eacccf85b">
-         <include file="..\..\..\cmsis_lib\include\misc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14eacccf88f">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h" lastModified="14eacccf77a">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_pwr.c" lastModified="14eacccf871">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h" lastModified="14eacccf74e">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Test\Test.c" lastModified="14eacccf49e">
-         <include file="..\..\..\Test\Test.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14eacccf775">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h" lastModified="14eacccf756">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Lcd\RA8875\Config_RA8875.h" lastModified="14ed07c5474">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-         <include file="..\..\..\Lcd\RA8875\Interface_RA8875.h"/>
+      <source file="..\..\..\MicroSD\drivers\sd.c" lastModified="14f4d0b944f">
+         <include file="..\..\..\MicroSD\diskio.h"/>
+         <include file="..\..\..\MicroSD\drivers\sd.h"/>
+         <include file="..\..\..\MicroSD\Spi\spi.h"/>
          <include file="..\..\..\Delay\Delay.h"/>
       </source>
-      <source file="..\..\..\Lcd\RA8875\Config_RA8875.c" lastModified="14ee14a6cdf">
-         <include file="..\..\..\Lcd\RA8875\Config_RA8875.h"/>
-      </source>
-      <source file="..\..\..\Delay\Delay.h" lastModified="14ed44b4294">
-      </source>
-      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="14eacccfcf8">
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_dma.c" lastModified="14f0d08d92d">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\Lcd\RA8875\Interface_RA8875.h" lastModified="14eda689abe">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis\core_cm4_simd.h" lastModified="14eacccfcda">
-      </source>
-      <source file="..\..\..\Delay\Delay.c" lastModified="14eda5992cf">
-         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h" lastModified="14f0d08d92d">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Lcd\RA8875\Interface_RA8875.c" lastModified="14ed0a203c2">
-         <include file="..\..\..\Lcd\RA8875\Interface_RA8875.h"/>
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_boot\stm32f4xx.h" lastModified="14eb29653c7">
-         <include file="..\..\..\cmsis\core_cm4.h"/>
-         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
-         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_sdio.c" lastModified="14f0cfc4eae">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_sdio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h" lastModified="14eacccf72c">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14eacccf753">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Clock\tm_stm32f4_rtc.h" lastModified="14ee68bf958">
+      <source file="..\..\..\Clock\tm_stm32f4_rtc.h" lastModified="14f479056f6">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
          <include file="..\..\..\cmsis_lib\include\misc.h"/>
-         <include file="..\..\..\Clock\defines.h"/>
-         <include file="..\..\..\Clock\attributes.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+         <include file="..\..\..\Includes\attributes.h"/>
       </source>
-      <source file="..\..\..\syscalls\syscalls.c" lastModified="14eaccd088f">
-      </source>
-      <source file="..\..\..\Buttons\button.h" lastModified="14eaccced55">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\Clock\tm_stm32f4_rtc.c" lastModified="14ee68bf836">
+      <source file="..\..\..\Clock\tm_stm32f4_rtc.c" lastModified="14f478cfd2b">
          <include file="..\..\..\Clock\tm_stm32f4_rtc.h"/>
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+         <include file="..\..\..\Includes\attributes.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\stm32f4xx_conf.h" lastModified="14ed44b9b91">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_dma.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_sdio.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
-         <include file="..\..\..\cmsis_lib\include\misc.h"/>
-      </source>
-      <source file="..\..\..\Buttons\logo.h" lastModified="14eaccced5f">
-         <include file="..\..\..\Buttons\button.h"/>
-      </source>
-      <source file="..\..\..\main.c" lastModified="14f0d8397db">
-         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
-         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
-         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
-         <include file="..\..\..\Delay\Delay.h"/>
-         <include file="..\..\..\Test\Test.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
-         <include file="..\..\..\Clock\defines.h"/>
-         <include file="..\..\..\Clock\tm_stm32f4_rtc.h"/>
-         <include file="..\..\..\Clock\attributes.h"/>
-         <include file="..\..\..\Dimmer.h"/>
-         <include file="..\..\..\Buttons\button.h"/>
-      </source>
-      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="14eacccfcfd">
-      </source>
-      <source file="..\..\..\Buttons\button.c" lastModified="14f1251b70c">
-         <include file="..\..\..\Buttons\boton.h"/>
-         <include file="..\..\..\Buttons\button.h"/>
-         <include file="..\..\..\Buttons\logo.h"/>
-      </source>
-      <source file="..\..\..\Clock\attributes.h" lastModified="14eacccedef">
-      </source>
-      <source file="..\..\..\Lcd\RA8875\Driver_RA8875.h" lastModified="14edfea521c">
-         <include file="..\..\..\Lcd\RA8875\Config_RA8875.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_fsmc.c" lastModified="14eacccf868">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h"/>
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
-      </source>
-      <source file="..\..\..\Lcd\RA8875\Driver_RA8875.c" lastModified="14ed0a42eee">
-         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
-         <include file="..\..\..\Lcd\RA8875\Config_RA8875.h"/>
-         <include file="..\..\..\Lcd\RA8875\Interface_RA8875.h"/>
-      </source>
-      <source file="..\..\..\Lcd\Font\Driver_Font.h" lastModified="14ed08185a7">
-      </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h" lastModified="14eacccf74a">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-      </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="14eacccf863">
-         <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
-      </source>
-      <source file="..\..\..\Lcd\Font\Driver_Font.c" lastModified="14eda6b5cdc">
-         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
-         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
-         <include file="..\..\..\Lcd\Font\Driver_Font.h"/>
-      </source>
-      <source file="..\..\..\Lcd\LCD_System.h" lastModified="14eda635fb2">
-      </source>
-      <source file="..\..\..\cmsis\core_cm4.h" lastModified="14eacccf8ee">
+      <source file="..\..\..\cmsis\core_cm4.h" lastModified="14e3afc3315">
          <include file="..\..\..\cmsis\core_cmInstr.h"/>
          <include file="..\..\..\cmsis\core_cmFunc.h"/>
          <include file="..\..\..\cmsis\core_cm4_simd.h"/>
       </source>
-      <source file="..\..\..\Lcd\LCD_System.c" lastModified="14eda6aaa50">
-         <include file="..\..\..\Lcd\RA8875\Driver_RA8875.h"/>
-         <include file="..\..\..\Lcd\RA8875\Interface_RA8875.h"/>
-         <include file="..\..\..\Lcd\LCD_System.h"/>
-         <include file="..\..\..\Lcd\Font\Driver_Font.h"/>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_i2c.c" lastModified="14f6201777c">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_i2c.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\Lights\Driver_Lights.h" lastModified="14ee14a6d6c">
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_pwr.c" lastModified="14f0fd1cc69">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14eacccf616">
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rtc.c" lastModified="14f0fd1cc70">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14eacccf899">
+      <source file="..\..\..\cmsis_lib\include\misc.h" lastModified="14e3afc30c6">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\Lcd\Fcsm\Fsmc.h" lastModified="14f413cae77">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_tim.c" lastModified="14e3afc31db">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h" lastModified="14eacccf77f">
+      <source file="..\..\..\Lcd\Fcsm\Fsmc.c" lastModified="14f5f544983">
+         <include file="..\..\..\Lcd\Fcsm\Fsmc.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\integer.h" lastModified="1460f9e5830">
+      </source>
+      <source file="..\..\..\GSL1680\I2C\Config_I2C.h" lastModified="14f601d3cc8">
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+      </source>
+      <source file="..\..\..\Lcd\Lcd.h" lastModified="14f62bfaa35">
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+      </source>
+      <source file="..\..\..\Lcd\Lcd.c" lastModified="14f62c00f33">
+         <include file="..\..\..\Lcd\Fcsm\Fsmc.h"/>
+         <include file="..\..\..\Images\SquareButton.h"/>
+         <include file="..\..\..\Images\Logo.h"/>
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+         <include file="..\..\..\Lcd\Lcd.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\misc.c" lastModified="14e3afc319f">
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+      </source>
+      <source file="..\..\..\Lights\Lights.h" lastModified="14f513fc506">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14ebac23904">
+      <source file="..\..\..\GSL1680\GSL1680.h" lastModified="14f609b0018">
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\GSL1680\gslX680firmware.h"/>
       </source>
-      <source file="..\..\..\Lights\Driver_Lights.c" lastModified="14ee690ed2b">
-         <include file="..\..\..\Lights\Driver_Lights.h"/>
+      <source file="..\..\..\Lights\Lights.c" lastModified="14f60981f72">
+         <include file="..\..\..\Lights\Lights.h"/>
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+      </source>
+      <source file="..\..\..\GSL1680\GSL1680.c" lastModified="14f62555890">
+         <include file="..\..\..\GSL1680\GSL1680.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f4xx.h" lastModified="14e3afc33d0">
+         <include file="..\..\..\cmsis\core_cm4.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+      </source>
+      <source file="..\..\..\Dimmer\Dimmer.h" lastModified="14f475c567c">
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h" lastModified="14f0fd1cc39">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14eb2964e98">
+      <source file="..\..\..\Dimmer\Dimmer.c" lastModified="14f5f40c3e9">
+         <include file="..\..\..\Dimmer\Dimmer.h"/>
+         <include file="..\..\..\Lights\Lights.h"/>
+      </source>
+      <source file="..\..\..\Clock\Alarm\Alarm.h" lastModified="14f476f99f5">
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+         <include file="..\..\..\Clock\tm_stm32f4_rtc.h"/>
+         <include file="..\..\..\Includes\attributes.h"/>
+         <include file="..\..\..\Dimmer\Dimmer.h"/>
+      </source>
+      <source file="..\..\..\Images\SquareButton.h" lastModified="14f4ab764d5">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\include\stm32f4xx_sdio.h" lastModified="14f0cfc4e9e">
+      <source file="..\..\..\Clock\Alarm\Alarm.c" lastModified="14f4751f8b9">
+         <include file="..\..\..\Clock\Alarm\Alarm.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+         <include file="..\..\..\Dimmer\Dimmer.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h" lastModified="14f2e188250">
          <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
       </source>
-      <source file="..\..\..\cmsis_lib\source\stm32f4xx_exti.c" lastModified="14eacccf85f">
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_flash.c" lastModified="14e3afc31ab">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h" lastModified="14e3afc30fc">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\Test\Test.h" lastModified="14f4135946c">
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_exti.c" lastModified="14f0fd1cc64">
          <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.h" lastModified="14e3afc3013">
+      </source>
+      <source file="..\..\..\Images\Logo.h" lastModified="14f413f8843">
+      </source>
+      <source file="..\..\..\cmsis\core_cmInstr.h" lastModified="14e3afc3710">
+      </source>
+      <source file="..\..\..\GSL1680\gslX680firmware.h" lastModified="14f61cf80a8">
+         <include file="..\..\..\Includes\defines.h"/>
+      </source>
+      <source file="..\..\..\Test\Test.c" lastModified="14f6111fa76">
+         <include file="..\..\..\Lcd\Lcd.h"/>
+         <include file="..\..\..\Test\Test.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\system_stm32f4xx.c" lastModified="14e3afc3007">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\Delay\Delay.h" lastModified="14f476c620e">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\Includes\attributes.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+      </source>
+      <source file="..\..\..\Delay\Delay.c" lastModified="14f60cc89e4">
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\Delay\Delay.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\ffconf.h" lastModified="14f3f6ad689">
+      </source>
+      <source file="..\..\..\Lcd\RA8875\B_Light.c" lastModified="14f40be58ff">
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h" lastModified="14f0fd1cc22">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_fsmc.c" lastModified="14e3afc31b6">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\syscalls\syscalls.c" lastModified="14e3afc41cd">
+      </source>
+      <source file="..\..\..\MicroSD\ff.h" lastModified="14b6de5aec0">
+         <include file="..\..\..\MicroSD\integer.h"/>
+         <include file="..\..\..\MicroSD\ffconf.h"/>
+      </source>
+      <source file="..\..\..\Dimmer\CheckFrecuency.c" lastModified="14f252f46c2">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cmFunc.h" lastModified="14e3afc370a">
+      </source>
+      <source file="..\..\..\MicroSD\ff.c" lastModified="14bb3bbe6f8">
+         <include file="..\..\..\MicroSD\ff.h"/>
+         <include file="..\..\..\MicroSD\diskio.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h" lastModified="14e3afc30e0">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\Spi\spi.h" lastModified="14f3fa71dc1">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\stm32f4xx_conf.h" lastModified="14f62021292">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_exti.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_fsmc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_i2c.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h"/>
+         <include file="..\..\..\cmsis_lib\include\misc.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_spi.c" lastModified="14f2e188264">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_spi.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\Spi\Spi.c" lastModified="14f3fa7dd81">
+         <include file="..\..\..\MicroSD\Spi\spi.h"/>
+      </source>
+      <source file="..\..\..\Lcd\RA8875\RA8875.h" lastModified="14f476f05eb">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\GSL1680\I2C\I2C.h" lastModified="14f62722f33">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_flash.h" lastModified="14e3afc30d3">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_rcc.c" lastModified="14e3afc31d0">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\Lcd\RA8875\RA8875.c" lastModified="14f6114f47c">
+         <include file="..\..\..\Lcd\Fcsm\Fsmc.h"/>
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+      </source>
+      <source file="..\..\..\Lcd\RA8875\Font.c" lastModified="14f4770039f">
+         <include file="..\..\..\Lcd\RA8875\RA8875.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_gpio.c" lastModified="14e3afc31bf">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\cmsis\core_cm4_simd.h" lastModified="14e3afc3703">
+      </source>
+      <source file="..\..\..\cmsis_lib\source\stm32f4xx_syscfg.c" lastModified="14f0fd1cc75">
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_syscfg.h"/>
+         <include file="..\..\..\cmsis_lib\include\stm32f4xx_rcc.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\diskio.h" lastModified="14f3f6a256f">
+         <include file="..\..\..\MicroSD\integer.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+         <include file="..\..\..\Includes\attributes.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_i2c.h" lastModified="14f62017779">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_pwr.h" lastModified="14f0fd1cc29">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\MicroSD\diskio.c" lastModified="14f47936bd1">
+         <include file="..\..\..\Clock\tm_stm32f4_rtc.h"/>
+         <include file="..\..\..\MicroSD\diskio.h"/>
+         <include file="..\..\..\MicroSD\ff.h"/>
+         <include file="..\..\..\MicroSD\drivers\sd.h"/>
+      </source>
+      <source file="..\..\..\cmsis_boot\startup\startup_stm32f4xx.c" lastModified="14e3afc2f67">
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_gpio.h" lastModified="14e3afc30ed">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_rtc.h" lastModified="14f0fd1cc32">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\cmsis_lib\include\stm32f4xx_tim.h" lastModified="14e3afc310b">
+         <include file="..\..\..\cmsis_boot\stm32f4xx.h"/>
+      </source>
+      <source file="..\..\..\Includes\defines.h" lastModified="14f61cde680">
+      </source>
+      <source file="..\..\..\main.c" lastModified="14f62bd758b">
+         <include file="..\..\..\cmsis_boot\stm32f4xx_conf.h"/>
+         <include file="..\..\..\cmsis_boot\system_stm32f4xx.h"/>
+         <include file="..\..\..\Test\Test.h"/>
+         <include file="..\..\..\Includes\defines.h"/>
+         <include file="..\..\..\Clock\tm_stm32f4_rtc.h"/>
+         <include file="..\..\..\Includes\attributes.h"/>
+         <include file="..\..\..\Lcd\Lcd.h"/>
+         <include file="..\..\..\Delay\Delay.h"/>
+      </source>
+      <source file="..\..\..\Includes\attributes.h" lastModified="14f0fd1c935">
       </source>
    </includePath>
 </dependencies>

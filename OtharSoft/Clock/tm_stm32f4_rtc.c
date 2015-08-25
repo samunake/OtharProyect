@@ -17,6 +17,9 @@
  * |----------------------------------------------------------------------
  */
 #include "tm_stm32f4_rtc.h"
+#include "RA8875.h"
+#include "defines.h"
+#include "attributes.h"
 
 /* Private macros */
 /* Internal status registers for RTC */
@@ -36,6 +39,9 @@
 #define TM_RTC_CHAR2NUM(x)				((x) - '0')
 #define TM_RTC_CHARISNUM(x)				((x) >= '0' && (x) <= '9')
 
+TM_RTC_Time_t datatime;
+char buf[50];
+
 /* Internal functions */
 void TM_RTC_Config(TM_RTC_ClockSource_t source);
 /* Default RTC status */
@@ -46,6 +52,8 @@ RTC_InitTypeDef RTC_InitStruct;
 RTC_DateTypeDef RTC_DateStruct;
 NVIC_InitTypeDef NVIC_InitStruct;
 EXTI_InitTypeDef EXTI_InitStruct;
+
+
 
 /* Days in a month */
 uint8_t TM_RTC_Months[2][12] = { { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30,
@@ -650,8 +658,55 @@ uint32_t TM_RTC_ReadBackupRegister(uint8_t location) {
 	return *(uint32_t *) ((&RTC->BKP0R) + 4 * location);
 }
 
-/* Callbacks */__weak void TM_RTC_RequestHandler(void) {
-	/* If user needs this function, then they should be defined separatelly in your project */
+//Custom request handler function
+//Called on wakeup interrupt
+void TM_RTC_RequestHandler() {
+	//Get time
+	TM_RTC_GetDateTime(&datatime, TM_RTC_Format_BIN);
+	Active_Window(540, 799, 0, 18);
+	switch (datatime.day) {
+	case 1:
+		sprintf(buf, "LUN %02d del %02d de %04d", datatime.date, datatime.month,
+				datatime.year + 2000);
+		LCD_PrintStr(buf, 600, 40, White, Black, 1, 2, "zoom4");
+		break;
+	case 2:
+		sprintf(buf, "MAR %02d del %02d de %04d", datatime.date, datatime.month,
+				datatime.year + 2000);
+		LCD_PrintStr(buf, 600, 40, White, Black, 1, 2, "zoom4");
+		break;
+	case 3:
+		sprintf(buf, "MIE %02d del %02d de %04d", datatime.date, datatime.month,
+				datatime.year + 2000);
+		LCD_PrintStr(buf, 600, 40, White, Black, 1, 2, "zoom4");
+		break;
+	case 4:
+		sprintf(buf, "JUE %02d del %02d de %04d", datatime.date, datatime.month,
+				datatime.year + 2000);
+		LCD_PrintStr(buf, 600, 40, White, Black, 1, 2, "zoom4");
+		break;
+	case 5:
+		sprintf(buf, "VIE %02d del %02d de %04d", datatime.date, datatime.month,
+				datatime.year + 2000);
+		LCD_PrintStr(buf, 600, 40, White, Black, 1, 2, "zoom4");
+		break;
+	case 6:
+		sprintf(buf, "SAB %02d del %02d de %04d", datatime.date, datatime.month,
+				datatime.year + 2000);
+		LCD_PrintStr(buf, 600, 40, White, Black, 1, 2, "zoom4");
+		break;
+	case 7:
+		sprintf(buf, "DOM %02d del %02d de %04d", datatime.date, datatime.month,
+				datatime.year + 2000);
+		LCD_PrintStr(buf, 600, 40, White, Black, 1, 2, "zoom4");
+		break;
+	}
+	//Format time
+
+	sprintf(buf, "%02d:%02d:%02d", datatime.hours, datatime.minutes,
+			datatime.seconds);
+	LCD_PrintStr(buf, 650, 10, Blue2, Black, 2, 2, "zoom4");
+
 }
 
 __weak void TM_RTC_AlarmAHandler(void) {
@@ -677,25 +732,46 @@ void RTC_WKUP_IRQHandler(void) {
 	EXTI->PR = 0x00400000;
 }
 
+// Initialize RTC
+void SetTime(void) {
+
+	if (!TM_RTC_Init(TM_RTC_ClockSource_External)) {
+		//RTC was first time initialized
+		//Do your stuf here
+		//eg. set default time
+		// Set date and time
+		datatime.date = 20;
+		datatime.day = 1;
+		datatime.month = 1;
+		datatime.year = 15;
+		datatime.hours = 0;
+		datatime.minutes = 0;
+		datatime.seconds = 0;
+
+		// Set date and time
+		TM_RTC_SetDateTime(&datatime, TM_RTC_Format_BIN);
+	}
+}
+
 /*void RTC_Alarm_IRQHandler(void) {
-	// RTC Alarm A check //
-	if (RTC_GetITStatus(RTC_IT_ALRA) != RESET) {
-		// Clear RTC Alarm A interrupt flag
+	/* RTC Alarm A check */
+	//if (RTC_GetITStatus(RTC_IT_ALRA) != RESET) {
+		/* Clear RTC Alarm A interrupt flag
 		RTC_ClearITPendingBit(RTC_IT_ALRA);
 
-		// Call user function for Alarm A
-		TM_RTC_AlarmAHandler();
-	}
+		/* Call user function for Alarm A */
+	//	TM_RTC_AlarmAHandler();
+	//}
 
-	// RTC Alarm B check
-	if (RTC_GetITStatus(RTC_IT_ALRB) != RESET) {
-		// Clear RTC Alarm A interrupt flag
-		RTC_ClearITPendingBit(RTC_IT_ALRB);
+	/* RTC Alarm B check */
+//	if (RTC_GetITStatus(RTC_IT_ALRB) != RESET) {
+		/* Clear RTC Alarm A interrupt flag */
+//		RTC_ClearITPendingBit(RTC_IT_ALRB);
 
-		// Call user function for Alarm B
-		TM_RTC_AlarmBHandler();
-	}
+		/* Call user function for Alarm B */
+//		TM_RTC_AlarmBHandler();
+//	}
 
-	// Clear EXTI line 17 bit
-	EXTI->PR = 0x00020000;
-}*/
+	/* Clear EXTI line 17 bit */
+//	EXTI->PR = 0x00020000;
+//}

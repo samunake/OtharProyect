@@ -148,6 +148,7 @@ extern C {
 #include "defines.h"
 #include "attributes.h"
 
+
 /**
  * @defgroup TM_RTC_Macros
  * @brief    Library defines
@@ -451,6 +452,15 @@ void TM_RTC_AlarmAHandler(void);
  * @note   With __weak parameter to prevent link errors if not defined by user
  */
 void TM_RTC_AlarmBHandler(void);
+
+/**
+ * @brief  Sets date and time if never configured.
+ * @note   Called from my RTC library
+ * @param  None
+ * @retval None
+ * @note   With __weak parameter to prevent link errors if not defined by user
+ */
+void SetTime(void);
 
 /**
  * @}
