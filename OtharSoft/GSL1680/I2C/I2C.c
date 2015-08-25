@@ -31,7 +31,7 @@ void Init_Touch() {
 void EXTI2_IRQHandler() {
 
 	//TOUCH DETECTED
-	if (EXTI_GetITStatus(EXTI_Line2) == RESET) {
+	if (EXTI_GetITStatus(EXTI_Line2) != RESET) {
 
 		//Check If GSL chip is already initialized
 		if (GSL_ready_flag == 1) {
